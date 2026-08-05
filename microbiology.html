@@ -1,0 +1,1784 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>미생물 검사 | 아이에스에이연구원</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>/* ===== GOOGLE FONTS ===== */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap');
+
+/* ===== CSS VARIABLES ===== */
+:root {
+  --primary: #1d3158;
+  --accent-orange: #F59E0B;
+  --page-accent: #0F766E;--accent-soft:#E7F1F1;
+  --accent-orange-dark: #D97706;
+  --accent-teal: #5d76a8;
+  --primary-dark: #142340;
+  --primary-light: #5d76a8;
+  --secondary: #5d76a8;
+  --accent: #adb7cc;
+  --white: #FFFFFF;
+  --light-bg: #F5F8FF;
+  --gray: #F0F2F5;
+  --border: #C9D7EF;
+  --text: #222222;
+  --text-light: #555555;
+  --footer-bg: #0f1b33;
+  --nav-height: 90px;
+}
+
+/* ===== RESET ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  color: var(--text); line-height: 1.7; background: #fff;
+  font-size: 17px; word-break: keep-all;
+}
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+ul { list-style: none; }
+button { font-family: inherit; }
+
+/* ===== HEADER ===== */
+header {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(255,255,255,0.98);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.08), 0 4px 20px rgba(0,0,0,0.06);
+  backdrop-filter: blur(12px);
+}
+.header-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 36px; height: var(--nav-height); max-width: 1500px; margin: 0 auto;
+}
+
+/* ===== LOGO ===== */
+.logo { display: flex; align-items: center; gap: 10px; }
+.logo-img-wrap { display: flex; align-items: center; gap: 8px; }
+.logo-svg { height: 58px; width: auto; object-fit: contain; }
+.logo-kolas { height: 52px; width: auto; object-fit: contain; }
+.logo-divider { width: 1px; height: 44px; background: #d0d8e8; margin: 0 6px; }
+
+/* Legacy fallback (text-only logo) */
+.logo-icon {
+  width: 52px; height: 52px; background: linear-gradient(135deg, var(--primary), var(--secondary));
+  border-radius: 10px; display: flex; align-items: center; justify-content: center;
+  color: #fff; font-size: 18px; font-weight: 900; letter-spacing: -1px; flex-shrink: 0;
+}
+.logo-text .logo-name { font-size: 18px; font-weight: 800; color: var(--primary); line-height: 1.2; }
+.logo-text .logo-en { font-size:13px; color: #888; font-weight: 400; }
+.logo-text .logo-badge {
+  display: inline-block; font-size:13px; background: #E3F2FD; color: var(--primary);
+  padding: 2px 7px; border-radius: 3px; margin-top: 2px; font-weight: 600;
+}
+
+/* ===== NAVIGATION ===== */
+.nav-wrap { display: flex; align-items: center; gap: 16px; }
+.nav-menu { display: flex; }
+.nav-item { position: relative; }
+.nav-link {
+  display: flex; align-items: center; height: var(--nav-height);
+  padding: 0 16px; font-size: 17px; font-weight: 600; color: #222;
+  white-space: nowrap; transition: color 0.2s; cursor: pointer;
+}
+.nav-link:hover, .nav-item:hover > .nav-link { color: var(--primary); }
+.nav-link.highlight {
+  color: #fff; background: var(--primary); border-radius: 6px;
+  height: 38px; margin: auto 0; padding: 0 16px; font-size: 14px;
+}
+.nav-link.highlight:hover { background: var(--primary-dark); }
+
+/* Dropdown */
+.dropdown {
+  position: absolute; top: var(--nav-height); left: 0; min-width: 200px;
+  background: #fff; border-top: 3px solid var(--primary);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.12); border-radius: 0 0 8px 8px;
+  opacity: 0; visibility: hidden; transform: translateY(-8px); transition: all 0.2s; z-index: 200;
+}
+.nav-item:hover .dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+.dropdown a {
+  display: block; padding: 11px 20px; font-size: 14px; color: #444;
+  border-bottom: 1px solid #E4EAF5; transition: all 0.15s;
+}
+.dropdown a:last-child { border-bottom: none; }
+.dropdown a:hover { background: var(--light-bg); color: var(--primary); padding-left: 26px; }
+
+/* Auth buttons */
+.auth-btns { display: flex; align-items: center; gap: 6px; }
+.btn-auth {
+  padding: 6px 14px; font-size: 13px; border-radius: 4px; font-weight: 500;
+  border: 1px solid #B6C8E7; color: #555; transition: all 0.2s;
+}
+.btn-auth:hover { border-color: var(--primary); color: var(--primary); }
+.btn-auth.login { background: var(--primary); color: #fff; border-color: var(--primary); }
+.btn-auth.login:hover { filter: brightness(0.9); }
+
+/* Hamburger */
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 6px; border: none; background: none; }
+.hamburger span { display: block; width: 24px; height: 2px; background: #333; transition: all 0.3s; border-radius: 2px; }
+
+/* ===== MEGA DROPDOWN ===== */
+.has-mega { position: static; }
+.mega-menu {
+  position: absolute; left: 0; right: 0; top: var(--nav-height);
+  background: #fff; border-top: 3px solid var(--primary);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  opacity: 0; visibility: hidden; transform: translateY(-8px); transition: all 0.2s; z-index: 200;
+}
+.has-mega:hover .mega-menu { opacity: 1; visibility: visible; transform: translateY(0); }
+.mega-inner { max-width: 1400px; margin: 0 auto; padding: 24px 40px; display: flex; gap: 40px; }
+.mega-col h4 { font-size: 13px; font-weight: 700; color: var(--primary); margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+.mega-col a { display: block; padding: 7px 0; font-size: 13px; color: #555; transition: color 0.2s; }
+.mega-col a:hover { color: var(--primary); }
+
+/* ===== PAGE HERO (서브페이지 헤더) ===== */
+.page-hero {
+  margin-top: var(--nav-height); height: 200px;
+  background: linear-gradient(135deg, #142340 0%, #1d3158 50%, #5d76a8 100%);
+  display: flex; align-items: center; justify-content: center;
+  position:relative; overflow: hidden;
+}
+.page-hero::before {
+  content: ''; position: absolute; inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/svg%3E") repeat;
+}
+.page-hero-content { text-align: center; color: #fff; position: relative; z-index: 1; }
+.page-hero h1 { font-size: 30px; font-weight: 700; margin-bottom: 10px; }
+.breadcrumb { font-size: 13px; opacity: 0.75; display: flex; align-items: center; justify-content: center; gap: 6px; }
+.breadcrumb .sep { opacity: 0.5; }
+
+/* ===== SUB NAV ===== */
+.sub-nav { background: #fff; box-shadow:0 2px 8px rgba(0,0,0,0.06);position: sticky; top:var(--nav-height); z-index: 99; }
+.sub-nav-inner { max-width: 1200px; margin: 0 auto; display:flex;flex-wrap:wrap;justify-content:center; }
+.sub-nav-inner{scrollbar-width:none;}
+.sub-nav-inner::-webkit-scrollbar{display:none;}
+@media (max-width:900px){.sub-nav-inner{flex-wrap:nowrap;overflow-x:auto;justify-content:flex-start;}}
+.sub-nav a {
+  display: block; padding: 14px 26px; font-size: 16px; font-weight: 600; color: #5b6472;
+  border-bottom: 3px solid transparent; transition: all 0.2s; white-space: nowrap;
+  letter-spacing: 0;
+}
+.sub-nav a:hover{color:var(--page-accent);}
+.sub-nav a.active{font-weight:700;color:var(--page-accent);border-bottom-color:var(--page-accent);background:var(--accent-soft);}
+
+/* ===== CONTENT WRAPPER ===== */
+.content-wrap { max-width: 1100px; margin: 0 auto; padding: 60px 24px; }
+.content-section { margin-bottom: 60px; }
+
+/* Section heading */
+.section-heading {
+  font-size: 22px; font-weight: 800; color: var(--primary);
+  margin-bottom: 24px; padding-bottom: 12px; border-bottom: 2px solid var(--page-accent);
+  display: flex; align-items: center; gap: 10px;
+}
+.section-heading::before {
+  content: ''; display: block; width: 5px; height: 22px;
+  background: var(--page-accent); border-radius: 3px; flex-shrink: 0;
+}
+
+/* ===== NOTICE BOX ===== */
+.notice-box {
+  background: #FFF6E0; border: 1px solid #E8A317; border-left: 5px solid #E8A317;
+  border-radius: 8px; padding: 14px 18px; font-size: 15px; color: #7A4A12;
+  margin-bottom: 24px; line-height: 1.7;
+}
+
+/* ===== HIGHLIGHT BOX ===== */
+.highlight-box {
+  background: var(--light-bg); border-left: 4px solid var(--primary);
+  border-radius: 0 8px 8px 0; padding: 16px 20px;
+  font-size: 14px; color: #333; line-height: 1.8; margin: 20px 0;
+}
+
+/* ===== TABLE ===== */
+.tbl-wrap { overflow-x: auto; margin-bottom: 24px; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th { background: #EFF4FB; color: var(--primary); border-bottom: 2px solid var(--page-accent); padding: 10px 16px; text-align: center; font-weight: 700; }
+td { padding: 11px 16px; border-bottom: 1px solid var(--border); text-align: center; color: #444; vertical-align: middle; }
+tr:hover td { background: var(--light-bg); }
+.tbl-left td, .tbl-left th { text-align: left; }
+.td-num { font-weight: 600; color: var(--primary); }
+
+/* ===== STEP PROCESS ===== */
+.steps { display: flex; align-items: flex-start; flex-wrap: wrap; gap: 8px; margin: 28px 0; }
+.step { flex: 1; min-width: 110px; text-align: center; position: relative; padding: 0 8px; }
+.step:not(:last-child)::after {
+  content: '▶'; position: absolute; right: -12px; top: 18px;
+  font-size: 14px; color: var(--primary); line-height: 1;
+}
+.step-num {
+  width: 52px; height: 52px; background: var(--page-accent); color: #fff;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 18px; font-weight: 700; margin: 0 auto 10px;
+}
+.step-title { font-size: 13px; font-weight: 600; color: #333; margin-bottom: 4px; }
+.step-desc { font-size:13px; color: #888; line-height: 1.5; }
+
+/* ===== CARDS ===== */
+.card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.card-grid-2 { grid-template-columns: repeat(2, 1fr); }
+.card-grid-4 { grid-template-columns: repeat(4, 1fr); }
+.info-card {
+  background: #fff; border: 1px solid var(--border); border-radius: 10px;
+  padding: 24px; transition: all 0.2s;
+}
+.info-card:hover { border-color: var(--primary); box-shadow: 0 4px 16px rgba(21,101,192,0.12); }
+.info-card h3 { font-size: 16px; font-weight: 700; color: var(--primary); margin-bottom: 10px; }
+.info-card p { font-size: 14px; color: #555; line-height: 1.7; }
+
+/* ===== 검사가능항목 (배지 카드 + 상세 팝업) ===== */
+.micro-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.micro-item {
+  display: flex; align-items: center; gap: 16px; width: 100%;
+  padding: 16px 18px; background: #fff; border: 1.5px solid var(--border);
+  border-radius: 12px; cursor: pointer; text-align: left;
+  font-family: inherit; transition: all .18s;
+}
+.micro-item:hover, .micro-item:focus-visible {
+  border-color: var(--page-accent); transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(15,118,110,.15); outline: none;
+}
+.micro-plate { width: 92px; height: 92px; flex-shrink: 0; display: block; }
+.micro-txt { min-width: 0; }
+.micro-name { display: block; font-size: 15px; font-weight: 700; color: var(--primary); line-height: 1.35; }
+.micro-sub { display: block; font-size: 13px; color: #6b7280; margin-top: 4px; line-height: 1.4; font-style: italic; }
+.micro-hint { font-size: 14px; color: #6b7280; margin-bottom: 16px; }
+
+.mb-modal {
+  position: fixed; inset: 0; z-index: 3000; padding: 20px;
+  background: rgba(15,23,42,.55); display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none; transition: opacity .2s;
+}
+.mb-modal.on { opacity: 1; pointer-events: auto; }
+.mb-dialog {
+  background: #fff; border-radius: 16px; width: 100%; max-width: 720px;
+  max-height: 88vh; overflow-y: auto; box-shadow: 0 24px 60px rgba(0,0,0,.32);
+  transform: translateY(12px); transition: transform .2s;
+}
+.mb-modal.on .mb-dialog { transform: none; }
+.mb-head {
+  position: sticky; top: 0; z-index: 2; background: #fff;
+  display: flex; align-items: center; gap: 16px; padding: 20px 24px;
+  border-bottom: 2px solid var(--page-accent); border-radius: 16px 16px 0 0;
+}
+.mb-head .micro-plate { width: 136px; height: 136px; }
+.mb-title { font-size: 19px; font-weight: 800; color: var(--primary); line-height: 1.3; }
+.mb-sci { font-size: 13.5px; color: #6b7280; font-style: italic; margin-top: 3px; }
+.mb-badge {
+  display: inline-block; margin-top: 7px; padding: 3px 10px; border-radius: 999px;
+  font-size: 13px; font-weight: 700; font-style: normal;
+}
+.mb-badge.path { background: #FDE8E8; color: #B42318; }
+.mb-badge.idx { background: var(--accent-soft); color: var(--page-accent); }
+.mb-close {
+  margin-left: auto; flex-shrink: 0; width: 36px; height: 36px; border: none;
+  background: #EFF2F7; color: #475467; border-radius: 50%; cursor: pointer;
+  font-size: 20px; line-height: 1; transition: background .15s;
+}
+.mb-close:hover { background: #DDE3ED; }
+.mb-body { padding: 6px 24px 24px; }
+.mb-row { padding: 16px 0; border-bottom: 1px solid var(--border); }
+.mb-row:last-child { border-bottom: none; }
+.mb-label {
+  display: inline-block; font-size: 13px; font-weight: 700; color: var(--page-accent);
+  background: var(--accent-soft); border-radius: 6px; padding: 3px 9px; margin-bottom: 8px;
+}
+.mb-text { font-size: 14.5px; color: #374151; line-height: 1.75; }
+.mb-text b { color: var(--primary); }
+.mb-foot {
+  margin-top: 18px; background: #F7F9FD; border: 1px solid var(--border);
+  border-radius: 10px; padding: 14px 16px; font-size: 13.5px; color: #55606f; line-height: 1.7;
+}
+.mb-foot a { color: var(--page-accent); font-weight: 700; }
+@media (max-width: 900px) { .micro-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) {
+  .micro-grid { grid-template-columns: 1fr; }
+  .micro-plate { width: 78px; height: 78px; }
+  .mb-head { padding: 16px; gap: 14px; }
+  .mb-head .micro-plate { width: 88px; height: 88px; }
+  .mb-title { font-size: 17px; }
+  .mb-body { padding: 4px 16px 20px; }
+}
+
+/* ===== FAQ ===== */
+.faq-item { border: 1px solid var(--border); border-radius: 8px; margin-bottom: 10px; overflow: hidden; }
+.faq-q {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 20px; font-size: 15px; font-weight: 500; cursor: pointer;
+  background: #F9FAFD; transition: background 0.2s; gap: 12px; border: none; width: 100%; text-align: left;
+}
+.faq-q:hover { background: #E3F2FD; }
+.faq-q.active { background: var(--page-accent); color: #fff; }
+.faq-q-prefix { font-size: 18px; font-weight: 700; color: var(--primary); flex-shrink: 0; }
+.faq-q.active .faq-q-prefix { color: rgba(255,255,255,0.7); }
+.faq-q-text { flex: 1; }
+.faq-arrow { transition: transform 0.3s; font-size:13px; }
+.faq-q.active .faq-arrow { transform: rotate(180deg); }
+.faq-a { padding: 0; max-height: 0; overflow: hidden; transition: all 0.3s; font-size: 14px; color: #555; line-height: 1.8; }
+.faq-a.open { padding: 16px 20px; max-height: 600px; }
+
+/* ===== BOARD ===== */
+.board-search {
+  display: flex; gap: 8px; margin-bottom: 20px; justify-content: flex-end;
+}
+.board-search select, .board-search input {
+  padding: 8px 14px; border: 1px solid var(--border); border-radius: 6px;
+  font-size: 14px; font-family: inherit; color: #333;
+}
+.board-search button {
+  padding: 8px 20px; background: var(--page-accent); color: #fff;
+  border: none; border-radius: 6px; font-size: 14px; cursor: pointer;
+}
+.board-head {
+  display: grid; grid-template-columns: 70px 1fr 100px 110px;
+  padding: 12px 20px; background: var(--page-accent); color: #fff;
+  font-size: 14px; text-align: center; border-radius: 6px 6px 0 0;
+}
+.board-row {
+  display: grid; grid-template-columns: 70px 1fr 100px 110px;
+  padding: 13px 20px; border-bottom: 1px solid var(--border);
+  font-size: 14px; color: #444; transition: background 0.15s; align-items: center;
+}
+.board-row:hover { background: var(--light-bg); cursor: pointer; }
+.board-row .num, .board-row .writer, .board-row .date { text-align: center; color: #888; font-size: 14px; }
+.board-row .subject { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 15px; }
+.board-row .subject:hover { color: var(--primary); }
+.board-pagination { display: flex; justify-content: center; gap: 4px; margin-top: 24px; }
+.board-pagination a {
+  display: flex; align-items: center; justify-content: center;
+  width: 34px; height: 34px; border: 1px solid var(--border); border-radius: 6px;
+  font-size: 14px; color: #555; transition: all 0.2s;
+}
+.board-pagination a:hover, .board-pagination a.active { background: var(--page-accent); color: #fff; border-color: var(--primary); }
+
+/* ===== TIMELINE ===== */
+.timeline { position: relative; padding: 20px 0; }
+.timeline::before {
+  content: ''; position: absolute; left: 50%; top: 0; bottom: 0;
+  width: 2px; background: var(--border); transform: translateX(-50%);
+}
+.timeline-year {
+  text-align: center; font-size: 34px; font-weight: 900; color: var(--primary);
+  margin: 40px 0 16px; position: relative; z-index: 1;
+}
+.timeline-year span {
+  background: #fff; padding: 0 20px; position: relative;
+}
+.timeline-year span::before {
+  content: ''; position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);
+  width: 16px; height: 16px; background: var(--page-accent); border-radius: 50%;
+  border: 3px solid #fff; box-shadow: 0 0 0 3px var(--primary); z-index: -1;
+}
+.tl-item { display: flex; margin-bottom: 14px; position: relative; }
+.tl-item.left { flex-direction: row; }
+.tl-item.right { flex-direction: row-reverse; }
+.tl-content { width: calc(50% - 24px); padding: 0 20px; font-size: 14px; color: #444; line-height: 1.6; }
+.tl-item.left .tl-content { text-align: right; }
+.tl-item.right .tl-content { text-align: left; }
+.tl-month {
+  display: inline-block; background: var(--page-accent); color: #fff;
+  font-size:13px; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin-bottom: 4px;
+}
+.tl-dot {
+  position: absolute; left: 50%; top: 6px; transform: translateX(-50%);
+  width: 12px; height: 12px; background: var(--page-accent); border-radius: 50%;
+  border: 2px solid #fff; box-shadow: 0 0 0 2px var(--primary); z-index: 1;
+}
+
+/* ===== FORM ===== */
+.form-box { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 36px; }
+.form-group { margin-bottom: 18px; }
+.form-label { display: block; font-size: 14px; font-weight: 500; color: #333; margin-bottom: 6px; }
+.form-label .req { color: #E53935; margin-left: 2px; }
+.form-input, .form-select, .form-textarea {
+  width: 100%; padding: 10px 14px; border: 1px solid #B6C8E7; border-radius: 6px;
+  font-size: 14px; font-family: inherit; color: #333; background: #fff; transition: border-color 0.2s;
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(21,101,192,0.1);
+}
+.form-textarea { height: 140px; resize: vertical; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-agree { display: flex; align-items: flex-start; gap: 8px; font-size: 13px; color: #555; margin: 12px 0; }
+.form-agree input { margin-top: 3px; }
+.form-actions { text-align: center; margin-top: 24px; display: flex; gap: 10px; justify-content: center; }
+.btn-primary {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 12px 40px; background: var(--page-accent); color: #fff; border: none;
+  border-radius: 6px; font-size: 15px; font-weight: 600; cursor: pointer;
+  font-family: inherit; transition: background 0.2s; gap: 6px;
+}
+.btn-primary:hover { filter: brightness(0.9); }
+.btn-secondary {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 12px 32px; background: #fff; color: #555; border: 1px solid #B6C8E7;
+  border-radius: 6px; font-size: 15px; font-weight: 500; cursor: pointer;
+  font-family: inherit; transition: all 0.2s;
+}
+.btn-secondary:hover { border-color: var(--primary); color: var(--primary); }
+
+/* ===== FILE LIST ===== */
+.file-list { list-style: none; }
+.file-item {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 20px; border: 1px solid var(--border); border-radius: 8px;
+  margin-bottom: 10px; transition: border-color 0.2s;
+}
+.file-item:hover { border-color: var(--primary); }
+.file-info { display: flex; align-items: center; gap: 12px; }
+.file-icon {
+  width: 40px; height: 40px; background: var(--light-bg); border-radius: 8px;
+  display: flex; align-items: center; justify-content: center; font-size:13px;
+  font-weight: 700; color: var(--primary); flex-shrink: 0;
+}
+.file-name { font-size: 15px; color: #222; font-weight: 600; }
+.file-meta { font-size: 13px; color: #999; margin-top: 2px; }
+.btn-download {
+  padding: 7px 16px; background: var(--page-accent); color: #fff;
+  border-radius: 6px; font-size: 13px; font-weight: 500; transition: background 0.2s; white-space: nowrap;
+}
+.btn-download:hover { filter: brightness(0.9); }
+
+/* ===== RIGHT SIDEBAR ===== */
+.sidebar-right {
+  position: fixed; right: 0; top: 50%; transform: translateY(-50%);
+  z-index: 500; display: flex; flex-direction: column; gap: 1px;
+}
+.sb-btn {
+  width: 66px; padding: 10px 6px; background: var(--page-accent); color: #fff;
+  text-align: center; font-size:13px; font-weight: 500; line-height: 1.3;
+  cursor: pointer; transition: background 0.2s; display: flex;
+  flex-direction: column; align-items: center; gap: 4px; border: none;
+}
+.sb-btn:hover { filter: brightness(1.15); }
+.sb-btn svg { width: 20px; height: 20px; fill: currentColor; }
+.sb-btn.c-green { background: #5d76a8; }
+.sb-btn.c-teal { background: #5d76a8; }
+.sb-btn.c-red { background: #5d76a8; }
+.sb-btn.c-purple { background: #5d76a8; }
+.sb-btn.c-kakao { background: #FEE500; color: #3C1E1E; }
+.sb-btn.c-naver { background: #03C75A; }
+.sb-btn.c-blog { background: #00C73C; }
+.sb-btn.c-insta { background: linear-gradient(45deg, #f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
+
+/* body에 CTA 리본 공간 확보 */
+body { padding-bottom: 58px; }
+
+/* ===== SCROLL TOP ===== */
+#scrollTop {
+  position: fixed; bottom: 30px; left: 30px; z-index: 500;
+  width: 44px; height: 44px; background: var(--page-accent); color: #fff;
+  border-radius: 50%; border: none; cursor: pointer; display: none;
+  align-items: center; justify-content: center; box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: all 0.2s;
+}
+#scrollTop:hover { filter: brightness(0.9); transform: translateY(-2px); }
+
+/* ===== FOOTER ===== */
+footer { background: var(--footer-bg); color: rgba(255,255,255,0.65); padding: 50px 24px 28px; }
+.footer-inner { max-width: 1200px; margin: 0 auto; }
+.footer-top {
+  display: flex; gap: 60px; padding-bottom: 36px;
+  border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 28px;
+}
+.footer-brand .fn { font-size: 18px; font-weight: 800; color: #fff; margin-bottom: 4px; }
+.footer-brand .fen { font-size:13px; opacity: 0.5; margin-bottom: 16px; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 14px; }
+.footer-links a { font-size: 13px; color: rgba(255,255,255,0.55); transition: color 0.2s; }
+.footer-links a:hover { color: #fff; }
+.footer-info { display: flex; flex-wrap: wrap; gap: 6px 20px; font-size: 13px; }
+.footer-info .fi { display: flex; gap: 6px; align-items: center; }
+.footer-info .fi span { color: rgba(255,255,255,0.35); }
+.footer-bottom { text-align: center; font-size:13px; opacity: 0.35; margin-top: 10px; }
+.footer-social { display: flex; gap: 10px; margin-top: 16px; }
+.footer-social a {
+  width: 34px; height: 34px; background: rgba(255,255,255,0.1); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; transition: background 0.2s;
+}
+.footer-social a:hover { background: rgba(255,255,255,0.25); }
+.footer-social svg { width: 16px; height: 16px; fill: rgba(255,255,255,0.7); }
+
+/* ===== MAIN PAGE: HERO ===== */
+.hero-wrap { margin-top: var(--nav-height); position: relative; height: 620px; overflow: hidden; }
+.hero-slide {
+  position: absolute; inset: 0; display: flex; align-items: center;
+  opacity: 0; transition: opacity 1s ease;
+}
+.hero-slide.active { opacity: 1; }
+
+/* 히어로 - 슬라이드별 실사 이미지 + 그라디언트 오버레이 */
+/* 슬라이드 1: 현미경+피펫 — 정밀 식품·미생물 검사 */
+.hs-1 {
+  background:
+    linear-gradient(105deg,
+      rgba(5,20,70,0.95)  0%,
+      rgba(8,45,130,0.88) 38%,
+      rgba(5,55,140,0.48) 62%,
+      rgba(0,15,60,0.04)  100%),
+    url('images/hero1.jpg') center 40%/cover no-repeat;
+}
+/* 슬라이드 2: 연구원+비커 — KOLAS 공인 분석 */
+.hs-2 {
+  background:
+    linear-gradient(105deg,
+      rgba(0,40,100,0.95)  0%,
+      rgba(2,80,170,0.87)  38%,
+      rgba(2,110,190,0.46) 62%,
+      rgba(0,30,90,0.04)   100%),
+    url('images/hero2.jpg') center 35%/cover no-repeat;
+}
+/* 슬라이드 3: 페트리디쉬 미생물 배양 — 대기측정 대행 */
+.hs-3 {
+  background:
+    linear-gradient(105deg,
+      rgba(5,20,80,0.95)   0%,
+      rgba(10,50,130,0.87) 38%,
+      rgba(8,65,150,0.46)  62%,
+      rgba(0,20,70,0.04)   100%),
+    url('images/hero3.jpg') center 35%/cover no-repeat;
+}
+.hero-bg { display: none; }
+.hero-deco { display: none; }
+
+.hero-content {
+  position: relative; z-index: 1;
+  max-width: 1300px; width: 100%; margin: 0 auto; padding: 0 52px;
+  color: #fff;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.95);
+  font-size: 13px; font-weight: 600; padding: 6px 16px; border-radius: 24px;
+  border: 1px solid rgba(255,255,255,0.28); margin-bottom: 22px;
+  backdrop-filter: blur(4px); letter-spacing: 0.2px;
+}
+.hero-content h2 {
+  font-size: 48px; font-weight: 900; line-height: 1.22; margin-bottom: 18px;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.2);
+}
+.hero-content h2 em { color: #adb7cc; font-style: normal; }
+.hero-content p {
+  font-size: 17px; opacity: 0.88; margin-bottom: 36px; line-height: 1.75;
+  text-shadow: 0 1px 8px rgba(0,0,0,0.15);
+}
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+.hero-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 15px 34px; border-radius: 50px; font-size: 15px;
+  font-weight: 700; transition: all 0.25s; white-space: nowrap; letter-spacing: 0.2px;
+}
+.hero-btn.solid {
+  background: #fff; color: var(--primary);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.18);
+}
+.hero-btn.solid:hover { background: #EFF6FF; transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.22); }
+.hero-btn.outline {
+  background: rgba(255,255,255,0.08); color: #fff;
+  border: 2px solid rgba(255,255,255,0.55);
+  backdrop-filter: blur(4px);
+}
+.hero-btn.outline:hover { background: rgba(255,255,255,0.18); border-color: rgba(255,255,255,1); }
+.hero-dots {
+  position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 8px; z-index: 10;
+}
+.hero-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: rgba(255,255,255,0.35); cursor: pointer; transition: all 0.3s; border: none;
+}
+.hero-dot.active { background: #fff; width: 30px; border-radius: 5px; }
+
+/* ===== MAIN: 서비스 그리드 ===== */
+.services-section {
+  background: linear-gradient(180deg, #F0F5FF 0%, #E8F0FE 100%);
+  padding: 76px 24px;
+}
+.sec-header { max-width: 1200px; margin: 0 auto 40px; }
+.sec-header h2 {
+  font-size: 30px; font-weight: 800; color: var(--primary);
+  position: relative; display: inline-block; padding-bottom: 14px;
+}
+.sec-header h2::after {
+  content: ''; position: absolute; bottom: 0; left: 0;
+  width: 40px; height: 3px; background: var(--page-accent); border-radius: 2px;
+}
+.sec-header p { font-size: 16px; color: #666; margin-top: 12px; }
+.services-grid {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;
+}
+.svc-card {
+  display: block; background: #fff; border-radius: 16px; padding: 34px 16px;
+  text-align: center; border: 1px solid rgba(21,101,192,0.1);
+  transition: all 0.28s cubic-bezier(0.25,0.8,0.25,1); color: inherit;
+  box-shadow: 0 2px 8px rgba(21,101,192,0.06);
+}
+.svc-card:hover {
+  background: var(--page-accent); color: #fff; border-color: var(--primary);
+  transform: translateY(-6px); box-shadow: 0 14px 36px rgba(21,101,192,0.28);
+}
+.svc-icon {
+  width: 70px; height: 70px; margin: 0 auto 18px; background: #EEF3FD;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  transition: background 0.28s;
+}
+.svc-card:hover .svc-icon { background: rgba(255,255,255,0.2); }
+.svc-icon svg { width: 36px; height: 36px; fill: var(--primary); transition: fill 0.28s; }
+.svc-card:hover .svc-icon svg { fill: #fff; }
+.svc-name { font-size: 15px; font-weight: 700; line-height: 1.45; }
+.svc-badge { font-size:13px; opacity: 0.75; margin-top: 4px; }
+
+
+/* ===== MAIN: 공지사항 섹션 ===== */
+.info-section { background: #fff; padding: 70px 24px; }
+.info-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 400px; gap: 20px; }
+.info-box { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+.info-box-hd {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 20px; background: var(--page-accent); color: #fff;
+}
+.info-box-hd h3 { font-size: 16px; font-weight: 600; }
+.info-box-hd a { font-size:13px; opacity: 0.75; color: #fff; }
+.info-box-hd a:hover { opacity: 1; }
+.info-list li {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 20px; border-bottom: 1px solid #E4EAF5; gap: 10px;
+}
+.info-list li:last-child { border-bottom: none; }
+.info-list .ttl {
+  flex: 1; font-size: 15px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  color: #222; transition: color 0.2s;
+}
+.info-list li:hover .ttl { color: var(--primary); cursor: pointer; }
+.info-list .dt { font-size: 13px; color: #aaa; white-space: nowrap; }
+.quick-wrap { background: linear-gradient(135deg, var(--primary-dark), var(--secondary)); border-radius: 12px; padding: 24px; color: #fff; }
+.quick-wrap h3 { font-size: 16px; font-weight: 600; margin-bottom: 14px; padding-bottom: 12px; border-bottom: 1px solid rgba(255,255,255,0.2); }
+.quick-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.quick-btn {
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  padding: 16px 8px; background: rgba(255,255,255,0.15); border-radius: 10px;
+  font-size: 13px; font-weight: 500; color: #fff; transition: background 0.2s; text-align: center;
+}
+.quick-btn:hover { background: rgba(255,255,255,0.28); }
+.quick-btn svg { width: 26px; height: 26px; fill: #fff; }
+
+/* ===== MAIN: 파트너 ===== */
+.partner-section { background: #F5F8FF; padding: 36px 24px; border-top: 1px solid var(--border); }
+.partner-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 14px; flex-wrap: wrap; justify-content: center; }
+.partner-logo {
+  height: 52px; padding: 8px 22px; background: #fff; border: 1px solid var(--border);
+  border-radius: 8px; display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 600; color: #444; gap: 6px; transition: all 0.2s; white-space: nowrap;
+}
+.partner-logo:hover { border-color: var(--primary); color: var(--primary); box-shadow: 0 2px 8px rgba(21,101,192,0.1); }
+
+/* ===== 인증현황 뱃지 ===== */
+.cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 32px; }
+.cert-card {
+  border: 2px solid var(--border); border-radius: 12px; padding: 28px;
+  text-align: center; transition: all 0.2s;
+}
+.cert-card:hover { border-color: var(--primary); box-shadow: 0 4px 16px rgba(21,101,192,0.12); }
+.cert-icon {
+  width: 72px; height: 72px; margin: 0 auto 16px; background: var(--light-bg);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px;
+}
+.cert-card h3 { font-size: 16px; font-weight: 700; color: var(--primary); margin-bottom: 8px; }
+.cert-card p { font-size: 13px; color: #666; line-height: 1.6; }
+
+/* ===== 지도 박스 ===== */
+.map-box {
+  width: 100%; height: 380px; background: #E8EEF8; border-radius: 12px;
+  margin-bottom: 24px; display: flex; align-items: center; justify-content: center;
+  font-size: 15px; color: #888; border: 1px solid var(--border);
+  position: relative; overflow: hidden;
+}
+.map-placeholder { text-align: center; }
+.map-placeholder p { margin-top: 8px; font-size: 13px; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1100px) {
+  .info-inner { grid-template-columns: 1fr 1fr; }
+  .quick-wrap { grid-column: 1/-1; }
+  .services-grid { grid-template-columns: repeat(4, 1fr); }
+}
+@media (max-width: 900px) {
+  .services-grid { grid-template-columns: repeat(3, 1fr); }
+  .cert-grid { grid-template-columns: repeat(2, 1fr); }
+  .card-grid { grid-template-columns: repeat(2, 1fr); }
+  .card-grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  :root { --nav-height: 64px; }
+  .header-inner { padding: 0 16px; }
+  .logo-text .logo-badge { display: none; }
+  .hamburger { display: flex; }
+  .nav-wrap { position: fixed; top: 64px; left: -100%; width: 82%; max-width: 320px; height: calc(100vh - 64px); background: #fff; flex-direction: column; align-items: stretch; overflow-y: auto; transition: left 0.3s; box-shadow: 4px 0 20px rgba(0,0,0,0.1); z-index: 999; gap: 0; }
+  .nav-wrap.open { left: 0; }
+  .nav-menu { flex-direction: column; }
+  .nav-link { height: auto; padding: 16px 20px; border-bottom: 1px solid #E4EAF5; }
+  .nav-link.highlight { height: auto; border-radius: 0; background: none; color: var(--primary); margin: 0; }
+  .dropdown { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border-top: none; border-left: 4px solid var(--primary); display: none; border-radius: 0; }
+  .nav-item.open .dropdown { display: block; }
+  .has-mega .mega-menu { display: none; }
+  .auth-btns { display: none; }
+  .hero-wrap { height: 460px; }
+  .hero-content { padding: 0 24px; }
+  .hero-content h2 { font-size: 28px; }
+  .hero-content p { font-size: 15px; }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .info-inner { grid-template-columns: 1fr; }
+  .footer-top { flex-direction: column; gap: 24px; }
+  .sidebar-right { display: none; }
+  .form-row { grid-template-columns: 1fr; }
+  .board-head, .board-row { grid-template-columns: 60px 1fr 90px; }
+  .board-head .writer, .board-row .writer { display: none; }
+  .timeline::before { left: 16px; }
+  .timeline-year { text-align: left; padding-left: 36px; }
+  .timeline-year span::before { left: 0; margin-left: -24px; }
+  .tl-item { flex-direction: column; padding-left: 36px; }
+  .tl-item.right { flex-direction: column; }
+  .tl-content { width: auto; text-align: left !important; padding: 0; }
+  .tl-dot { left: 16px; }
+  .cert-grid { grid-template-columns: 1fr; }
+  .card-grid { grid-template-columns: 1fr; }
+  .steps { gap: 20px; }
+  .step:not(:last-child)::after { display: none; }
+  .page-hero h1 { font-size: 24px; }
+  .content-wrap { padding: 40px 16px; }
+  .logo-svg { height: 40px; }
+  .logo-kolas { height: 38px; }
+  body { padding-bottom: 80px; }
+}
+
+/* ===== 팝업 공지사항 ===== */
+.popup-overlay {
+  display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.55);
+  z-index: 9000; align-items: center; justify-content: center;
+}
+.popup-overlay.show { display: flex; }
+.popup-box {
+  background: #fff; border-radius: 14px; overflow: hidden;
+  width: 90%; max-width: 560px; box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  animation: popIn 0.3s ease;
+}
+@keyframes popIn {
+  from { transform: scale(0.9); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+.popup-head {
+  background: var(--page-accent); color: #fff; padding: 18px 24px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.popup-head h2 { font-size: 18px; font-weight: 700; }
+.popup-close {
+  background: none; border: none; color: rgba(255,255,255,0.8); cursor: pointer;
+  font-size: 24px; line-height: 1; padding: 0 4px; transition: color 0.2s;
+}
+.popup-close:hover { color: #fff; }
+.popup-body { padding: 28px 24px; font-size: 15px; line-height: 1.8; color: #333; min-height: 160px; }
+.popup-body h3 { font-size: 17px; font-weight: 700; color: var(--primary); margin-bottom: 12px; }
+.popup-body p { margin-bottom: 10px; }
+.popup-body .popup-tag {
+  display: inline-block; background: #E3F2FD; color: var(--primary);
+  font-size:13px; font-weight: 700; padding: 3px 10px; border-radius: 12px; margin-bottom: 10px;
+}
+.popup-foot {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 24px; background: #F9FAFD; border-top: 1px solid var(--border);
+}
+.popup-foot label { display: flex; align-items: center; gap: 8px; font-size: 14px; color: #666; cursor: pointer; }
+.btn-popup-close {
+  padding: 8px 24px; background: var(--page-accent); color: #fff;
+  border: none; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-popup-close:hover { filter: brightness(0.9); }
+
+/* ===== 견적 계산기 ===== */
+.estimate-wrap { display: grid; grid-template-columns: 1fr 360px; gap: 28px; align-items: start; }
+.estimate-category { margin-bottom: 28px; }
+.estimate-category h3 {
+  font-size: 16px; font-weight: 700; color: #fff; background: var(--page-accent);
+  padding: 10px 18px; border-radius: 8px 8px 0 0; margin-bottom: 0;
+}
+.estimate-items { border: 1px solid var(--border); border-top: none; border-radius: 0 0 8px 8px; overflow: hidden; }
+.estimate-item {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 12px 18px; border-bottom: 1px solid #E4EAF5; transition: background 0.15s;
+}
+.estimate-item:last-child { border-bottom: none; }
+.estimate-item:hover { background: #F5F8FF; }
+.estimate-item label { display: flex; align-items: center; gap: 10px; cursor: pointer; flex: 1; font-size: 15px; }
+.estimate-item input[type="checkbox"] { width: 18px; height: 18px; cursor: pointer; accent-color: var(--primary); }
+.estimate-item .item-price { font-size: 15px; font-weight: 600; color: var(--primary); white-space: nowrap; margin-left: 12px; }
+.estimate-item .item-note { font-size:13px; color: #888; margin-left: 4px; }
+.estimate-panel {
+  position: sticky; top: 110px; background: #fff;
+  border: 2px solid var(--primary); border-radius: 12px; overflow: hidden;
+}
+.estimate-panel-head { background: var(--page-accent); color: #fff; padding: 16px 20px; }
+.estimate-panel-head h3 { font-size: 17px; font-weight: 700; }
+.estimate-panel-head p { font-size: 13px; opacity: 0.8; margin-top: 2px; }
+.estimate-selected { padding: 16px 20px; min-height: 180px; border-bottom: 1px solid var(--border); }
+.estimate-selected-empty { font-size: 14px; color: #aaa; text-align: center; padding: 30px 0; }
+.estimate-sel-item { display: flex; justify-content: space-between; align-items: center; padding: 6px 0; border-bottom: 1px dashed #eee; font-size: 14px; gap: 8px; }
+.estimate-sel-item:last-child { border-bottom: none; }
+.estimate-sel-name { flex: 1; color: #333; }
+.estimate-sel-price { font-weight: 600; color: var(--primary); white-space: nowrap; }
+.estimate-total { padding: 14px 20px; background: #F5F8FF; }
+.estimate-total-row { display: flex; justify-content: space-between; align-items: center; font-size: 15px; margin-bottom: 6px; }
+.estimate-total-row.final { font-size: 18px; font-weight: 800; color: var(--primary); margin-top: 10px; padding-top: 10px; border-top: 2px solid var(--border); }
+.estimate-actions { padding: 16px 20px; display: flex; flex-direction: column; gap: 8px; }
+.btn-print { display: flex; align-items: center; justify-content: center; gap: 6px; padding: 11px; background: var(--page-accent); color: #fff; border: none; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; width: 100%; transition: background 0.2s; }
+.btn-print:hover { filter: brightness(0.9); }
+.btn-reset-est { display: flex; align-items: center; justify-content: center; gap: 6px; padding: 11px; background: #fff; color: #666; border: 1px solid var(--border); border-radius: 8px; font-size: 14px; cursor: pointer; width: 100%; transition: all 0.2s; }
+.btn-reset-est:hover { border-color: var(--primary); color: var(--primary); }
+.estimate-notice { font-size: 13px; color: #888; padding: 0 20px 16px; line-height: 1.6; }
+
+/* 견적서 인쇄 */
+@media print {
+  header, .sidebar-right, footer, #scrollTop, .popup-overlay,
+  .estimate-actions, .estimate-panel-head p, .notice-box { display: none !important; }
+  .estimate-wrap { grid-template-columns: 1fr; }
+  .estimate-panel { position: static; }
+  body { font-size: 14px; }
+}
+@media (max-width: 768px) {
+  .estimate-wrap { grid-template-columns: 1fr; }
+  .estimate-panel { position: static; }
+}
+
+/* ===== 전반적 디자인 선명도 향상 (추가) ===== */
+
+/* 인포 섹션 개선 */
+.info-section { background: #fff; padding: 76px 24px; }
+.info-box { border: 1px solid #C9D7EF; border-radius: 14px; overflow: hidden; box-shadow: 0 2px 12px rgba(21,101,192,0.06); }
+.info-box-hd {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 22px;
+  background: var(--page-accent); color: #fff;
+}
+.info-box-hd h3 { font-size: 16px; font-weight: 700; letter-spacing: 0.2px; }
+
+/* 빠른 메뉴 개선 */
+.quick-wrap {
+  background: var(--page-accent);
+  border-radius: 14px; padding: 26px;
+  box-shadow: 0 4px 20px rgba(21,101,192,0.2);
+}
+.quick-btn {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 12px;
+  transition: all 0.25s;
+}
+.quick-btn:hover { background: rgba(255,255,255,0.26); transform: translateY(-2px); }
+
+/* 파트너 섹션 개선 */
+.partner-section { background: #F5F8FF; padding: 32px 24px; border-top: 1px solid #C9D7EF; }
+.partner-logo {
+  height: 50px; padding: 8px 20px;
+  background: #fff; border: 1px solid #C9D7EF;
+  border-radius: 10px; box-shadow: 0 2px 6px rgba(21,101,192,0.06);
+  transition: all 0.22s;
+}
+.partner-logo:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(21,101,192,0.14); border-color: var(--primary); }
+
+/* 사이드바 개선 */
+.sidebar-right {
+  position: fixed; right: 0; top: 50%; transform: translateY(-50%);
+  z-index: 500; display: flex; flex-direction: column; gap: 0;
+  border-radius: 12px 0 0 12px; overflow: hidden;
+  box-shadow: -4px 0 20px rgba(0,0,0,0.12);
+}
+.sb-btn {
+  width: 64px; padding: 11px 5px;
+  font-size:13px; font-weight: 600;
+  letter-spacing: 0.2px;
+  transition: filter 0.2s, transform 0.15s;
+}
+.sb-btn:hover { filter: brightness(1.2); transform: translateX(-3px); }
+
+/* 네비게이션 세련화 */
+.nav-link {
+  padding: 0 18px; font-size: 17px; letter-spacing: 0.1px;
+}
+.dropdown {
+  border-top: 3px solid var(--primary);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  min-width: 190px;
+}
+.dropdown a { font-size: 14px; padding: 12px 22px; }
+
+/* 푸터 개선 */
+footer {
+  background: #142340;
+}
+.footer-inner { max-width: 1260px; }
+.footer-brand .fn { font-size: 17px; font-weight: 800; color: #fff; }
+
+/* 인쇄 시 CTA 리본 숨김 */
+@media print {
+}
+
+/* ===== 전체 폰트 가독성 향상 ===== */
+
+/* 본문 텍스트 */
+.content-wrap p { font-size: 16px; line-height: 2.0; color: #222; }
+.content-section p { font-size: 16px; line-height: 2.0; }
+
+/* 섹션 제목 */
+.section-heading { font-size: 22px; font-weight: 800; }
+.content-section h2 { font-size: 22px; }
+.content-section h3 { font-size: 18px; font-weight: 700; }
+
+/* 서브페이지 히어로 제목 */
+.page-hero h1 { font-size: 34px; font-weight: 900; }
+
+/* 서브내비 — (위 .sub-nav a 정의에 통합됨) */
+
+/* 메인 네비 */
+.nav-link { font-size: 18px !important; }
+.dropdown a { font-size: 15px !important; }
+
+/* 공지사항 목록 */
+.info-list .ttl { font-size: 15px; }
+.info-list .dt { font-size: 13px; }
+.info-box-hd h3 { font-size: 17px; }
+
+/* 빠른메뉴 */
+.quick-btn { font-size: 15px; font-weight: 700; }
+
+/* 서비스 카드 */
+.svc-name { font-size: 15px; font-weight: 700; }
+
+/* 히어로 */
+.hero-content h2 { font-size: 52px !important; }
+.hero-content p { font-size: 18px !important; }
+.hero-badge { font-size: 14px !important; }
+.hero-btn { font-size: 16px !important; padding: 16px 36px !important; }
+
+/* 표 텍스트 */
+table th, table td { font-size: 15px; }
+
+/* 타임라인 */
+.tl-content p { font-size: 16px; }
+.tl-month { font-size: 14px; }
+.timeline-year span { font-size: 28px; }
+
+/* CTA 리본 */
+
+/* 푸터 */
+.footer-brand .fn { font-size: 18px !important; }
+.footer-info .fi { font-size: 14px; }
+.footer-links a { font-size: 14px; }
+
+/* 하이라이트 박스 */
+.highlight-box { font-size: 15px; }
+.notice-box { font-size: 15px; }
+
+/* 인증서 라벨 */
+.cert-label { font-size: 14px !important; }
+.cert-card h3 { font-size: 16px; }
+.cert-card p { font-size: 14px; }
+
+/* 모바일 */
+@media (max-width: 768px) {
+  .hero-content h2 { font-size: 28px !important; }
+  .hero-content p { font-size: 16px !important; }
+  .page-hero h1 { font-size: 26px; }
+  body { font-size: 16px; }
+}
+
+/* ===== 최소 폰트 14px 전역 적용 ===== */
+* { min-font-size: 14px; }
+body { font-size: 17px; }
+small, .small { font-size: 14px !important; }
+
+/* 기존 작은 폰트들 14px 이상으로 강제 */
+.breadcrumb { font-size: 14px !important; }
+.breadcrumb a { font-size: 14px !important; }
+.info-list .dt { font-size: 14px !important; }
+.footer-bottom { font-size: 14px !important; }
+.footer-brand .fen { font-size: 14px !important; }
+.footer-info .fi { font-size: 14px !important; }
+.footer-links a { font-size: 14px !important; }
+.tl-month { font-size: 14px !important; }
+.cert-label { font-size: 14px !important; }
+.hero-badge { font-size: 14px !important; }
+.partner-logo { font-size: 14px !important; }
+.sb-btn { font-size:13px !important; } /* 사이드바는 공간 제약으로 예외 */
+</style>
+</head>
+<body>
+<header><div class="header-inner">
+  <a href="index.html" class="logo"><div class="logo-img-wrap">
+    <img src="images/microbiology_1.jpg" alt="ISA연구원" class="logo-svg">
+    <div class="logo-divider"></div>
+    <img src="images/microbiology_2.jpg" alt="KOLAS" class="logo-kolas">
+  </div></a>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  <div class="nav-wrap" id="navWrap">
+    <nav><ul class="nav-menu">
+          <li class="nav-item">
+            <a class="nav-link" href="#">연구원소개</a>
+            <div class="dropdown">
+              <a href="greeting.html">인사말</a>
+              <a href="history.html">연혁</a>
+              <a href="organization.html">조직도</a>
+              <a href="certification.html">지정·인정현황</a>
+              <a href="location.html">오시는길</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">검사분야</a>
+            <div class="dropdown">
+              <a href="food.html">식품 자가품질검사</a>
+              <a href="livestock.html">축산물 자가품질검사</a>
+              <a href="health-food.html">건강기능식품 자가품질검사</a>
+              <a href="nutrition.html">영양성분 검사</a>
+              <a href="microbiology.html">미생물 검사</a>
+              <a href="chemistry.html">이화학 검사</a>
+              <a href="haccp.html">HACCP 유효성검사</a>
+              <a href="shelf-life.html">소비기한 설정시험</a>
+              <a href="allergen.html">알레르기·할랄·비건</a>
+              <a href="air-quality.html">대기측정 대행</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="inquiry.html">검사의뢰</a>
+            <div class="dropdown">
+              <a href="inquiry.html#procedure">검사 진행 절차</a>
+              <a href="inquiry.html#documents">접수 서류 안내</a>
+              <a href="inquiry.html#samples">시료 준비 안내</a>
+              <a href="inquiry.html#delivery">방문/택배 안내</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="support.html">고객지원</a>
+            <div class="dropdown">
+              <a href="support.html#download">양식 다운로드</a>
+              <a href="support.html#faq">자주하는 질문</a>
+              <a href="support.html#contact">문의하기</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="notice.html">알림마당</a>
+            <div class="dropdown">
+              <a href="notice.html#announcements">공지사항</a>
+              <a href="notice.html#archive">자료실</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="quote.html">견적·상담</a>
+            <div class="dropdown">
+              <a href="quote.html#consult">온라인 상담 신청</a>
+              <a href="quote.html#quote-form">견적 요청</a>
+              <a href="quote.html#quote-lookup">견적 조회·수정</a>
+            </div>
+          </li>
+        </ul></nav>
+  </div>
+</div></header>
+<div class="sidebar-right">
+  <a href="quote.html" class="sb-btn" style="background:#F59E0B"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>실시간<br>견적</a>
+  <a href="http://pf.kakao.com/_wLxhxnb" target="_blank" class="sb-btn" style="background:#5d76a8"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>상담<br>요청</a>
+  <a href="support.html#download" class="sb-btn c-green"><svg viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>양식<br>다운</a>
+  <a href="notice.html" class="sb-btn c-purple"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>공지<br>사항</a>
+  <a href="https://www.youtube.com/@ISALABB" target="_blank" class="sb-btn c-red"><svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>유튜브</a>
+  <a href="https://blog.naver.com/isalab" target="_blank" class="sb-btn c-blog"><svg viewBox="0 0 24 24"><path d="M16 8.414l-4.5-6.414H4v16h4V9.586l4.5 6.414H20V2h-4z"/></svg>블로그</a>
+  <a href="https://www.instagram.com/isalab_kr" target="_blank" class="sb-btn c-insta"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>인스타</a>
+  <a href="http://pf.kakao.com/_wLxhxnb" target="_blank" class="sb-btn c-kakao"><svg viewBox="0 0 24 24"><path d="M12 3C6.48 3 2 6.48 2 10.8c0 2.73 1.65 5.13 4.13 6.54L5 21l4.35-2.4c.85.22 1.73.4 2.65.4 5.52 0 10-3.48 10-7.8S17.52 3 12 3z"/></svg>카카오</a>
+</div>
+<div class="page-hero"><div class="page-hero-content">
+  <h1>미생물 검사</h1>
+  <div class="breadcrumb"><a href="index.html">홈</a><span class="sep">›</span>검사분야<span class="sep">›</span>미생물 검사</div>
+</div></div>
+<nav class="sub-nav"><div class="sub-nav-inner">
+  <a href="food.html" >식품 자가품질검사</a>
+  <a href="livestock.html" >축산물 자가품질검사</a>
+  <a href="health-food.html" >건강기능식품 자가품질검사</a>
+  <a href="nutrition.html" >영양성분 검사</a>
+  <a href="microbiology.html" class="active">미생물 검사</a>
+  <a href="chemistry.html" >이화학 검사</a>
+  <a href="haccp.html" >HACCP 유효성검사</a>
+  <a href="shelf-life.html" >소비기한 설정시험</a>
+  <a href="allergen.html" >알레르기·할랄·비건</a>
+  <a href="air-quality.html" >대기측정 대행</a>
+</div></nav>
+<div class="content-wrap">
+
+  <div class="content-section">
+    <h2 class="section-heading">미생물 검사란?</h2>
+    <p>식품 및 축산물의 미생물 오염 여부를 확인하는 검사로, 식품 안전성 확보와 유통 과정에서의 오염 방지를 위해 반드시 필요한 검사입니다. 아이에스에이연구원은 최신 분석 장비와 전문 인력으로 정확하고 신속한 미생물 검사 서비스를 제공합니다.</p>
+  </div>
+
+  <div class="content-section">
+    <h2 class="section-heading">검사 가능 항목</h2>
+    <p class="micro-hint">각 항목의 <b>대표 배지</b>와 배양된 <b>집락 모습</b>을 그림으로 표시했습니다. 항목을 클릭하시면 균의 특징, 시험 방법, 주요 원인식품 등 상세 정보를 확인하실 수 있습니다.</p>
+    <div id="microGrid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;">
+      <div class="info-card" style="display:flex;align-items:center;gap:10px;padding:16px 18px;">
+        <span style="color:#1d3158;font-size:20px;flex-shrink:0;">🔬</span>
+        <span style="font-size:15px;font-weight:600;">일반세균수</span>
+      </div>
+      <div class="info-card" style="display:flex;align-items:center;gap:10px;padding:16px 18px;">
+        <span style="color:#1d3158;font-size:20px;flex-shrink:0;">🔬</span>
+        <span style="font-size:15px;font-weight:600;">대장균</span>
+      </div>
+      <div class="info-card" style="display:flex;align-items:center;gap:10px;padding:16px 18px;">
+        <span style="color:#1d3158;font-size:20px;flex-shrink:0;">🔬</span>
+        <span style="font-size:15px;font-weight:600;">대장균군</span>
+      </div>
+      <div class="info-card" style="display:flex;align-items:center;gap:10px;padding:16px 18px;">
+        <span style="color:#e53935;font-size:20px;flex-shrink:0;">⚠️</span>
+        <span style="font-size:15px;font-weight:600;">살모넬라</span>
+      </div>
+      <div class="info-card" style="display:flex;align-items:center;gap:10px;padding:16px 18px;">
+        <span style="color:#e53935;font-size:20px;flex-shrink:0;">⚠️</span>
+        <span style="font-size:15px;font-weight:600;">리스테리아모노사이토제네스</span>
+      </div>
+      <div class="info-card" style="display:flex;align-items:center;gap:10px;padding:16px 18px;">
+        <span style="color:#e53935;font-size:20px;flex-shrink:0;">⚠️</span>
+        <span style="font-size:15px;font-weight:600;">황색포도상구균</span>
+      </div>
+      <div class="info-card" style="display:flex;align-items:center;gap:10px;padding:16px 18px;">
+        <span style="color:#e53935;font-size:20px;flex-shrink:0;">⚠️</span>
+        <span style="font-size:15px;font-weight:600;">바실루스세레우스</span>
+      </div>
+      <div class="info-card" style="display:flex;align-items:center;gap:10px;padding:16px 18px;">
+        <span style="color:#e53935;font-size:20px;flex-shrink:0;">⚠️</span>
+        <span style="font-size:15px;font-weight:600;">장염비브리오</span>
+      </div>
+      <div class="info-card" style="display:flex;align-items:center;gap:10px;padding:16px 18px;">
+        <span style="color:#e53935;font-size:20px;flex-shrink:0;">⚠️</span>
+        <span style="font-size:15px;font-weight:600;">장출혈성대장균</span>
+      </div>
+      <div class="info-card" style="display:flex;align-items:center;gap:10px;padding:16px 18px;">
+        <span style="color:#e53935;font-size:20px;flex-shrink:0;">⚠️</span>
+        <span style="font-size:15px;font-weight:600;">클로스트리디움퍼프린젠스</span>
+      </div>
+      <div class="info-card" style="display:flex;align-items:center;gap:10px;padding:16px 18px;">
+        <span style="color:#e53935;font-size:20px;flex-shrink:0;">⚠️</span>
+        <span style="font-size:15px;font-weight:600;">캠필로박터 제주니/콜리</span>
+      </div>
+      <div class="info-card" style="display:flex;align-items:center;gap:10px;padding:16px 18px;">
+        <span style="color:#e53935;font-size:20px;flex-shrink:0;">⚠️</span>
+        <span style="font-size:15px;font-weight:600;">여시니아엔테로콜리티카</span>
+      </div>
+      <div class="info-card" style="display:flex;align-items:center;gap:10px;padding:16px 18px;">
+        <span style="color:#1d3158;font-size:20px;flex-shrink:0;">🔬</span>
+        <span style="font-size:15px;font-weight:600;">세균발육</span>
+      </div>
+      <div class="info-card" style="display:flex;align-items:center;gap:10px;padding:16px 18px;">
+        <span style="color:#1d3158;font-size:20px;flex-shrink:0;">🔬</span>
+        <span style="font-size:15px;font-weight:600;">곰팡이수 / 진균수</span>
+      </div>
+      <div class="info-card" style="display:flex;align-items:center;gap:10px;padding:16px 18px;">
+        <span style="color:#1d3158;font-size:20px;flex-shrink:0;">🔬</span>
+        <span style="font-size:15px;font-weight:600;">유산균수</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 검사항목 상세 팝업 -->
+<div class="mb-modal" id="mbModal" role="dialog" aria-modal="true" aria-labelledby="mbTitle">
+  <div class="mb-dialog" role="document">
+    <div class="mb-head">
+      <span id="mbPlate"></span>
+      <div>
+        <div class="mb-title" id="mbTitle"></div>
+        <div class="mb-sci" id="mbSci"></div>
+      </div>
+      <button type="button" class="mb-close" id="mbClose" aria-label="닫기">&times;</button>
+    </div>
+    <div class="mb-body" id="mbBody"></div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="fn">㈜아이에스에이연구원</div>
+        <div class="fen">International Specialized Analysis Research Institute Co., Ltd.</div>
+        <div class="footer-links">
+          <a href="greeting.html">인사말</a>
+          <a href="organization.html">조직도</a>
+          <a href="history.html">연혁</a>
+          <a href="certification.html">지정·인정현황</a>
+          <a href="location.html">오시는길</a>
+          <a href="food.html">식품검사</a>
+          <a href="livestock.html">축산물검사</a>
+          <a href="nutrition.html">영양성분</a>
+          <a href="chemistry.html">이화학</a>
+          <a href="microbiology.html">미생물</a>
+          <a href="privacy.html">개인정보처리방침</a>
+        </div>
+        <div class="footer-social">
+          <a href="https://www.youtube.com/@ISALABB" target="_blank" title="유튜브">
+            <svg viewBox="0 0 24 24"><path d="M10 15l5.19-3L10 9v6m11.56-7.83c.13.47.22 1.1.28 1.9.07.8.1 1.49.1 2.09L22 12c0 2.19-.16 3.8-.44 4.83-.25.9-.83 1.48-1.73 1.73-.47.13-1.33.22-2.65.28-1.3.07-2.49.1-3.59.1L12 19c-4.19 0-6.8-.16-7.83-.44-.9-.25-1.48-.83-1.73-1.73-.13-.47-.22-1.1-.28-1.9-.07-.8-.1-1.49-.1-2.09L2 12c0-2.19.16-3.8.44-4.83.25-.9.83-1.48 1.73-1.73.47-.13 1.33-.22 2.65-.28 1.3-.07 2.49-.1 3.59-.1L12 5c4.19 0 6.8.16 7.83.44.9.25 1.48.83 1.73 1.73z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/isalab_kr" target="_blank" title="인스타그램">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+          <a href="http://pf.kakao.com/_wLxhxnb" target="_blank" title="카카오채널">
+            <svg viewBox="0 0 24 24"><path d="M12 3C6.48 3 2 6.48 2 10.8c0 2.73 1.65 5.13 4.13 6.54L5 21l4.35-2.4c.85.22 1.73.4 2.65.4 5.52 0 10-3.48 10-7.8S17.52 3 12 3z"/></svg>
+          </a>
+          <a href="https://blog.naver.com/isalab" target="_blank" title="네이버블로그">
+            <svg viewBox="0 0 24 24"><path d="M16 8.414l-4.5-6.414H4v16h4V9.586l4.5 6.414H20V2h-4z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <div class="footer-info">
+          <div class="fi"><span>대표이사</span> 최영훈</div>
+          <div class="fi"><span>사업자등록번호</span> 350-88-01260</div>
+          <div class="fi"><span>주소</span> 경기도 의왕시 한밭들길 12 (우편번호 16073)</div>
+          <div class="fi"><span>대표전화</span> 031-429-0620</div>
+          <div class="fi"><span>상담문의</span> 070-8831-7376</div>
+          <div class="fi"><span>팩스</span> 031-427-0625</div>
+          <div class="fi"><span>이메일</span> <a href="mailto:isalab@naver.com" style="color:inherit">isalab@naver.com</a></div>
+          <div class="fi"><span>운영시간</span> 평일 09:00~18:00 / 점심 12:00~13:00 (주말·공휴일 휴무)</div>
+          <div class="fi"><span>식약처 지정</span> 식품 등 시험·검사기관 제120호 | 축산물 시험·검사기관 제54호</div>
+          <div class="fi"><span>KOLAS</span> 국제공인시험기관 인정번호 KT1316</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      Copyright &copy; 2026 ㈜아이에스에이연구원 All rights reserved.
+    </div>
+  </div>
+</footer>
+<button id="scrollTop"><svg viewBox="0 0 24 24" width="20" height="20" fill="#fff"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg></button>
+<script>// ===== 아이에스에이연구원 홈페이지 메인 JS =====
+document.addEventListener('DOMContentLoaded', function () {
+
+  // ─── 햄버거 메뉴 ───────────────────────────────
+  const hamburger = document.getElementById('hamburger');
+  const navWrap = document.getElementById('navWrap');
+
+  if (hamburger && navWrap) {
+    hamburger.addEventListener('click', function () {
+      navWrap.classList.toggle('open');
+      hamburger.classList.toggle('active');
+    });
+    document.addEventListener('click', function (e) {
+      if (!hamburger.contains(e.target) && !navWrap.contains(e.target)) {
+        navWrap.classList.remove('open');
+      }
+    });
+  }
+
+  // ─── 모바일: 서브메뉴 토글 ─────────────────────
+  const navItems = document.querySelectorAll('.nav-item');
+  navItems.forEach(function (item) {
+    const link = item.querySelector('.nav-link');
+    const dropdown = item.querySelector('.dropdown');
+    if (link && dropdown && window.innerWidth <= 768) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        item.classList.toggle('open');
+      });
+    }
+  });
+
+  // ─── 히어로 슬라이더 ───────────────────────────
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('.hero-dot');
+  let current = 0;
+  let autoTimer = null;
+
+  function goSlide(idx) {
+    slides.forEach(function (s) { s.classList.remove('active'); });
+    dots.forEach(function (d) { d.classList.remove('active'); });
+    if (slides[idx]) slides[idx].classList.add('active');
+    if (dots[idx]) dots[idx].classList.add('active');
+    current = idx;
+  }
+
+  if (slides.length > 0) {
+    goSlide(0);
+    dots.forEach(function (dot, i) {
+      dot.addEventListener('click', function () {
+        clearInterval(autoTimer);
+        goSlide(i);
+        autoTimer = setInterval(function () { goSlide((current + 1) % slides.length); }, 5000);
+      });
+    });
+    autoTimer = setInterval(function () { goSlide((current + 1) % slides.length); }, 5000);
+  }
+
+  // ─── FAQ 아코디언 ──────────────────────────────
+  const faqQs = document.querySelectorAll('.faq-q');
+  faqQs.forEach(function (q) {
+    q.addEventListener('click', function () {
+      const ans = this.nextElementSibling;
+      const isOpen = this.classList.contains('active');
+      faqQs.forEach(function (fq) {
+        fq.classList.remove('active');
+        var a = fq.nextElementSibling;
+        if (a && a.classList.contains('faq-a')) a.classList.remove('open');
+      });
+      if (!isOpen) {
+        this.classList.add('active');
+        if (ans && ans.classList.contains('faq-a')) ans.classList.add('open');
+      }
+    });
+  });
+
+  // ─── 스크롤 탑 버튼 ───────────────────────────
+  const scrollBtn = document.getElementById('scrollTop');
+  if (scrollBtn) {
+    window.addEventListener('scroll', function () {
+      scrollBtn.style.display = window.scrollY > 400 ? 'flex' : 'none';
+    });
+    scrollBtn.addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  }
+
+  // ─── 현재 페이지 서브메뉴 활성화 ───────────────
+  const currentPath = window.location.pathname;
+  const subLinks = document.querySelectorAll('.sub-nav a');
+  subLinks.forEach(function (link) {
+    if (currentPath.endsWith(link.getAttribute('href'))) {
+      link.classList.add('active');
+    }
+  });
+
+  // ─── 숫자 카운트업 애니메이션 ──────────────────
+  function animateCount(el) {
+    const target = parseInt(el.getAttribute('data-count'), 10);
+    const duration = 1800;
+    const step = target / (duration / 16);
+    let current = 0;
+    const timer = setInterval(function () {
+      current += step;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      el.textContent = Math.floor(current).toLocaleString();
+    }, 16);
+  }
+
+  const counters = document.querySelectorAll('[data-count]');
+  if (counters.length > 0 && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          animateCount(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    counters.forEach(function (c) { observer.observe(c); });
+  }
+
+  // ─── 폼 기본 검증 ─────────────────────────────
+  const forms = document.querySelectorAll('form[data-validate]');
+  forms.forEach(function (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const required = form.querySelectorAll('[required]');
+      let valid = true;
+      required.forEach(function (field) {
+        if (!field.value.trim()) {
+          field.style.borderColor = '#E53935';
+          valid = false;
+        } else {
+          field.style.borderColor = '';
+        }
+      });
+      if (valid) {
+        alert('문의가 접수되었습니다.\n담당자가 확인 후 연락드리겠습니다.');
+        form.reset();
+      } else {
+        alert('필수 항목을 모두 입력해 주세요.');
+      }
+    });
+  });
+
+});
+</script>
+
+<!-- ===== 검사가능항목: 배지 카드 + 상세 팝업 =====
+     출처: 식품의약품안전처 「식품공전 미생물 시험법 해설서」(2024.12) 및
+           식품의약품안전평가원 「병원성 미생물 도감」 -->
+<script>
+(function () {
+  var ITEMS = [
+    {
+      key: "apc", name: "일반세균수", sci: "Aerobic Plate Count", tag: "위생지표",
+      plate: { mode: "pour", seed: 11, agar: "#E8D6A8", colony: "#FFFBEE", edge: "#D9C79A", n: 58, r: 1.9 },
+      medium: "표준한천배지(Plate Count Agar, 배지 1)",
+      colony: "배지 전체에 유백색~반투명의 작고 둥근 집락이 퍼져 자랍니다. 1개 평판당 <b>15~300개</b>의 집락이 생긴 평판을 골라 세고 희석배수를 곱해 균수를 산출합니다.",
+      culture: "35±1℃에서 48±2시간 배양(식품에 따라 30±1℃ 또는 35±1℃에서 72±3시간)",
+      about: "식품에 살아 있는 중온성 호기성 세균의 총수를 세는 검사입니다. 특정 유해균을 찾는 것이 아니라 원료 상태·가열 공정·보관 온도 등 전반적인 위생 수준을 보는 지표이므로, 세균수가 높다고 해서 곧바로 유해균이 있다는 뜻은 아니지만 관리가 느슨해졌거나 신선도가 떨어졌다는 신호가 됩니다.",
+      use: "살균·멸균 공정 검증, 유통 중 품질 변화 확인, 자가품질검사와 HACCP 공정관리에 가장 널리 쓰이는 기본 항목입니다.",
+      tip: "시험용액을 만든 뒤 20분 안에 배지를 부어야 하므로, 검체는 채취 직후 냉장(0~10℃) 상태로 보내 주시는 것이 정확도에 좋습니다."
+    },
+    {
+      key: "ecoli", name: "대장균", sci: "Escherichia coli", tag: "위생지표",
+      plate: { mode: "streak", seed: 23, agar: "#4E2450", colony: "#1D6B45", edge: "#0E3322", sheen: "#96EFBD", r: 2.8 },
+      medium: "EMB 한천배지(배지 6) 또는 MacConkey 한천배지(배지 30), 최확수법(EC-MUG 배지)·건조필름법",
+      colony: "EMB 한천배지에서 <b>초록색 금속광택을 띠는 집락</b>으로, MacConkey 한천배지에서는 붉은 벽돌색 집락으로 자랍니다. 최확수법에서는 자외선을 비추었을 때 <b>푸른 형광</b>이 보이는 시험관을 양성으로 봅니다.",
+      culture: "최확수법 44±1℃ 24±2시간(형광 확인), 건조필름법 35±1℃ 24~48시간, 분리배양 37℃ 24시간 후 그람염색·MUG·IMViC 확인시험",
+      about: "사람과 동물의 장에 사는 세균으로, 식품에서 검출되면 분변에 의한 직접·간접 오염이 있었다는 뜻입니다. 대부분의 대장균은 병을 일으키지 않지만 위생관리가 뚫렸다는 신호이므로, 대장균군보다 오염 특이성이 높은 지표로 사용됩니다.",
+      use: "식품·축산물 자가품질검사, 조리식품·조리용수 위생관리, HACCP 공정 검증에 사용됩니다.",
+      tip: "장출혈성대장균은 대장균의 한 종류이지만 배양 온도와 배지, 유전자 확인시험이 모두 달라 <b>대장균 시험 결과로 대신할 수 없습니다.</b>"
+    },
+    {
+      key: "coliform", name: "대장균군", sci: "Coliform group", tag: "위생지표",
+      plate: { mode: "pour", seed: 37, agar: "#A63F63", colony: "#560D20", edge: "#3A0613", halo: "#D18FA6", n: 30, r: 2.6 },
+      medium: "데스옥시콜레이트 유당한천배지(배지 9) 또는 VRBA 평판배지(배지 96), 유당배지·BGLB 배지(최확수법)",
+      colony: "전형적인 <b>암적색(진한 붉은색) 집락</b>으로 자라며, 담즙산이 침전되어 집락 둘레에 흐린 환이 생기기도 합니다. 최확수법에서는 발효관 안에 가스가 차오르는 것으로 판정합니다.",
+      culture: "35~37℃에서 24±2시간 배양 후, 의심 집락은 Endo·EMB·MacConkey 한천배지에 분리배양하여 확정시험",
+      about: "유당을 분해해 산과 가스를 만드는 그람음성균 무리를 통틀어 대장균군이라 합니다. 자연계에 널리 퍼져 있어 대장균만큼 분변 특이성이 높지는 않지만, 가열 공정을 거친 식품에서 검출되면 살균 부족이나 가열 후 재오염(2차 오염)을 의심하는 가장 대표적인 위생지표입니다.",
+      use: "가공식품의 살균 공정 확인, 조리식품·기구·용수의 청결도 점검, 자가품질검사 기본 항목입니다."
+    },
+    {
+      key: "salmonella", name: "살모넬라", sci: "Salmonella spp.", tag: "식중독균",
+      plate: { mode: "streak", seed: 41, agar: "#DE4C64", colony: "#F08B99", edge: "#BC3A4E", center: "#140F0D", r: 3.1 },
+      medium: "XLD 한천배지(배지 58, 필수)와 BG Sulfa·Bismuth Sulfite·Desoxycholate Citrate·HE·XLT4 한천배지 중 1종 이상",
+      colony: "XLD 한천배지에서 황화수소(H₂S)를 만들어 <b>가운데가 검은 분홍~붉은색 집락</b>으로 자랍니다. 반대로 대장균군은 당을 모두 분해해 노란색 집락이 되므로 색으로 구분됩니다.",
+      culture: "1차 증균(35℃ 24시간) → RV·Tetrathionate 배지로 2차 증균 → 36±1℃ 20~24시간 분리배양 → TSI·LIM·혈청형 확인시험",
+      about: "가금류·달걀·식육의 장관에 널리 분포하는 대표적인 감염형 식중독균으로, 국내 식중독 발생 건수가 가장 많은 균 중 하나입니다. 건강 상태에 따라 15~20개의 적은 균수로도 발병할 수 있습니다.",
+      foods: "달걀과 알가공품, 덜 익힌 닭·오리 등 가금육, 식육, 김밥·도시락 등 복합조리식품",
+      symptom: "잠복기 6~72시간(평균 12~36시간). 복통·설사·메스꺼움·구토·발열·두통 등 급성위장염 증상이 보통 1~4일 지속됩니다. 영유아·고령자·면역저하자는 중증으로 진행될 수 있습니다."
+    },
+    {
+      key: "listeria", name: "리스테리아 모노사이토제네스", sci: "Listeria monocytogenes", tag: "식중독균",
+      plate: { mode: "streak", seed: 53, agar: "#A87D50", colony: "#17110A", edge: "#000000", halo: "#4E3A20", r: 2.9 },
+      medium: "Oxford 한천배지(배지 38), PALCAM 한천배지(배지 65), LPM 한천배지(배지 39) 또는 ALOA 한천배지(배지 100)",
+      colony: "Oxford·PALCAM 한천배지에서 esculin을 분해해 <b>집락 주위 배지까지 검게 변한 검은색 집락</b>을 만듭니다. ALOA 한천배지에서는 불투명한 환을 가진 청록색 집락으로 나타납니다.",
+      culture: "Listeria 증균배지 30℃ 24~48시간 1차 증균 → Fraser 배지 35~37℃ 24~48시간 2차 증균 → 35~37℃ 24~48시간 분리배양",
+      about: "냉장 온도에서도 자라고 염분과 열에 비교적 강해, 냉장 유통되는 즉석섭취식품에서 특히 문제가 되는 균입니다. 치사율이 약 20%에 이르러 식중독균 중 위해도가 가장 높은 축에 속합니다.",
+      foods: "살균하지 않은 우유와 연성치즈, 아이스크림, 훈제연어 등 비가열 수산가공품, 소시지·햄 등 식육가공품, 세척이 부족한 채소·샐러드",
+      symptom: "건강한 성인은 가벼운 발열·근육통에 그치는 경우가 많지만, 임산부·신생아·고령자·면역저하자에게는 패혈증이나 수막염을 일으킬 수 있고 임산부는 유산·조산의 위험이 있습니다.",
+      tip: "냉장 온도에서 증식하므로 <b>소비기한 설정시험</b>에서 특히 중요하게 다루는 항목입니다."
+    },
+    {
+      key: "staph", name: "황색포도상구균", sci: "Staphylococcus aureus", tag: "식중독균",
+      plate: { mode: "streak", seed: 67, agar: "#6F695F", colony: "#121110", edge: "#000000", halo: "#CFC9BD", r: 2.9 },
+      medium: "Baird-Parker 한천배지(배지 63), Baird-Parker(RPF) 한천배지(배지 67) 또는 난황첨가 만니톨식염한천배지(배지 14)",
+      colony: "Baird-Parker 한천배지에서 <b>투명한 띠로 둘러싸인 광택 있는 검정색 집락</b>으로 자랍니다. 난황첨가 만니톨식염한천배지에서는 황색 불투명 집락 주위에 혼탁한 백색환이 생깁니다.",
+      culture: "10% NaCl 첨가 TSB 배지 35~37℃ 18~24시간 증균 → 35~37℃ 18~24시간 분리배양(정량 48±3시간) → 그람염색·coagulase 시험",
+      about: "사람의 피부·코점막·화농 부위에 흔히 있는 균으로, 조리자의 손을 통해 식품에 옮겨간 뒤 증식하면서 열에 강한 장독소(엔테로톡신)를 만듭니다. 이 독소는 가열해도 파괴되지 않아 <b>균이 죽은 뒤에도 식중독을 일으킨다</b>는 점이 특징입니다.",
+      foods: "김밥·주먹밥·초밥처럼 손으로 만드는 조리식품, 유가공품, 크림이 든 제과류, 도시락",
+      symptom: "잠복기가 2~6시간으로 매우 짧습니다. 구토와 심한 복통, 수양성 설사가 주 증상이며 치사율은 낮고 대개 24~48시간 안에 회복됩니다."
+    },
+    {
+      key: "cereus", name: "바실루스 세레우스", sci: "Bacillus cereus", tag: "식중독균",
+      plate: { mode: "pour", seed: 71, agar: "#EA9440", colony: "#E06A8A", edge: "#B44766", halo: "#F9E6D0", n: 15, r: 3.6 },
+      medium: "MYP 한천배지(Mannitol Egg Yolk Polymyxin Agar, 배지 46) 또는 PEMBA 한천배지(배지 98)",
+      colony: "MYP 한천배지에서 lecithinase를 만들어 <b>주위에 혼탁한 환이 있는 분홍색 집락</b>으로 자랍니다(주황색 배지에서 만니톨 분해균은 노랗게 변함). PEMBA 한천배지에서는 혼탁한 환을 가진 청녹색 집락입니다.",
+      culture: "MYP 한천배지 30℃ 24±2시간(불명확하면 24시간 추가 배양) 또는 PEMBA 한천배지 37℃ 24시간",
+      about: "토양과 곡류에 널리 분포하며 열에 강한 아포(포자)를 만들어 가열 조리 후에도 살아남습니다. 조리한 음식을 실온에 오래 두면 아포가 깨어나 증식하면서 독소를 만들기 때문에, 조리 후 보관 온도 관리가 예방의 핵심입니다.",
+      foods: "볶음밥·김밥 등 밥류, 실온에 둔 면류·떡류, 각종 소스류, 향신료",
+      symptom: "구토형은 잠복기 1~5시간으로 메스꺼움·구토가 주 증상이며 24시간 안에 가라앉습니다. 설사형은 잠복기 8~16시간으로 복통과 설사가 나타납니다."
+    },
+    {
+      key: "vibrio", name: "장염비브리오", sci: "Vibrio parahaemolyticus", tag: "식중독균",
+      plate: { mode: "streak", seed: 83, agar: "#2A7A57", colony: "#3AA5C2", edge: "#1B6B84", r: 3 },
+      medium: "TCBS 한천배지(Thiosulfate Citrate Bile Salt Sucrose Agar, 배지 17)",
+      colony: "서당(sucrose)을 분해하지 못해 <b>직경 2~4 mm의 청록색 집락</b>으로 자랍니다. 같은 배지에서 비브리오 콜레라는 서당을 분해해 노란색 집락이 되므로 색으로 구분할 수 있습니다.",
+      culture: "Alkaline 펩톤수 35~37℃ 18~24시간 증균 → TCBS 한천배지 35~37℃ 18~24시간 → LIM·내염성·Arginine·ONPG 확인시험",
+      about: "바닷물에 사는 호염성(염분을 좋아하는) 세균으로 수온이 오르는 여름철에 급증합니다. 증식 속도가 매우 빨라 어패류를 실온에 잠깐만 두어도 균수가 크게 늘어납니다.",
+      foods: "생선회·초밥 등 생식용 어패류, 조개류, 게·새우 등 갑각류, 어패류를 손질한 도마·칼을 통해 오염된 식품",
+      symptom: "잠복기 8~24시간(평균 12시간 전후). 심한 복통과 수양성 설사, 구토, 발열이 나타나며 보통 2~3일 안에 회복됩니다.",
+      tip: "열에 매우 약해 70℃ 이상 가열하면 사멸합니다. 수돗물 세척만으로는 제거되지 않으므로 조리기구를 뜨거운 물로 세척하고 충분히 건조하는 것이 효과적입니다."
+    },
+    {
+      key: "ehec", name: "장출혈성대장균", sci: "Enterohaemorrhagic E. coli (EHEC)", tag: "식중독균",
+      plate: { mode: "streak", seed: 97, agar: "#D18BA4", colony: "#FBF5F7", edge: "#DFC7D1", r: 3 },
+      medium: "TC-SMAC 한천배지(배지 66)와 BCIG 한천배지(배지 73)",
+      colony: "TC-SMAC 한천배지에서 sorbitol을 분해하지 못해 <b>무색(투명한) 집락</b>으로 자랍니다 — 일반 대장균은 분홍~붉은색 집락이 됩니다. BCIG 한천배지에서는 청록색 집락입니다.",
+      culture: "증균배양액에서 시가독소(stx1·stx2) 유전자 PCR 스크리닝 → 유전자가 확인되면 35~37℃ 18~24시간 분리배양 후 순수분리한 균의 독소 유전자를 재확인하고 생화학 동정",
+      about: "시가독소(베로독소)를 만드는 대장균으로 병원성 대장균 중 위해도가 가장 높습니다. 대장균 O157:H7이 대표적이며, 매우 적은 균수로도 발병할 수 있어 검출 자체가 문제가 됩니다.",
+      foods: "덜 익힌 다진 쇠고기(햄버거 패티), 살균하지 않은 우유, 분변으로 오염된 채소·새싹채소, 오염된 물",
+      symptom: "잠복기 1~8일. 복통과 비출혈성 설사로 시작해 2~3일 내 출혈성 설사(혈변)로 진행하는 경우가 많습니다. 어린이와 고령자에서는 용혈성요독증후군(HUS)으로 악화될 수 있어 특히 위험합니다.",
+      tip: "시가독소 유전자 확인시험이 반드시 포함되는 별도 시험법으로, 일반 대장균 시험 결과로 갈음할 수 없습니다."
+    },
+    {
+      key: "perfringens", name: "클로스트리디움 퍼프린젠스", sci: "Clostridium perfringens", tag: "식중독균",
+      plate: { mode: "pour", seed: 103, agar: "#DBC99A", colony: "#100E08", edge: "#000000", n: 24, r: 3 },
+      medium: "TSC 한천배지(Tryptose-Sulfite-Cycloserine Agar, 배지 41) 또는 클로스트리디움 퍼프린젠스 한천배지(배지 27)",
+      colony: "TSC 한천배지에서 아황산을 환원시켜 <b>검은색 집락</b>으로 자랍니다. 난황을 넣은 배지에서는 불투명한 환을 가진 황회색 집락이 됩니다. 정량시험에서는 150개 이하의 검은색 집락이 생긴 평판을 세어 산출합니다.",
+      culture: "Cooked Meat 배지 35~37℃ 18~24시간 혐기 증균 → 35~37℃ 18~24시간 혐기 분리배양(정량은 24±2시간) → 그람염색·당분해·운동성·lecithinase 확인시험",
+      about: "산소가 없는 환경에서 자라는 혐기성 아포형성균입니다. 대량으로 끓인 음식이 천천히 식는 동안 살아남은 아포가 깨어나 증식하기 때문에 급식소·대형 조리시설에서 집단 식중독의 원인이 되는 경우가 많습니다.",
+      foods: "대량으로 조리해 실온에서 서서히 식힌 국·카레·스튜, 고기찜·육류 조림, 단체급식 메뉴",
+      symptom: "잠복기 6~24시간(보통 8~12시간). 복통과 설사가 주 증상이며 구토·발열은 드물고 대개 24시간 안에 회복됩니다.",
+      tip: "조리 후 60℃ 이상으로 따뜻하게 보관하거나 2시간 안에 5℃ 이하로 신속히 냉각하는 것이 예방의 핵심입니다."
+    },
+    {
+      key: "campylo", name: "캠필로박터 제주니/콜리", sci: "Campylobacter jejuni / coli", tag: "식중독균",
+      plate: { mode: "streak", seed: 113, agar: "#B0A188", colony: "#F1EEE6", edge: "#D2CBBB", r: 2.7 },
+      medium: "Modified Campy blood-free(mCCDA) 한천배지, Abeyta-Hunt Blood 한천배지(배지 49), Preston 한천배지(배지 75) 또는 BCA 한천배지(배지 77)",
+      colony: "mCCDA 한천배지에서 <b>원형 또는 불규칙한 모양의 반투명한 흰색 집락</b>으로 자랍니다. Abeyta-Hunt Blood 한천배지에서는 무지개빛 광택이 나는 집락, Preston 한천배지에서는 가장자리가 부드러운 반투명 흰색 집락으로 나타납니다.",
+      culture: "미호기 조건(5% O₂·10% CO₂·85% N₂)에서 35~37℃ 4~5시간 1차 증균 → 42±1℃ 44±4시간 2차 증균 → 42℃ 미호기 분리배양",
+      about: "산소 농도가 낮은 미호기 조건에서만 자라는 까다로운 균으로, 닭·소 등 가축의 장관에 상재합니다. 국내에서 여름철 발생 건수가 꾸준히 높은 식중독균입니다.",
+      foods: "덜 익힌 닭고기(치킨·닭꼬치), 생닭을 손질한 도마·행주를 통해 교차오염된 식품, 살균하지 않은 우유, 오염된 물",
+      symptom: "잠복기 2~5일로 비교적 깁니다. 발열·근육통에 이어 복통과 설사(때로 혈변)가 나타나며, 드물게 감염 후 길랭-바레 증후군 같은 신경계 합병증이 보고됩니다.",
+      tip: "미호기 배양 장비가 필요하고 2차 증균에만 44±4시간이 걸려, 다른 항목보다 시험 기간이 긴 편입니다."
+    },
+    {
+      key: "yersinia", name: "여시니아 엔테로콜리티카", sci: "Yersinia enterocolitica", tag: "식중독균",
+      plate: { mode: "streak", seed: 127, agar: "#DE8585", colony: "#F9E8E8", edge: "#D6B2B2", center: "#A8192A", r: 3.2 },
+      medium: "CIN 한천배지(Cefsulodin Irgasan Novobiocin Agar, 배지 45)와 MacConkey 한천배지(배지 30)",
+      colony: "CIN 한천배지에서 만니톨을 분해해 <b>가운데가 짙은 붉은색이고 가장자리는 투명한 “황소눈” 모양 집락</b>으로 자랍니다. MacConkey 한천배지에서는 유당을 분해하지 못해 무색 집락이 됩니다.",
+      culture: "증균 후 KOH 처리 → CIN·MacConkey 한천배지 30℃ 24±2시간 → TSI·운동성(25℃ 양성·37℃ 음성)·urea·citrate 확인시험",
+      about: "리스테리아와 함께 냉장 온도에서도 증식하는 저온 증식균으로, 겨울철에도 식중독을 일으킵니다. 여시니아 중 상당수는 비병원성이므로 병원성 균주인지 가려내는 것이 중요합니다.",
+      foods: "덜 익힌 돼지고기와 돈육 가공품, 살균하지 않은 우유, 아이스크림, 오염된 물",
+      symptom: "잠복기 1~10일(보통 4~6일). 설사(약 80%)와 복통이 대표 증상이며 두통·발열·구토가 동반되기도 합니다. 어린이에게 급성 장염을 잘 일으키고 충수염과 증상이 비슷해 오인되는 경우도 있습니다."
+    },
+    {
+      key: "sterility", name: "세균발육", sci: "통·병조림식품, 레토르트식품 대상", tag: "위생지표",
+      plate: { style: "tube", broth: "#EFEAD8", layer: "#E27C9B" },
+      medium: "티오글리콜린산염 배지(배지 13) — 평판이 아닌 <b>액체배지 시험관</b>을 사용합니다",
+      colony: "세균이 자라면 <b>배지 위층의 분홍색(레자즈린) 층이 사라지고 배지 전체가 혼탁해집니다.</b> 시험관 5개 중 하나라도 증식이 확인되면 세균발육 양성으로 판정합니다.",
+      culture: "① 가온보존시험: 개봉하지 않은 용기·포장 5개를 35~37℃에서 10일간 보존한 뒤 상온에서 1일 방치, 팽창·누수 여부 확인 ② 세균시험: 가온보존 음성인 검체로 시험용액을 만들어 시험관 5개에 접종, 35~37℃에서 48±3시간 배양",
+      about: "통조림·병조림·레토르트식품 등 장기보존식품이 상업적 무균 상태를 유지하고 있는지 확인하는 시험입니다. 살균이 충분했는지와 밀봉에 결함이 없는지를 함께 판정합니다.",
+      use: "통·병조림식품과 레토르트식품의 자가품질검사, 살균공정(F₀값) 검증",
+      tip: "검체 5관 각각에 시험관 5개씩, 총 25개의 배지가 필요합니다. <b>동일 로트 제품을 5개 이상</b> 보내 주셔야 하며, 가온보존에만 11일이 걸려 미생물 항목 중 시험 기간이 가장 깁니다."
+    },
+    {
+      key: "fungi", name: "곰팡이수 / 진균수", sci: "Yeasts and Moulds", tag: "위생지표",
+      plate: { style: "mold", seed: 139, agar: "#EBDDBB", colony: "#8C9C74", edge: "#5C6B49", n: 5, r: 9 },
+      medium: "포테이토 덱스트로오즈 한천배지(PDA, 배지 12), DRBC 한천배지(배지 102) 또는 DG18 한천배지(배지 103)",
+      colony: "효모는 유백색의 작고 매끈한 집락으로, 사상균(곰팡이)은 <b>솜털처럼 퍼지는 가장자리를 가진 집락</b>으로 자라며 균종에 따라 녹색·회색·검은색 등 다양한 색을 띱니다. 1개 평판당 10~150개의 집락이 생긴 평판을 세어 산출합니다.",
+      culture: "희석액 0.1 mL씩을 도말한 뒤 25℃에서 3일간 배양(집락이 없거나 너무 작아 판정이 어려우면 2일 이내 추가 배양)",
+      about: "효모와 곰팡이의 총수를 세는 검사입니다. 수분활성도가 낮아 세균이 자라지 못하는 건조식품·잼·시럽 등에서도 진균은 자랄 수 있어 별도로 관리해야 하며, 곰팡이 오염은 변질뿐 아니라 곰팡이독소(마이코톡신) 위험과도 연결됩니다.",
+      use: "음료·소스·잼·건조식품의 변질 관리, 소비기한 설정시험, 포장·보관 조건 검증",
+      tip: "제품의 수분활성도에 따라 배지를 달리 씁니다 — 0.95보다 높으면 DRBC 한천배지를, 0.95보다 낮은 건조식품에는 DG18 한천배지를 사용합니다."
+    },
+    {
+      key: "lab", name: "유산균수", sci: "Lactic acid bacteria", tag: "품질지표",
+      plate: { mode: "pour", seed: 149, agar: "#8A76B6", colony: "#F2D74F", edge: "#C7A62C", halo: "#DACE8E", n: 32, r: 2.7 },
+      medium: "BCP 첨가 평판측정용배지(배지 11), MRS 배지(배지 87) 또는 BL 한천배지(배지 15)",
+      colony: "BCP 첨가 배지에서 유산균이 산을 만들면 지시약(bromocresol purple)의 색이 변해 <b>보라색 배지 위에 노란색 집락과 노란 환</b>이 나타납니다.",
+      culture: "35~37℃에서 48~72±3시간 혐기배양(발효유류는 호기배양 가능)",
+      about: "발효유·유산균음료·건강기능식품 등에 표시된 유산균 수가 실제로 들어 있는지 확인하는 검사입니다. 다른 항목이 “없어야 하는 균”을 찾는 검사라면, 유산균수는 “표시량 이상 있어야 하는” 항목이라는 점이 다릅니다.",
+      use: "발효유류·유산균 함유 제품의 표시량 검증, 유통 중 균수 변화(소비기한 설정) 확인",
+      tip: "유산간·구균과 비피더스균을 구분해 산정해야 할 때는 BCP 첨가 배지와 TOS-MUP 배지를 각각 사용하고, 구분이 필요 없으면 MRS 또는 BL 배지로 총 유산균수를 계수합니다."
+    }
+  ];
+
+  // ── 배지 사진풍 SVG 생성기 ────────────────────
+  // 실제 배양 사진의 특징(획선접종 자국, 한천 메니스커스, 집락 광택, 페트리접시 테)을 재현.
+  // 난수는 seed 고정이라 새로고침해도 같은 그림이 그려집니다.
+  var uid = 0;
+
+  function rand(seed) {
+    var s = seed >>> 0;
+    return function () { s = (s * 1664525 + 1013904223) >>> 0; return s / 4294967296; };
+  }
+
+  // 꺾은선(획선) 위에 일정 간격으로 좌표를 뽑아냄
+  function along(pts, gap, jit, rnd) {
+    var out = [];
+    for (var i = 0; i < pts.length - 1; i++) {
+      var ax = pts[i][0], ay = pts[i][1], bx = pts[i + 1][0], by = pts[i + 1][1];
+      var dx = bx - ax, dy = by - ay, len = Math.sqrt(dx * dx + dy * dy);
+      var steps = Math.max(1, Math.floor(len / gap));
+      var nx = -dy / len, ny = dx / len;
+      for (var k = 0; k <= steps; k++) {
+        var t = k / steps, j = (rnd() - 0.5) * 2 * jit;
+        out.push([ax + dx * t + nx * j, ay + dy * t + ny * j]);
+      }
+    }
+    return out;
+  }
+
+  function plateSVG(p, cls) {
+    var id = "p" + (uid++), rnd = rand(p.seed || 7);
+    var s = '<svg class="' + cls + '" viewBox="0 0 100 100" aria-hidden="true" focusable="false">';
+
+    // ── 시험관(세균발육) ──
+    if (p.style === "tube") {
+      s += '<defs><linearGradient id="' + id + 'g" x1="0" y1="0" x2="1" y2="0">' +
+           '<stop offset="0%" stop-color="#000" stop-opacity=".18"/>' +
+           '<stop offset="22%" stop-color="#fff" stop-opacity=".45"/>' +
+           '<stop offset="60%" stop-color="#fff" stop-opacity="0"/>' +
+           '<stop offset="100%" stop-color="#000" stop-opacity=".20"/></linearGradient></defs>';
+      s += '<ellipse cx="52" cy="93" rx="20" ry="3.4" fill="#000" opacity=".13"/>';
+      s += '<path d="M33 12 v52 a17 17 0 0 0 34 0 V12 Z" fill="' + p.broth + '"/>';
+      s += '<path d="M33 16 h34 v12 h-34 Z" fill="' + p.layer + '" opacity=".9"/>';
+      s += '<ellipse cx="50" cy="16" rx="17" ry="3.6" fill="#fff" opacity=".28"/>';
+      var tb = [[44, 40, 2.4], [56, 47, 1.9], [46, 56, 2.6], [58, 62, 2.1], [40, 50, 1.7], [52, 69, 2.3], [61, 54, 1.5]];
+      for (var t = 0; t < tb.length; t++) {
+        s += '<circle cx="' + tb[t][0] + '" cy="' + tb[t][1] + '" r="' + tb[t][2] + '" fill="#fff" opacity=".5"/>';
+      }
+      s += '<path d="M33 12 v52 a17 17 0 0 0 34 0 V12 Z" fill="url(#' + id + 'g)"/>';
+      s += '<path d="M33 12 v52 a17 17 0 0 0 34 0 V12" fill="none" stroke="#AEB8C6" stroke-width="1.5"/>';
+      s += '<rect x="29" y="6" width="42" height="7.5" rx="3.7" fill="#E4E9F0" stroke="#AEB8C6" stroke-width="1.3"/>';
+      return s + '</svg>';
+    }
+
+    // ── 페트리접시 ──
+    s += '<defs>' +
+         '<radialGradient id="' + id + 'a" cx="36%" cy="30%" r="76%">' +
+         '<stop offset="0%" stop-color="#fff" stop-opacity=".22"/>' +
+         '<stop offset="52%" stop-color="#fff" stop-opacity="0"/>' +
+         '<stop offset="86%" stop-color="#000" stop-opacity=".10"/>' +
+         '<stop offset="100%" stop-color="#000" stop-opacity=".30"/></radialGradient>' +
+         '<radialGradient id="' + id + 'c" cx="34%" cy="28%" r="72%">' +
+         '<stop offset="0%" stop-color="#fff" stop-opacity=".55"/>' +
+         '<stop offset="60%" stop-color="#fff" stop-opacity=".06"/>' +
+         '<stop offset="100%" stop-color="#000" stop-opacity=".16"/></radialGradient>' +
+         '<filter id="' + id + 'b"><feGaussianBlur stdDeviation="2.2"/></filter>' +
+         '<clipPath id="' + id + 'k"><circle cx="50" cy="50" r="44.5"/></clipPath>' +
+         '</defs>';
+
+    s += '<ellipse cx="50" cy="52" rx="47.5" ry="47" fill="#000" opacity=".14" filter="url(#' + id + 'b)"/>';
+    s += '<circle cx="50" cy="50" r="44.5" fill="' + p.agar + '"/>';
+    s += '<g clip-path="url(#' + id + 'k)">';
+
+    var col = [];   // [x, y, r]
+    var i, k, x, y, r;
+
+    if (p.style === "mold") {
+      // 사상균: 솜털처럼 퍼지는 큰 집락
+      var mp = [[34, 34], [63, 30], [70, 58], [42, 68], [52, 48]];
+      for (i = 0; i < mp.length; i++) {
+        x = mp[i][0]; y = mp[i][1]; r = p.r * (0.75 + rnd() * 0.5);
+        s += '<circle cx="' + x + '" cy="' + y + '" r="' + (r * 1.35).toFixed(1) + '" fill="' + p.colony + '" opacity=".2"/>';
+        var pts = "";
+        for (k = 0; k < 26; k++) {
+          var an = k / 26 * Math.PI * 2, rr = r * (0.9 + rnd() * 0.32);
+          pts += (x + Math.cos(an) * rr).toFixed(1) + "," + (y + Math.sin(an) * rr).toFixed(1) + " ";
+        }
+        s += '<polygon points="' + pts + '" fill="' + p.colony + '" opacity=".55"/>';
+        s += '<circle cx="' + x + '" cy="' + y + '" r="' + (r * 0.55).toFixed(1) + '" fill="' + p.edge + '" opacity=".75"/>';
+        s += '<circle cx="' + x + '" cy="' + y + '" r="' + (r * 0.26).toFixed(1) + '" fill="#fff" opacity=".22"/>';
+      }
+    } else if (p.mode === "streak") {
+      // 획선접종: 위쪽 융합성장 → 아래로 갈수록 분리된 단일집락
+      s += '<path d="M14 33 Q 31 19 50 21 Q 70 23 86 35" fill="none" stroke="' + p.colony +
+           '" stroke-width="' + (p.r * 1.5).toFixed(1) + '" stroke-linecap="round" opacity=".92"/>';
+      s += '<path d="M14 33 Q 31 19 50 21 Q 70 23 86 35" fill="none" stroke="' + (p.edge || p.colony) +
+           '" stroke-width="' + (p.r * 1.5).toFixed(1) + '" stroke-linecap="round" opacity=".28"/>';
+      var lanes = [
+        { pts: [[82, 33], [22, 45], [80, 51]], gap: p.r * 1.15, sc: 0.9 },
+        { pts: [[75, 57], [24, 63], [72, 71]], gap: p.r * 1.85, sc: 1 },
+        { pts: [[62, 76], [34, 82]], gap: p.r * 2.6, sc: 1.05 }
+      ];
+      for (i = 0; i < lanes.length; i++) {
+        var ln = along(lanes[i].pts, lanes[i].gap, p.r * 0.32, rnd);
+        for (k = 0; k < ln.length; k++) {
+          col.push([ln[k][0], ln[k][1], p.r * lanes[i].sc * (0.82 + rnd() * 0.34)]);
+        }
+      }
+      for (i = 0; i < 7; i++) {
+        var aa = rnd() * Math.PI * 2, dd = 14 + rnd() * 16;
+        col.push([50 + Math.cos(aa) * dd, 56 + Math.sin(aa) * dd * 0.7, p.r * (0.9 + rnd() * 0.3)]);
+      }
+    } else {
+      // 혼합평판·도말: 배지 전체에 흩어진 집락
+      for (i = 0; i < p.n; i++) {
+        var ang = rnd() * Math.PI * 2, dist = Math.sqrt(rnd()) * 40;
+        col.push([50 + Math.cos(ang) * dist, 50 + Math.sin(ang) * dist, p.r * (0.7 + rnd() * 0.6)]);
+      }
+    }
+
+    for (i = 0; i < col.length; i++) {
+      x = col[i][0]; y = col[i][1]; r = col[i][2];
+      if (p.halo) s += '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="' + (r + p.r * 0.62).toFixed(1) +
+                       '" fill="' + p.halo + '" opacity=".5"/>';
+      s += '<ellipse cx="' + (x + r * 0.16).toFixed(1) + '" cy="' + (y + r * 0.26).toFixed(1) + '" rx="' + (r * 1.05).toFixed(1) +
+           '" ry="' + (r * 0.95).toFixed(1) + '" fill="#000" opacity=".16"/>';
+      s += '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="' + r.toFixed(1) + '" fill="' + p.colony + '"/>';
+      if (p.center) s += '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="' + (r * 0.46).toFixed(1) +
+                         '" fill="' + p.center + '"/>';
+      if (p.sheen) s += '<ellipse cx="' + (x - r * 0.26).toFixed(1) + '" cy="' + (y - r * 0.26).toFixed(1) + '" rx="' + (r * 0.5).toFixed(1) +
+                        '" ry="' + (r * 0.38).toFixed(1) + '" fill="' + p.sheen + '" opacity=".7"/>';
+      if (r > 2.2) s += '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="' + r.toFixed(1) + '" fill="url(#' + id + 'c)"/>';
+    }
+    s += '</g>';
+
+    // 한천 표면 광택·메니스커스
+    s += '<circle cx="50" cy="50" r="44.5" fill="url(#' + id + 'a)"/>';
+    s += '<ellipse cx="35" cy="27" rx="23" ry="13" transform="rotate(-28 35 27)" fill="#fff" opacity=".13" filter="url(#' + id + 'b)"/>';
+    s += '<circle cx="50" cy="50" r="44.5" fill="none" stroke="#000" stroke-opacity=".12" stroke-width="1.4"/>';
+
+    // 페트리접시 뚜껑 테
+    s += '<circle cx="50" cy="50" r="46.4" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width="3.4"/>';
+    s += '<circle cx="50" cy="50" r="48.2" fill="none" stroke="#B7C1CE" stroke-width="1.5"/>';
+    s += '<circle cx="50" cy="50" r="44.8" fill="none" stroke="#C6CFDB" stroke-width="0.9"/>';
+    return s + '</svg>';
+  }
+
+  var grid = document.getElementById("microGrid");
+  var modal = document.getElementById("mbModal");
+  if (!grid || !modal) return;
+
+  var dlg = modal.querySelector(".mb-dialog");
+  var elPlate = document.getElementById("mbPlate");
+  var elTitle = document.getElementById("mbTitle");
+  var elSci = document.getElementById("mbSci");
+  var elBody = document.getElementById("mbBody");
+  var lastFocus = null;
+
+  // ── 카드 그리기 ──────────────────────────────
+  grid.className = "micro-grid";
+  grid.removeAttribute("style");
+  grid.innerHTML = ITEMS.map(function (it, i) {
+    return '<button type="button" class="micro-item" data-i="' + i + '">' +
+           plateSVG(it.plate, "micro-plate") +
+           '<span class="micro-txt"><span class="micro-name">' + it.name + '</span>' +
+           '<span class="micro-sub">' + it.sci + '</span></span></button>';
+  }).join("");
+
+  // ── 팝업 내용 채우기 ─────────────────────────
+  function row(label, text) {
+    if (!text) return "";
+    return '<div class="mb-row"><span class="mb-label">' + label + '</span>' +
+           '<div class="mb-text">' + text + '</div></div>';
+  }
+
+  function open(i) {
+    var it = ITEMS[i];
+    lastFocus = document.activeElement;
+    elPlate.innerHTML = plateSVG(it.plate, "micro-plate");
+    elTitle.textContent = it.name;
+    elSci.innerHTML = it.sci +
+      '<br><span class="mb-badge ' + (it.tag === "식중독균" ? "path" : "idx") + '">' + it.tag + '</span>';
+    elBody.innerHTML =
+      row("어떤 검사인가요?", it.about) +
+      row("대표 배지", it.medium) +
+      row("집락(콜로니) 특징", it.colony) +
+      row("배양 조건", it.culture) +
+      row("주요 원인식품", it.foods) +
+      row("감염 시 증상", it.symptom) +
+      row("검사 활용", it.use) +
+      row("의뢰 시 참고", it.tip) +
+      '<div class="mb-foot">배지 그림은 실제 배양 사진의 배지 색상·집락 형태·접종 방식(획선접종 또는 혼합평판)을 참고해 재현한 <b>일러스트</b>이며, 집락의 크기와 수는 검체에 따라 달라집니다. ' +
+      '시험법 내용은 식품의약품안전처 「식품공전 미생물 시험법 해설서」와 식품의약품안전평가원 「병원성 미생물 도감」을 참고했습니다.</div>';
+    modal.classList.add("on");
+    document.body.style.overflow = "hidden";
+    dlg.scrollTop = 0;
+    document.getElementById("mbClose").focus();
+  }
+
+  function close() {
+    modal.classList.remove("on");
+    document.body.style.overflow = "";
+    if (lastFocus) lastFocus.focus();
+  }
+
+  grid.addEventListener("click", function (e) {
+    var btn = e.target.closest(".micro-item");
+    if (btn) open(+btn.dataset.i);
+  });
+  document.getElementById("mbClose").addEventListener("click", close);
+  modal.addEventListener("click", function (e) { if (e.target === modal) close(); });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && modal.classList.contains("on")) close();
+  });
+})();
+</script>
+</body></html>
