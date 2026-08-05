@@ -897,17 +897,15 @@ var draftTimer=null;
 function scheduleDraft(){clearTimeout(draftTimer);draftTimer=setTimeout(saveDraft,600);}
 function saveDraft(){
   try{
+    /* 개인정보 보호: 공용 PC에서 다음 사용자에게 노출되지 않도록
+       회사명·이름·전화·이메일·문의내용 등 개인정보는 임시저장하지 않는다.
+       검사 구분·제품 선택 등 비식별 항목만 저장한다. */
     var products=collectProducts('productList');
     var d={
       license:radioVal('license'),
-      company:document.getElementById('company').value,
-      name:document.getElementById('name').value,
-      phone:document.getElementById('phone').value,
-      email:document.getElementById('email').value,
-      message:document.getElementById('message').value,
       products:products
     };
-    if(!d.license&&!d.company&&!d.name&&!d.phone&&!d.email&&!d.message&&!d.products.length){localStorage.removeItem(DRAFT_KEY);return;}
+    if(!d.license&&!d.products.length){localStorage.removeItem(DRAFT_KEY);return;}
     localStorage.setItem(DRAFT_KEY,JSON.stringify(d));
   }catch(e){}
 }
@@ -915,9 +913,15 @@ function restoreDraft(){
   var d=null;
   try{d=JSON.parse(localStorage.getItem(DRAFT_KEY)||'null');}catch(e){}
   if(!d)return;
-  ['company','name','phone','email','message'].forEach(function(id){
-    if(d[id])document.getElementById(id).value=d[id];
-  });
+  /* 구버전에서 개인정보가 저장돼 있던 경우 즉시 삭제(공용 PC 노출 방지) */
+  if(d.company||d.name||d.phone||d.email||d.message){
+    delete d.company;delete d.name;delete d.phone;delete d.email;delete d.message;
+    try{
+      if(d.license||(d.products&&d.products.length))localStorage.setItem(DRAFT_KEY,JSON.stringify({license:d.license||'',products:d.products||[]}));
+      else localStorage.removeItem(DRAFT_KEY);
+    }catch(e){}
+  }
+  /* 개인정보(회사명·이름·전화·이메일·문의내용)는 임시저장하지 않으므로 복원하지 않는다. */
   if(d.license){
     var r=document.querySelector('#licenseGroup input[value="'+d.license+'"]');
     if(r){r.checked=true;r.closest('.radio-label').classList.add('selected');}
@@ -1350,7 +1354,11 @@ function lookupQuote(){
     }else{
       document.getElementById('recordView').classList.remove('show');
       msg.className='lookup-msg err';
-      msg.textContent=(res&&res.error)?res.error:'접수번호 또는 비밀번호가 올바르지 않습니다.';
+      /* 개인정보 보호: 접수번호 존재 여부가 드러나지 않도록 실패 사유를 구분하지 않고 항상 동일 메시지 표시
+         (입력값 오류 등 서버가 '접수'/'비밀번호'와 무관한 안내를 보낸 경우는 그대로 표시) */
+      var e=res&&res.error?String(res.error):'';
+      msg.textContent=(!e||/접수번호|비밀번호|찾을 수 없|올바르지/.test(e))
+        ? '접수번호 또는 비밀번호가 올바르지 않습니다.' : e;
     }
   }).catch(function(){msg.className='lookup-msg err';msg.textContent='서버 연결에 실패했습니다. 잠시 후 다시 시도해 주세요.';});
 }
