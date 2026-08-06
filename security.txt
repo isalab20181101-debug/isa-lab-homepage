@@ -1,0 +1,4 @@
+Contact: https://www.isa-lab.co.kr/support.html
+Expires: 2027-08-05T00:00:00.000Z
+Preferred-Languages: ko, en
+Canonical: https://www.isa-lab.co.kr/.well-known/security.txt
