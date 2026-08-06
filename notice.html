@@ -416,7 +416,7 @@ footer{background:#142340;color:rgba(255,255,255,0.65);padding:50px 24px 28px;}
       </ul>
     </div>
 
-    <div class="notice-box" style="margin-top:24px;">※ KOLAS 인정서, 시험·검사기관 지정서 등 거래처 제출용 증명서류는 <a href="certification.html" style="color:inherit;text-decoration:underline;font-weight:700;">지정·인정현황</a> 페이지에서 다운로드하실 수 있습니다. 파일이 제공되지 않는 자료는 전화(031-429-0620) 또는 이메일(isalab@naver.com)로 문의해 주시면 보내드립니다.</div>
+    <div class="notice-box" style="margin-top:24px;">※ KOLAS 인정서, 시험·검사기관 지정서 등 거래처 제출용 증명서류는 <a href="certification.html" style="color:inherit;text-decoration:underline;font-weight:700;">지정·인정현황</a> 페이지에서 다운로드하실 수 있습니다. 파일이 제공되지 않는 자료는 전화(031-429-0620) 또는 이메일(<span class="em-x" data-a="balasi" data-b="moc.revan"></span>)로 문의해 주시면 보내드립니다.</div>
   </div>
 
 </div>
@@ -449,7 +449,7 @@ footer{background:#142340;color:rgba(255,255,255,0.65);padding:50px 24px 28px;}
           <div class="fi"><span>대표전화</span> 031-429-0620</div>
           <div class="fi"><span>상담문의</span> 070-8831-7376</div>
           <div class="fi"><span>팩스</span> 031-427-0625</div>
-          <div class="fi"><span>이메일</span> <a href="mailto:isalab@naver.com" style="color:inherit">isalab@naver.com</a></div>
+          <div class="fi"><span>이메일</span> <a href="#" class="em-x" data-a="balasi" data-b="moc.revan" style="color:inherit"></a></div>
           <div class="fi"><span>운영시간</span> 평일 09:00~18:00 / 점심 12:00~13:00 (주말·공휴일 휴무)</div>
           <div class="fi"><span>식약처 지정</span> 식품 등 시험·검사기관 제120호 | 축산물 시험·검사기관 제54호</div>
           <div class="fi"><span>KOLAS</span> 국제공인시험기관 인정번호 KT1316</div>
@@ -523,9 +523,10 @@ document.addEventListener('click',function(e){
   const a=e.target.closest('a[data-pending]');
   if(!a)return;
   e.preventDefault();
-  alert('해당 파일은 준비중입니다.\n\n이메일(isalab@naver.com) 또는 전화(031-429-0620)로 요청해 주시면 발송해 드립니다.');
+  alert('해당 파일은 준비중입니다.\n\n이메일(' + EMX + ') 또는 전화(031-429-0620)로 요청해 주시면 발송해 드립니다.');
 });
 
 </script>
+<script>(function(){function r(s){return s.split('').reverse().join('')}var e=r('balasi')+'@'+r('moc.revan');window.EMX=e;document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.em-x').forEach(function(el){if(el.tagName==='A'){el.setAttribute('href','mailto:'+e);if(!el.textContent.trim()){el.textContent=e}}else{el.textContent=e}})});})();</script>
 </body>
 </html>

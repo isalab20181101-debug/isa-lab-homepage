@@ -212,7 +212,7 @@ footer{background:#142340;color:rgba(255,255,255,0.65);padding:50px 24px 28px;}
   <!-- 양식 다운로드 -->
   <div class="content-section" id="download">
     <h2 class="section-heading">양식 다운로드</h2>
-    <div class="notice-box">아래 양식을 다운로드하여 작성 후 이메일(isalab@naver.com) 또는 방문 시 제출해 주세요.</div>
+    <div class="notice-box">아래 양식을 다운로드하여 작성 후 이메일(<span class="em-x" data-a="balasi" data-b="moc.revan"></span>) 또는 방문 시 제출해 주세요.</div>
 
     <h3 style="font-size:16px;font-weight:700;color:#333;margin:24px 0 12px;padding-left:4px;">📋 검사 의뢰 양식</h3>
     <ul class="file-list">
@@ -319,7 +319,7 @@ footer{background:#142340;color:rgba(255,255,255,0.65);padding:50px 24px 28px;}
         <a href="files/대기_측정대행업 등록증.jpg" download class="btn-download"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg> 다운로드</a>
       </li>
     </ul>
-    <div class="notice-box">※ 파일이 업로드되지 않은 항목은 이메일(isalab@naver.com) 또는 전화(031-429-0620)로 요청해 주시면 발송해 드립니다.</div>
+    <div class="notice-box">※ 파일이 업로드되지 않은 항목은 이메일(<span class="em-x" data-a="balasi" data-b="moc.revan"></span>) 또는 전화(031-429-0620)로 요청해 주시면 발송해 드립니다.</div>
   </div>
 
   <!-- FAQ -->
@@ -402,7 +402,7 @@ footer{background:#142340;color:rgba(255,255,255,0.65);padding:50px 24px 28px;}
         <div class="contact-icon">✉️</div>
         <h3>이메일 문의</h3>
         <p>이메일로 문의사항을 보내주시면<br>빠르게 답변드리겠습니다.</p>
-        <a href="mailto:isalab@naver.com" class="contact-btn">이메일 보내기</a>
+        <a href="#" class="contact-btn em-x" data-a="balasi" data-b="moc.revan">이메일 보내기</a>
       </div>
       <div class="contact-card">
         <div class="contact-icon">📍</div>
@@ -446,7 +446,7 @@ footer{background:#142340;color:rgba(255,255,255,0.65);padding:50px 24px 28px;}
           <div class="fi"><span>대표전화</span> 031-429-0620</div>
           <div class="fi"><span>상담문의</span> 070-8831-7376</div>
           <div class="fi"><span>팩스</span> 031-427-0625</div>
-          <div class="fi"><span>이메일</span> <a href="mailto:isalab@naver.com" style="color:inherit">isalab@naver.com</a></div>
+          <div class="fi"><span>이메일</span> <a href="#" class="em-x" data-a="balasi" data-b="moc.revan" style="color:inherit"></a></div>
           <div class="fi"><span>운영시간</span> 평일 09:00~18:00 / 점심 12:00~13:00 (주말·공휴일 휴무)</div>
           <div class="fi"><span>식약처 지정</span> 식품 등 시험·검사기관 제120호 | 축산물 시험·검사기관 제54호</div>
           <div class="fi"><span>KOLAS</span> 국제공인시험기관 인정번호 KT1316</div>
@@ -529,9 +529,10 @@ document.addEventListener('click',function(e){
   const a=e.target.closest('a[data-pending]');
   if(!a)return;
   e.preventDefault();
-  alert('해당 파일은 준비중입니다.\n\n이메일(isalab@naver.com) 또는 전화(031-429-0620)로 요청해 주시면 발송해 드립니다.');
+  alert('해당 파일은 준비중입니다.\n\n이메일(' + EMX + ') 또는 전화(031-429-0620)로 요청해 주시면 발송해 드립니다.');
 });
 
 </script>
+<script>(function(){function r(s){return s.split('').reverse().join('')}var e=r('balasi')+'@'+r('moc.revan');window.EMX=e;document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.em-x').forEach(function(el){if(el.tagName==='A'){el.setAttribute('href','mailto:'+e);if(!el.textContent.trim()){el.textContent=e}}else{el.textContent=e}})});})();</script>
 </body>
 </html>

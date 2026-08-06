@@ -376,7 +376,7 @@ select.form-control{appearance:none;background-image:url("data:image/svg+xml,%3C
         <div class="qc-icon">✉️</div>
         <div>
           <div class="qc-label">이메일</div>
-          <div class="qc-val"><a href="mailto:isalab@naver.com">isalab@naver.com</a></div>
+          <div class="qc-val"><a href="#" class="em-x" data-a="balasi" data-b="moc.revan"></a></div>
         </div>
       </div>
       <div class="qc-card">
@@ -633,7 +633,7 @@ select.form-control{appearance:none;background-image:url("data:image/svg+xml,%3C
           <div class="fi"><span>대표전화</span> 031-429-0620</div>
           <div class="fi"><span>상담문의</span> 070-8831-7376</div>
           <div class="fi"><span>팩스</span> 031-427-0625</div>
-          <div class="fi"><span>이메일</span> <a href="mailto:isalab@naver.com" style="color:inherit">isalab@naver.com</a></div>
+          <div class="fi"><span>이메일</span> <a href="#" class="em-x" data-a="balasi" data-b="moc.revan" style="color:inherit"></a></div>
           <div class="fi"><span>운영시간</span> 평일 09:00~18:00 / 점심 12:00~13:00 (주말·공휴일 휴무)</div>
           <div class="fi"><span>식약처 지정</span> 식품 등 시험·검사기관 제120호 | 축산물 시험·검사기관 제54호</div>
           <div class="fi"><span>KOLAS</span> 국제공인시험기관 인정번호 KT1316</div>
@@ -1421,5 +1421,6 @@ function updateQuote(e){
   }).catch(function(){msg.className='lookup-msg err';msg.textContent='서버 연결에 실패했습니다.';});
 }
 </script>
+<script>(function(){function r(s){return s.split('').reverse().join('')}var e=r('balasi')+'@'+r('moc.revan');window.EMX=e;document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.em-x').forEach(function(el){if(el.tagName==='A'){el.setAttribute('href','mailto:'+e);if(!el.textContent.trim()){el.textContent=e}}else{el.textContent=e}})});})();</script>
 </body>
 </html>
