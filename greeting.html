@@ -975,7 +975,14 @@ footer {
 <div class="content-wrap">
   <div class="content-section">
     <h2 class="section-heading">인사말</h2>
-    <div style="display:grid;grid-template-columns:1fr 280px;gap:48px;align-items:start;">
+    <style>
+      .greet-grid { display:grid; grid-template-columns:1fr 280px; gap:48px; align-items:start; }
+      @media (max-width:768px) {
+        .greet-grid { grid-template-columns:1fr; gap:28px; }
+        .greet-grid img { height:300px !important; }
+      }
+    </style>
+    <div class="greet-grid">
       <div>
         <p style="font-size:18px;font-weight:700;color:#1d3158;margin-bottom:24px;line-height:1.6;">안녕하세요.<br>주식회사 아이에스에이연구원입니다.</p>
         <p style="font-size:15px;line-height:2;color:#444;margin-bottom:18px;">아이에스에이연구원은 <strong>식품의약품안전처 지정 시험·검사기관</strong>으로서, 식품, 축산물, 식품첨가물 및 건강기능식품 분야의 안전성과 품질을 확인하는 전문 시험검사 서비스를 제공하고 있습니다.</p>

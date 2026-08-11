@@ -978,7 +978,8 @@ footer {
 .cert-upload-btn:hover{background:#B6C8E7;}
 .cert-dl-btn{display:inline-flex;align-items:center;gap:4px;font-size:13px;font-weight:600;color:#fff;background:var(--page-accent);border-radius:5px;padding:5px 12px;margin-top:8px;transition:filter 0.15s;}
 .cert-dl-btn:hover{filter:brightness(0.9);}
-@media(max-width:768px){.cert-grid2{grid-template-columns:repeat(2,1fr);}}
+.cert-grid5{grid-template-columns:repeat(5,1fr);}
+@media(max-width:768px){.cert-grid2,.cert-grid2.cert-grid5{grid-template-columns:repeat(2,1fr);}}
 </style>
 <div class="page-hero"><div class="page-hero-content">
   <h1>지정·인정현황</h1>
@@ -1046,7 +1047,7 @@ footer {
     </div>
 
     <h3 style="font-size:15px;font-weight:700;color:#1d3158;margin:28px 0 14px;padding-left:10px;border-left:3px solid #1d3158;">기타 인증·등록 서류</h3>
-    <div class="cert-grid2" style="grid-template-columns:repeat(5,1fr);">
+    <div class="cert-grid2 cert-grid5">
 
 
       <div class="cert-card2" onclick="openCert('대기측정대행업 등록증','경기도 등록 제68호','🌬️','ct_air')">

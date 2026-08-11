@@ -1005,7 +1005,11 @@ footer {
       </a>
     </div>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;">
+    <style>
+      .loc-grid { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+      @media (max-width:768px) { .loc-grid { grid-template-columns:1fr; gap:28px; } }
+    </style>
+    <div class="loc-grid">
 
       <!-- 연락처 정보 -->
       <div>
