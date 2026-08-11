@@ -992,6 +992,30 @@ function toggleAcc(el){
   });
 }
 </script>
+<style>
+/* ===== 모바일: 우측 퀵메뉴를 하단 고정 바로 전환 (2026-08-11) ===== */
+@media (max-width: 768px) {
+  .sidebar-right {
+    display: flex; flex-direction: row;
+    top: auto; bottom: 0; left: 0; right: 0; transform: none;
+    width: 100%; border-radius: 0; overflow: hidden;
+    box-shadow: 0 -4px 16px rgba(0,0,0,0.18);
+    background: #5d76a8;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .sb-btn { flex: 1 1 0; width: auto; padding: 8px 2px 9px; gap: 3px; }
+  .sb-btn svg { width: 19px; height: 19px; }
+  .sb-btn br { display: none; }
+  /* 유튜브·블로그·인스타·카카오(상담요청과 동일 채널)는 모바일에서 숨김 */
+  .sb-btn.c-red, .sb-btn.c-blog, .sb-btn.c-insta, .sb-btn.c-kakao { display: none; }
+  .sb-btn:hover { transform: none; }
+  body { padding-bottom: 78px; }
+  #scrollTop { bottom: 88px; left: 16px; width: 40px; height: 40px; }
+  /* 표는 셀이 세로로 찌그러지지 않게 가로 스크롤 유도 */
+  .data-table { min-width: 560px; }
+  .item-table { min-width: 640px; }
+}
+</style>
 </head>
 <body>
 <header><div class="header-inner">
