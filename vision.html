@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>식품 자가품질검사 | 아이에스에이연구원</title>
+<title>비전·경영방침 | 아이에스에이연구원</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <style>/* ===== GOOGLE FONTS ===== */
@@ -12,7 +12,6 @@
 :root {
   --primary: #1d3158;
   --accent-orange: #F59E0B;
-  --page-accent: #1D6F42;--accent-soft:#E8F1EC;
   --accent-orange-dark: #D97706;
   --accent-teal: #5d76a8;
   --primary-dark: #142340;
@@ -27,6 +26,8 @@
   --text-light: #555555;
   --footer-bg: #0f1b33;
   --nav-height: 90px;
+  --page-accent: #0E7490;
+  --accent-soft: #E7F1F4;
 }
 
 /* ===== RESET ===== */
@@ -35,7 +36,7 @@ html { scroll-behavior: smooth; }
 body {
   font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
   color: var(--text); line-height: 1.7; background: #fff;
-  font-size: 17px; word-break: keep-all;
+  font-size: 16px; word-break: keep-all;
 }
 a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
@@ -175,7 +176,7 @@ header {
 }
 .section-heading::before {
   content: ''; display: block; width: 5px; height: 22px;
-  background: var(--page-accent); border-radius: 3px; flex-shrink: 0;
+  background: #0E7490; border-radius: 3px; flex-shrink: 0;
 }
 
 /* ===== NOTICE BOX ===== */
@@ -849,149 +850,7 @@ footer {
 /* 인쇄 시 CTA 리본 숨김 */
 @media print {
 }
-
-/* ===== 전체 폰트 가독성 향상 ===== */
-
-/* 본문 텍스트 */
-.content-wrap p { font-size: 16px; line-height: 2.0; color: #222; }
-.content-section p { font-size: 16px; line-height: 2.0; }
-
-/* 섹션 제목 */
-.section-heading { font-size: 22px; font-weight: 800; }
-.content-section h2 { font-size: 22px; }
-.content-section h3 { font-size: 18px; font-weight: 700; }
-
-/* 서브페이지 히어로 제목 */
-.page-hero h1 { font-size: 34px; font-weight: 900; }
-
-/* 서브내비 — (위 .sub-nav a 정의에 통합됨) */
-
-/* 메인 네비 */
-.nav-link { font-size: 18px !important; }
-.dropdown a { font-size: 15px !important; }
-
-/* 공지사항 목록 */
-.info-list .ttl { font-size: 15px; }
-.info-list .dt { font-size: 13px; }
-.info-box-hd h3 { font-size: 17px; }
-
-/* 빠른메뉴 */
-.quick-btn { font-size: 15px; font-weight: 700; }
-
-/* 서비스 카드 */
-.svc-name { font-size: 15px; font-weight: 700; }
-
-/* 히어로 */
-.hero-content h2 { font-size: 52px !important; }
-.hero-content p { font-size: 18px !important; }
-.hero-badge { font-size: 14px !important; }
-.hero-btn { font-size: 16px !important; padding: 16px 36px !important; }
-
-/* 표 텍스트 */
-table th, table td { font-size: 15px; }
-
-/* 타임라인 */
-.tl-content p { font-size: 16px; }
-.tl-month { font-size: 14px; }
-.timeline-year span { font-size: 28px; }
-
-/* CTA 리본 */
-
-/* 푸터 */
-.footer-brand .fn { font-size: 18px !important; }
-.footer-info .fi { font-size: 14px; }
-.footer-links a { font-size: 14px; }
-
-/* 하이라이트 박스 */
-.highlight-box { font-size: 15px; }
-.notice-box { font-size: 15px; }
-
-/* 인증서 라벨 */
-.cert-label { font-size: 14px !important; }
-.cert-card h3 { font-size: 16px; }
-.cert-card p { font-size: 14px; }
-
-/* 모바일 */
-@media (max-width: 768px) {
-  .hero-content h2 { font-size: 28px !important; }
-  .hero-content p { font-size: 16px !important; }
-  .page-hero h1 { font-size: 26px; }
-  body { font-size: 16px; }
-}
-
-/* ===== 최소 폰트 14px 전역 적용 ===== */
-* { min-font-size: 14px; }
-body { font-size: 17px; }
-small, .small { font-size: 14px !important; }
-
-/* 기존 작은 폰트들 14px 이상으로 강제 */
-.breadcrumb { font-size: 14px !important; }
-.breadcrumb a { font-size: 14px !important; }
-.info-list .dt { font-size: 14px !important; }
-.footer-bottom { font-size: 14px !important; }
-.footer-brand .fen { font-size: 14px !important; }
-.footer-info .fi { font-size: 14px !important; }
-.footer-links a { font-size: 14px !important; }
-.tl-month { font-size: 14px !important; }
-.cert-label { font-size: 14px !important; }
-.hero-badge { font-size: 14px !important; }
-.partner-logo { font-size: 14px !important; }
-.sb-btn { font-size:13px !important; } /* 사이드바는 공간 제약으로 예외 */
-
-
 </style>
-<style>
-.acc-item { border:1px solid #CBD6E6; border-radius:10px; margin-bottom:14px; overflow:hidden; }
-.acc-header { background:#F8FAFC; padding:18px 24px; cursor:pointer; display:flex; align-items:center; justify-content:space-between; font-size:17px; font-weight:700; color:#1E293B; transition:all 0.2s; border-left:4px solid #CBD5E1; }
-.acc-header:hover { background:#EFF6FF; border-left-color:#5d76a8; color:#5d76a8; }
-
-.acc-icon { font-size:20px; transition:transform 0.3s; flex-shrink:0; }
-.acc-header.open .acc-icon { transform:rotate(45deg); }
-.acc-body { display:none; padding:24px; background:#fff; font-size:15px; line-height:1.9; color:#334155; }
-.acc-body.open { display:block; }
-.data-table { width:100%; border-collapse:collapse; font-size:15px; margin-top:16px; border:1px solid #C9D7EF; }
-.data-table th { background:#EFF4FB; color:#1d3158; padding:10px 14px; text-align:center; font-weight:700; border-bottom:2px solid #5d76a8; }
-.data-table td { padding:11px 14px; border-bottom:1px solid #CBD6E6; vertical-align:middle; line-height:1.7; }
-.data-table th + th, .data-table td + td { border-left:1px solid #DCE6F2; }
-.data-table tr:nth-child(even) td { background:#F8FAFC; }
-.data-table tr:hover td { background:#EFF6FF; }
-.law-box { background:#EFF6FF; border-left:4px solid #5d76a8; border-radius:0 8px 8px 0; padding:18px 20px; margin-bottom:20px; font-size:15px; line-height:1.9; color:#1E293B; }
-.law-box strong { color:#5d76a8; }
-.warn-box { background:#FFF7ED; border-left:4px solid #5d76a8; border-radius:0 8px 8px 0; padding:16px 20px; font-size:14px; line-height:1.8; color:#1d3158; margin-top:16px; }
-.cta-bottom { background:var(--page-accent); border-radius:16px; padding:28px 32px; margin-top:40px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; }
-.cta-bottom .cta-info p { color:rgba(255,255,255,0.8); font-size:15px; margin-bottom:6px; }
-.cta-bottom .cta-info h3 { color:#fff; font-size:22px; font-weight:800; }
-.cta-bottom .cta-btns { display:flex; gap:12px; flex-wrap:wrap; }
-.cta-btn-white { background:#fff; color:var(--page-accent); padding:14px 28px; border-radius:8px; font-size:15px; font-weight:700; text-decoration:none; display:inline-block; }
-.cta-btn-outline { background:rgba(255,255,255,0.1); color:#fff; border:2px solid rgba(255,255,255,0.5); padding:14px 28px; border-radius:8px; font-size:15px; font-weight:700; text-decoration:none; display:inline-block; }
-.food-table { width:100%; border-collapse:collapse; font-size:14px; }
-.food-table th { background:#EFF4FB; color:#1d3158; padding:10px 14px; text-align:center; font-weight:700; white-space:nowrap; border-bottom:2px solid #5d76a8; }
-.food-table td { padding:10px 14px; border-bottom:1px solid #CBD6E6; vertical-align:middle; line-height:1.7; }
-.food-table tr:nth-child(even) td { background:#F8FAFC; }
-.food-table tr:hover td { background:#EFF6FF; }
-.food-table .no { text-align:center; width:36px; color:#94A3B8; font-weight:600; }
-.food-table .period { text-align:center; white-space:nowrap; font-weight:700; color:#5d76a8; width:100px; }
-.tag-list { display:flex; flex-wrap:wrap; gap:4px; margin-top:4px; }
-.tag { background:#DBEAFE; color:#5d76a8; font-size:13px; padding:2px 8px; border-radius:20px; white-space:nowrap; border:1px solid #BFDBFE; }
-
-
-</style>
-<script>
-function toggleAcc(el){
-  var body=el.nextElementSibling;
-  var isOpen=el.classList.contains("open");
-  document.querySelectorAll(".acc-header").forEach(function(h){h.classList.remove("open");h.nextElementSibling.classList.remove("open");});
-  if(isOpen)return;
-  el.classList.add("open");body.classList.add("open");
-  // 고정 헤더+서브내비 높이를 실제로 재서 그만큼 아래에 오도록 맞춤 (레이아웃 반영 후 측정)
-  requestAnimationFrame(function(){
-    var hdr=document.querySelector("header"), sub=document.querySelector(".sub-nav");
-    var off=(hdr?hdr.offsetHeight:0)+(sub?sub.offsetHeight:0)+14;
-    var y=el.getBoundingClientRect().top+window.pageYOffset-off;
-    window.scrollTo({top:Math.max(0,y),behavior:"smooth"});
-  });
-}
-</script>
 <style>
 /* ===== 모바일: 우측 퀵메뉴를 하단 고정 바로 전환 (2026-08-11) ===== */
 @media (max-width: 768px) {
@@ -1018,11 +877,12 @@ function toggleAcc(el){
 </style>
 </head>
 <body>
+
 <header><div class="header-inner">
   <a href="index.html" class="logo"><div class="logo-img-wrap">
-    <img src="images/food_1.jpg" alt="ISA연구원" class="logo-svg">
+    <img src="images/greeting_1.jpg" alt="ISA연구원" class="logo-svg">
     <div class="logo-divider"></div>
-    <img src="images/food_2.jpg" alt="KOLAS" class="logo-kolas">
+    <img src="images/greeting_2.jpg" alt="KOLAS" class="logo-kolas">
   </div></a>
   <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
   <div class="nav-wrap" id="navWrap">
@@ -1031,6 +891,7 @@ function toggleAcc(el){
             <a class="nav-link" href="#">연구원소개</a>
             <div class="dropdown">
               <a href="greeting.html">인사말</a>
+              <a href="vision.html">비전·경영방침</a>
               <a href="history.html">연혁</a>
               <a href="organization.html">조직도</a>
               <a href="certification.html">지정·인정현황</a>
@@ -1087,6 +948,7 @@ function toggleAcc(el){
         </ul></nav>
   </div>
 </div></header>
+
 <div class="sidebar-right">
   <a href="quote.html" class="sb-btn" style="background:#F59E0B"><svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>실시간<br>견적</a>
   <a href="http://pf.kakao.com/_wLxhxnb" target="_blank" class="sb-btn" style="background:#5d76a8"><svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>상담<br>요청</a>
@@ -1097,329 +959,182 @@ function toggleAcc(el){
   <a href="https://www.instagram.com/isalab_kr" target="_blank" class="sb-btn c-insta"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919C8.333.014 8.741 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>인스타</a>
   <a href="http://pf.kakao.com/_wLxhxnb" target="_blank" class="sb-btn c-kakao"><svg viewBox="0 0 24 24"><path d="M12 3C6.48 3 2 6.48 2 10.8c0 2.73 1.65 5.13 4.13 6.54L5 21l4.35-2.4c.85.22 1.73.4 2.65.4 5.52 0 10-3.48 10-7.8S17.52 3 12 3z"/></svg>카카오</a>
 </div>
+
 <div class="page-hero"><div class="page-hero-content">
-  <h1>식품 자가품질검사</h1>
-  <div class="breadcrumb"><a href="index.html">홈</a><span class="sep">›</span>검사분야<span class="sep">›</span>식품 자가품질검사</div>
+  <h1>비전·경영방침</h1>
+  <div class="breadcrumb"><a href="index.html">홈</a><span class="sep">›</span>연구원소개<span class="sep">›</span>비전·경영방침</div>
 </div></div>
+
 <nav class="sub-nav"><div class="sub-nav-inner">
-  <a href="food.html" class="active">식품 자가품질검사</a>
-  <a href="livestock.html" >축산물 자가품질검사</a>
-  <a href="health-food.html" >건강기능식품 자가품질검사</a>
-  <a href="nutrition.html" >영양성분 검사</a>
-  <a href="microbiology.html" >미생물 검사</a>
-  <a href="chemistry.html" >이화학 검사</a>
-  <a href="haccp.html" >HACCP 유효성검사</a>
-  <a href="shelf-life.html" >소비기한 설정시험</a>
-  <a href="allergen.html" >알레르기·할랄·비건</a>
-  <a href="air-quality.html" >대기측정 대행</a>
+  <a href="greeting.html">인사말</a>
+  <a href="vision.html" class="active">비전·경영방침</a>
+  <a href="history.html">연혁</a>
+  <a href="organization.html">조직도</a>
+  <a href="certification.html">지정·인정현황</a>
+  <a href="location.html">오시는길</a>
 </div></nav>
+
 <div class="content-wrap">
 
-<div class="acc-item">
-  <div class="acc-header" onclick="toggleAcc(this)">
-    <span>Q1. 식품 자가품질검사의 의무</span><span class="acc-icon">+</span>
-  </div>
-  <div class="acc-body">
-    <div class="law-box">
-      <strong>관련 법령 — 식품위생법 제31조 (자가품질검사 의무)</strong><br><br>
-      ① 식품등을 제조·가공하는 영업자는 총리령으로 정하는 바에 따라 제조·가공하는 식품등이 제7조 또는 제9조에 따른 기준과 규격에 맞는지를 검사하여야 한다.<br><br>
-      ② 식품등을 제조·가공하는 영업자는 제1항에 따른 검사를 「식품·의약품분야 시험·검사 등에 관한 법률」 제6조제3항제2호에 따른 <strong>자가품질위탁 시험·검사기관에 위탁하여 실시할 수 있다.</strong>
-    </div>
-    <p>식품, 건강기능식품, 식품첨가물, 기구 및 용기·포장을 제조·가공하거나 즉석판매 제조·가공업을 하는 영업자는 생산 제품에 대해 정기적으로 기준 및 규격에 적합한지를 검사하여야 하며, 자가검사시설이 없거나 직접 검사하기 어려운 경우에는 <strong>식품의약품안전처 지정 자가품질위탁 시험·검사기관(제120호)</strong>인 아이에스에이연구원에 의뢰하여 진행할 수 있습니다.</p>
-  </div>
-</div>
+  <style>
+    /* ===== 비전·경영방침 전용 스타일 ===== */
+    .vision-banner {
+      background: linear-gradient(135deg, #142340 0%, #1d3158 55%, #2a4a7a 100%);
+      border-radius: 16px; padding: 56px 32px; text-align: center; color: #fff;
+      position: relative; overflow: hidden; margin-bottom: 56px;
+    }
+    .vision-banner::before {
+      content: ''; position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/svg%3E") repeat;
+    }
+    .vision-banner > * { position: relative; z-index: 1; }
+    .vision-label {
+      display: inline-block; font-size: 13px; font-weight: 700; letter-spacing: 4px;
+      color: #9fb4d8; border: 1px solid rgba(255,255,255,0.35);
+      padding: 6px 22px; border-radius: 24px; margin-bottom: 22px;
+    }
+    .vision-banner h3 { font-size: 30px; font-weight: 900; line-height: 1.45; margin-bottom: 8px; }
+    .vision-banner h3 em { font-style: normal; color: #7dd3e8; }
+    .vision-goal {
+      display: inline-flex; align-items: center; gap: 10px; margin-top: 26px;
+      background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 10px; padding: 12px 26px; font-size: 15px; line-height: 1.6;
+    }
+    .vision-goal .vg-tag {
+      font-size: 13px; font-weight: 700; color: #0E7490; background: #fff;
+      padding: 3px 12px; border-radius: 14px; flex-shrink: 0;
+    }
 
-<div class="acc-item">
-  <div class="acc-header" onclick="toggleAcc(this)">
-    <span>Q2. 자가품질검사 의무 위반시 행정처분 기준</span><span class="acc-icon">+</span>
-  </div>
-  <div class="acc-body">
-    <div class="law-box">
-      <strong>📋 식품위생법 시행규칙 [별표 23] 행정처분 기준(제89조 관련)</strong>
-    </div>
+    /* 경영방침 카드 */
+    .policy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .policy-card {
+      background: #fff; border: 1px solid var(--border); border-radius: 14px;
+      padding: 32px 24px; text-align: center; transition: all 0.25s;
+      border-top: 4px solid var(--page-accent);
+    }
+    .policy-card:hover { transform: translateY(-4px); box-shadow: 0 10px 28px rgba(14,116,144,0.16); }
+    .policy-icon {
+      width: 68px; height: 68px; margin: 0 auto 16px; background: var(--accent-soft);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    }
+    .policy-icon svg { width: 34px; height: 34px; fill: var(--page-accent); }
+    .policy-card h4 { font-size: 18px; font-weight: 800; color: var(--primary); margin-bottom: 6px; }
+    .policy-card .p-en { font-size: 13px; color: #94a3b8; letter-spacing: 1.5px; font-weight: 600; margin-bottom: 14px; }
+    .policy-card p { font-size: 14px; color: #555; line-height: 1.8; }
 
-    <p style="font-weight:700;margin:20px 0 10px;font-size:15px;">가. 자가품질검사를 실시하지 아니한 경우</p>
-    <div style="overflow-x:auto;">
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th style="width:45%;">위반 행위</th>
-            <th style="text-align:center;">1차 위반</th>
-            <th style="text-align:center;">2차 위반</th>
-            <th style="text-align:center;">3차 위반</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>1) 검사항목의 전부에 대하여 실시하지 아니한 경우</td>
-            <td style="text-align:center;">품목 제조정지 1개월</td>
-            <td style="text-align:center;">품목 제조정지 3개월</td>
-            <td style="text-align:center;">품목류 제조정지 3개월</td>
-          </tr>
-          <tr>
-            <td>2) 검사항목의 50퍼센트 이상에 대하여 실시하지 아니한 경우</td>
-            <td style="text-align:center;">품목 제조정지 15일</td>
-            <td style="text-align:center;">품목 제조정지 1개월</td>
-            <td style="text-align:center;">품목 제조정지 3개월</td>
-          </tr>
-          <tr>
-            <td>3) 검사항목의 50퍼센트 미만에 대하여 실시하지 아니한 경우</td>
-            <td style="text-align:center;">시정명령</td>
-            <td style="text-align:center;">품목 제조정지 15일</td>
-            <td style="text-align:center;">품목 제조정지 3개월</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    /* 추진전략 */
+    .strategy-item {
+      display: grid; grid-template-columns: 280px 1fr; gap: 0;
+      border: 1px solid var(--border); border-radius: 14px; overflow: hidden; margin-bottom: 18px;
+      transition: box-shadow 0.2s;
+    }
+    .strategy-item:hover { box-shadow: 0 6px 20px rgba(14,116,144,0.12); }
+    .strategy-head {
+      background: linear-gradient(160deg, #0E7490, #155e75); color: #fff;
+      padding: 26px 24px; display: flex; flex-direction: column; justify-content: center; gap: 8px;
+    }
+    .strategy-num { font-size: 13px; font-weight: 700; letter-spacing: 2px; opacity: 0.7; }
+    .strategy-head h4 { font-size: 18px; font-weight: 800; line-height: 1.5; }
+    .strategy-body { padding: 18px 26px; display: flex; flex-direction: column; justify-content: center; }
+    .strategy-body li {
+      display: flex; align-items: flex-start; gap: 12px;
+      padding: 9px 0; font-size: 15px; color: #444; line-height: 1.7;
+    }
+    .strategy-body li + li { border-top: 1px dashed #dbe4f0; }
+    .strategy-body .s-num {
+      flex-shrink: 0; width: 24px; height: 24px; margin-top: 2px;
+      background: var(--accent-soft); color: var(--page-accent);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 13px; font-weight: 700;
+    }
 
-    <p style="font-weight:700;margin:24px 0 10px;font-size:15px;">나. 자가품질검사에 관한 기록서를 2년간 보관하지 아니한 경우</p>
-    <div style="overflow-x:auto;">
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th style="text-align:center;">1차 위반</th>
-            <th style="text-align:center;">2차 위반</th>
-            <th style="text-align:center;">3차 위반</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style="text-align:center;">영업정지 5일</td>
-            <td style="text-align:center;">영업정지 15일</td>
-            <td style="text-align:center;">영업정지 1개월</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    @media (max-width: 900px) {
+      .policy-grid { grid-template-columns: 1fr; }
+      .strategy-item { grid-template-columns: 1fr; }
+      .strategy-head { padding: 18px 22px; flex-direction: row; align-items: center; gap: 14px; }
+      .vision-banner h3 { font-size: 22px; }
+      .vision-banner { padding: 40px 20px; }
+      .vision-goal { font-size: 14px; padding: 10px 16px; flex-wrap: wrap; justify-content: center; }
+    }
+  </style>
 
-    <p style="font-weight:700;margin:24px 0 10px;font-size:15px;">다. 자가품질검사 결과 부적합한 사실을 확인하였거나, 「식품·의약품분야 시험·검사 등에 관한 법률」 제6조제3항제2호에 따른 자가품질위탁시험·검사기관으로부터 부적합한 사실을 통보 받았음에도 불구하고 해당 식품을 유통·판매한 경우</p>
-    <div style="overflow-x:auto;">
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th style="width:60%;text-align:center;">1차 위반</th>
-            <th style="text-align:center;">2차 위반</th>
-            <th style="text-align:center;">3차 위반</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style="text-align:center;">영업허가·등록 취소 또는 영업소 폐쇄와 해당 제품 폐기</td>
-            <td style="text-align:center;">—</td>
-            <td style="text-align:center;">—</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="warn-box" style="margin-top:16px;">
-      ⚠️ <strong>자가품질검사 기록 의무</strong> — 자가품질검사를 실시한 경우 그 결과를 <strong>2년간 보관</strong>하여야 합니다. (식품위생법 시행규칙 제31조제3항)
+  <!-- ===== 비전 ===== -->
+  <div class="content-section">
+    <div class="vision-banner">
+      <div class="vision-label">VISION</div>
+      <h3>국내 및 아시아 <em>메이저 시험·검사·연구기관</em> 도약</h3>
+      <div class="vision-goal"><span class="vg-tag">목표</span>글로벌 수준의 시험·검사로 고객만족 극대화</div>
     </div>
   </div>
-</div>
 
-<div class="acc-item">
-  <div class="acc-header" onclick="toggleAcc(this)">
-    <span>Q3. 자가품질검사 주기 산정 방법</span><span class="acc-icon">+</span>
-  </div>
-  <div class="acc-body">
-    <div style="background:#EFF6FF;border:1px solid #BFDBFE;border-radius:10px;padding:20px 24px;margin-bottom:20px;">
-      <div style="font-size:16px;font-weight:700;color:#5d76a8;margin-bottom:14px;">📅 검사주기 산정 방법</div>
-      <p style="font-size:15px;line-height:1.9;margin-bottom:12px;">자가품질검사는 <strong>처음으로 제품을 제조한 날을 기준</strong>으로 검사주기를 산정합니다. 해당 주기 내에 검사를 실시하여야 하며, 가급적 제품이 출고되기 전에 자가품질검사를 실시할 것을 권장합니다.</p>
-      <div style="display:flex;flex-direction:column;gap:10px;">
-        <div style="background:#fff;border-left:3px solid #5d76a8;border-radius:0 8px 8px 0;padding:12px 16px;font-size:14px;line-height:1.8;">
-          <strong style="color:#5d76a8;">예시 1)</strong> 검사주기가 1개월인 식품을 <strong>1월 20일</strong> 최초 제조하여 자가품질검사를 실시한 경우<br>
-          → <strong>2월 20일</strong> 이후에 생산한 제품으로 해당 주기 내에 검사를 실시
-        </div>
-        <div style="background:#fff;border-left:3px solid #5d76a8;border-radius:0 8px 8px 0;padding:12px 16px;font-size:14px;line-height:1.8;">
-          <strong style="color:#5d76a8;">예시 2)</strong> 검사주기가 1개월인 식품을 <strong>1월 20일</strong> 최초 제조하고, <strong>2월 20일 ~ 4월 3일</strong> 생산을 중단한 이후 <strong>4월 4일</strong>부터 다시 제조한 경우<br>
-          → 생산을 중단한 기간 동안은 검사를 하지 않으며, 다시 제품을 제조한 <strong>4월 4일 이후</strong> 제조한 제품에 대해 검사를 실시
-        </div>
+  <!-- ===== 경영방침 ===== -->
+  <div class="content-section">
+    <h2 class="section-heading">경영방침</h2>
+    <div class="policy-grid">
+      <div class="policy-card">
+        <div class="policy-icon"><svg viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6C7.8 12.16 7 10.63 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/></svg></div>
+        <h4>기술 혁신</h4>
+        <div class="p-en">INNOVATION</div>
+        <p>첨단바이오·AI 기술을 접목한<br>시험·검사 기술 선도 및 차별화</p>
       </div>
-      <p style="font-size:14px;color:#666;margin-top:12px;line-height:1.8;">※ 식품제조·가공업자가 자신의 제품을 만들기 위하여 수입한 용기포장은 「관세법」 제248조에 따라 관할 세관장이 신고필증을 발급한 날 기준으로 산정합니다.</p>
-    </div>
-    <p style="margin-bottom:16px;font-size:14px;color:#666;">※ 식품유형별 검사주기와 검사항목은 아래 <strong>Q4. 식품 자가품질검사 항목 및 검사주기</strong> 표에서 한 번에 확인하실 수 있습니다.</p>
-    <div class="law-box" style="margin-top:16px;">
-      <strong>관련 법령 — 식품위생법 시행규칙 [별표12] 자가품질검사기준(제31조제1항 관련)</strong>
-    </div>
-  </div>
-</div>
-
-<div class="acc-item">
-  <div class="acc-header" onclick="toggleAcc(this)">
-    <span>Q4. 식품 자가품질검사 항목 및 검사주기</span><span class="acc-icon">+</span>
-  </div>
-  <div class="acc-body">
-    <style>
-      .item-table { width:100%; border-collapse:collapse; font-size:14px; border:1px solid #C9D7EF; }
-      .item-table th { background:#EFF4FB; color:#1d3158; padding:9px 12px; text-align:center; font-weight:700; white-space:nowrap; border-bottom:2px solid #5d76a8; }
-      .item-table td { padding:9px 12px; border-bottom:1px solid #C9D7EF; vertical-align:middle; line-height:1.7; color:#1F2937; }
-      .item-table th + th, .item-table td + td { border-left:1px solid #DCE6F2; }
-      .item-table tbody tr:nth-child(even) td { background:#F7FAFD; }
-      .item-table tr:hover td { background:#EAF2FE; }
-      .item-table .cat { font-weight:600; color:#64748B; width:150px; font-size:13px; text-align:center; }
-      .item-table .type { font-weight:700; color:#1d3158; width:190px; text-align:center; }
-      .item-table th.period { text-align:center; }
-      .item-table td.period { text-align:center; white-space:nowrap; width:92px; padding:9px 8px; }
-      .item-table td.period span { display:inline-block; padding:5px 12px; border-radius:999px; font-size:13px; font-weight:700; line-height:1; }
-      .item-table td.period.p-1 span { background:#FEE2E2; color:#B91C1C; }
-      .item-table td.period.p-2 span { background:#FFEDD5; color:#C2410C; }
-      .item-table td.period.p-3 span { background:#E0E7FF; color:#3730A3; }
-      .item-table td.period.p-6 span { background:#E8EEF8; color:#5d76a8; }
-      .item-search { width:100%; max-width:420px; padding:11px 14px; border:1px solid #C9D7EF; border-radius:8px; font-size:15px; margin-bottom:14px; }
-      .item-search:focus { outline:none; border-color:#5d76a8; }
-    </style>
-    <p style="margin-bottom:12px;">「식품등의 자가품질 검사항목 지정」(식품의약품안전처 고시 제2025-94호, 2025.12.30. 개정) [별표 1]에 따른 식품유형별 검사항목과 식품위생법 시행규칙 [별표 12]에 따른 검사주기입니다. 식품유형을 검색하여 확인하세요.</p>
-    <div style="background:#FFF7ED;border:1px solid #FED7AA;border-radius:8px;padding:10px 14px;font-size:14px;line-height:1.7;margin-bottom:14px;">🕘 아래 검사주기는 <strong>식품제조·가공업</strong> 기준이며, <strong>즉석판매제조·가공업</strong> 영업자가 제조·가공하는 식품은 식품유형과 관계없이 <strong>9개월마다 1회 이상</strong> 검사합니다.</div>
-    <input type="text" class="item-search" placeholder="🔍 식품유형 검색 (예: 과자, 소스, 김치)" oninput="var q=this.value.trim();document.querySelectorAll('#foodItems tbody tr').forEach(function(r){r.style.display=!q||r.cells[1].textContent.indexOf(q)>-1?'':'none';});">
-    <div style="overflow-x:auto;">
-      <table class="item-table" id="foodItems">
-        <thead><tr><th>분류</th><th>식품유형</th><th class="period">검사주기</th><th>검사항목</th></tr></thead>
-        <tbody>
-          <tr><td class="cat">1. 과자류, 빵류 또는 떡류</td><td class="type">과자</td><td class="period p-3"><span>3월 1회</span></td><td>산가(유탕·유처리식품에 한함), 세균수(밀봉제품에 한하며 발효제품·유산균 함유제품 제외), 총 아플라톡신(땅콩·견과류 함유식품에 한함), 황색포도상구균(가열살균하지 않은 크림 도포·충전 제품에 한함), 허용외 타르색소</td></tr>
-          <tr><td class="cat">1. 과자류, 빵류 또는 떡류</td><td class="type">캔디류</td><td class="period p-3"><span>3월 1회</span></td><td>허용외 타르색소, 세균수(밀봉제품에 한하며 발효제품·유산균 함유제품 제외), 총 아플라톡신(땅콩·견과류 함유식품에 한함), 압착강도(컵모양 등 젤리에 한함), 납, 총산</td></tr>
-          <tr><td class="cat">1. 과자류, 빵류 또는 떡류</td><td class="type">추잉껌</td><td class="period p-3"><span>3월 1회</span></td><td>허용외 타르색소, 산화방지제</td></tr>
-          <tr><td class="cat">1. 과자류, 빵류 또는 떡류</td><td class="type">빵류</td><td class="period p-2"><span>2월 1회</span></td><td>허용외 타르색소, 보존료, 황색포도상구균·살모넬라(가열살균하지 않은 크림 도포·충전 제품에 한함)</td></tr>
-          <tr><td class="cat">1. 과자류, 빵류 또는 떡류</td><td class="type">떡류</td><td class="period p-3"><span>3월 1회</span></td><td>대장균, 보존료</td></tr>
-          <tr><td class="cat">2. 빙과류</td><td class="type">빙과</td><td class="period p-1"><span>1월 1회</span></td><td>세균수(밀봉제품에 한하며 발효제품·유산균 함유제품 제외), 대장균군</td></tr>
-          <tr><td class="cat">2. 빙과류</td><td class="type">식용얼음 · 어업용얼음</td><td class="period p-1"><span>1월 1회</span></td><td>세균수, 대장균군</td></tr>
-          <tr><td class="cat">3. 코코아가공품류 또는 초콜릿류</td><td class="type">코코아매스 · 코코아버터</td><td class="period"><span style="color:#94A3B8;">—</span></td><td>—</td></tr>
-          <tr><td class="cat">3. 코코아가공품류 또는 초콜릿류</td><td class="type">코코아분말</td><td class="period p-3"><span>3월 1회</span></td><td>납, 카드뮴</td></tr>
-          <tr><td class="cat">3. 코코아가공품류 또는 초콜릿류</td><td class="type">기타 코코아가공품</td><td class="period p-3"><span>3월 1회</span></td><td>황색포도상구균, 살모넬라</td></tr>
-          <tr><td class="cat">3. 코코아가공품류 또는 초콜릿류</td><td class="type">초콜릿 · 밀크초콜릿 · 화이트초콜릿 · 준초콜릿 · 초콜릿가공품</td><td class="period p-3"><span>3월 1회</span></td><td>허용외 타르색소, 세균수(밀봉제품에 한하며 발효제품·유산균 첨가제품 제외), 카드뮴</td></tr>
-          <tr><td class="cat">4. 당류</td><td class="type">설탕 · 기타설탕</td><td class="period p-3"><span>3월 1회</span></td><td>납, 이산화황</td></tr>
-          <tr><td class="cat">4. 당류</td><td class="type">당시럽류</td><td class="period p-3"><span>3월 1회</span></td><td>사카린나트륨, 납</td></tr>
-          <tr><td class="cat">4. 당류</td><td class="type">올리고당 · 올리고당가공품 · 포도당 · 과당 · 기타과당</td><td class="period p-3"><span>3월 1회</span></td><td>납</td></tr>
-          <tr><td class="cat">4. 당류</td><td class="type">물엿 · 기타엿 · 덱스트린</td><td class="period p-3"><span>3월 1회</span></td><td>사카린나트륨, 납</td></tr>
-          <tr><td class="cat">4. 당류</td><td class="type">당류가공품</td><td class="period p-3"><span>3월 1회</span></td><td>대장균군(살균제품에 한함), 세균수(멸균제품에 한함), 대장균(비살균제품 중 그대로 섭취하는 제품에 한함)</td></tr>
-          <tr><td class="cat">5. 잼류</td><td class="type">잼</td><td class="period p-3"><span>3월 1회</span></td><td>타르색소, 보존료, 납</td></tr>
-          <tr><td class="cat">5. 잼류</td><td class="type">기타잼</td><td class="period p-3"><span>3월 1회</span></td><td>보존료, 납</td></tr>
-          <tr><td class="cat">6. 두부류 또는 묵류</td><td class="type">두부 · 유바 · 가공두부 · 묵류</td><td class="period p-3"><span>3월 1회</span></td><td>대장균군(충전·밀봉 제품에 한함), 타르색소</td></tr>
-          <tr><td class="cat">7. 식용유지류</td><td class="type">콩기름 · 옥수수기름 · 채종유 · 미강유 · 참기름 · 추출참깨유 · 홍화유 · 해바라기유 · 목화씨기름 · 올리브유 · 팜유류 · 야자유 · 고추씨기름</td><td class="period p-1"><span>1월 1회</span></td><td>벤조피렌</td></tr>
-          <tr><td class="cat">7. 식용유지류</td><td class="type">들기름 · 추출들깨유</td><td class="period p-2"><span>2월 1회</span></td><td>벤조피렌, 산화방지제</td></tr>
-          <tr><td class="cat">7. 식용유지류</td><td class="type">땅콩기름 · 기타식물성유지</td><td class="period p-1"><span>1월 1회</span></td><td>벤조피렌, 산화방지제</td></tr>
-          <tr><td class="cat">7. 식용유지류</td><td class="type">어유 · 기타동물성유지</td><td class="period p-1"><span>1월 1회</span></td><td>벤조피렌, 산화방지제</td></tr>
-          <tr><td class="cat">7. 식용유지류</td><td class="type">혼합식용유 · 가공유지 · 쇼트닝</td><td class="period p-1"><span>1월 1회</span></td><td>벤조피렌, 산화방지제</td></tr>
-          <tr><td class="cat">7. 식용유지류</td><td class="type">향미유</td><td class="period p-1"><span>1월 1회</span></td><td>벤조피렌, 타르색소</td></tr>
-          <tr><td class="cat">7. 식용유지류</td><td class="type">마가린</td><td class="period p-1"><span>1월 1회</span></td><td>타르색소, 산화방지제, 보존료</td></tr>
-          <tr><td class="cat">7. 식용유지류</td><td class="type">모조치즈</td><td class="period p-3"><span>3월 1회</span></td><td>대장균군, 허용외 타르색소</td></tr>
-          <tr><td class="cat">7. 식용유지류</td><td class="type">식물성크림</td><td class="period p-3"><span>3월 1회</span></td><td>대장균군(건조제품 제외)</td></tr>
-          <tr><td class="cat">7. 식용유지류</td><td class="type">기타 식용유지가공품</td><td class="period p-3"><span>3월 1회</span></td><td>산가, 대장균군(살균제품에 한함), 세균수(멸균제품에 한함)</td></tr>
-          <tr><td class="cat">8. 면류</td><td class="type">생면 · 숙면 · 건면 · 유탕면</td><td class="period p-3"><span>3월 1회</span></td><td>타르색소, 보존료, 대장균(주정처리제품에 한함), 대장균군(살균제품에 한함)</td></tr>
-          <tr><td class="cat">9. 음료류</td><td class="type">침출차 · 고형차</td><td class="period p-3"><span>3월 1회</span></td><td>타르색소, 납</td></tr>
-          <tr><td class="cat">9. 음료류</td><td class="type">액상차</td><td class="period p-3"><span>3월 1회</span></td><td>타르색소, 납, 세균수, 대장균군</td></tr>
-          <tr><td class="cat">9. 음료류</td><td class="type">커피</td><td class="period p-3"><span>3월 1회</span></td><td>납, 허용외 타르색소, 세균수·대장균군(그대로 섭취하는 액상제품에 한함)</td></tr>
-          <tr><td class="cat">9. 음료류</td><td class="type">농축과·채즙(과·채분) · 과·채주스</td><td class="period p-2"><span>2월 1회</span><div style="font-size:12px;color:#B91C1C;margin-top:5px;line-height:1.4;">비가열 제품<br>1월 1회</div></td><td>납, 카드뮴, 세균수, 대장균군(가열하지 않은 제품·원료 함유제품 제외), 파튤린(사과주스·사과주스농축액에 한함), 보존료, 대장균(가열하지 않은 제품·원료 함유제품에 한함)</td></tr>
-          <tr><td class="cat">9. 음료류</td><td class="type">과·채음료</td><td class="period p-2"><span>2월 1회</span><div style="font-size:12px;color:#B91C1C;margin-top:5px;line-height:1.4;">비가열 제품<br>1월 1회</div></td><td>납, 카드뮴, 세균수, 대장균군(가열하지 않은 제품·원료 함유제품 제외), 보존료, 대장균(가열하지 않은 제품·원료 함유제품에 한함)</td></tr>
-          <tr><td class="cat">9. 음료류</td><td class="type">탄산음료 · 탄산수</td><td class="period p-2"><span>2월 1회</span><div style="font-size:12px;color:#B91C1C;margin-top:5px;line-height:1.4;">비가열 제품<br>1월 1회</div></td><td>납, 카드뮴, 세균수, 대장균군, 보존료</td></tr>
-          <tr><td class="cat">9. 음료류</td><td class="type">원액두유 · 가공두유</td><td class="period p-2"><span>2월 1회</span><div style="font-size:12px;color:#B91C1C;margin-top:5px;line-height:1.4;">비가열 제품<br>1월 1회</div></td><td>세균수, 대장균군(멸균제품 제외)</td></tr>
-          <tr><td class="cat">9. 음료류</td><td class="type">유산균음료 · 효모음료 · 기타발효음료</td><td class="period p-2"><span>2월 1회</span><div style="font-size:12px;color:#B91C1C;margin-top:5px;line-height:1.4;">비가열 제품<br>1월 1회</div></td><td>세균수(살균제품에 한함), 대장균군, 보존료</td></tr>
-          <tr><td class="cat">9. 음료류</td><td class="type">인삼·홍삼음료</td><td class="period p-2"><span>2월 1회</span><div style="font-size:12px;color:#B91C1C;margin-top:5px;line-height:1.4;">비가열 제품<br>1월 1회</div></td><td>타르색소, 납, 세균수, 대장균군, 보존료</td></tr>
-          <tr><td class="cat">9. 음료류</td><td class="type">혼합음료 · 음료베이스</td><td class="period p-2"><span>2월 1회</span><div style="font-size:12px;color:#B91C1C;margin-top:5px;line-height:1.4;">비가열 제품<br>1월 1회</div></td><td>납, 카드뮴, 세균수(분말제품·유산균 함유제품 제외), 대장균군, 보존료</td></tr>
-          <tr><td class="cat">10. 특수영양식품</td><td class="type">영아 전기용 조제식</td><td class="period p-1"><span>1월 1회</span></td><td>사카린나트륨, 타르색소, 세균수(유산균 첨가제품 제외), 대장균군(멸균제품 제외), 크로노박터(멸균제품 제외), 바실루스 세레우스(멸균제품 제외), 탄화물(분말제품에 한함)</td></tr>
-          <tr><td class="cat">10. 특수영양식품</td><td class="type">영아 후기용 조제식 · 유아기용 조제식</td><td class="period p-1"><span>1월 1회</span></td><td>사카린나트륨, 타르색소, 세균수(유산균 첨가제품 제외), 대장균군(멸균제품 제외), 바실루스 세레우스(멸균제품 제외), 탄화물(분말제품에 한함)</td></tr>
-          <tr><td class="cat">10. 특수영양식품</td><td class="type">영·유아용 이유식</td><td class="period p-1"><span>1월 1회</span></td><td>사카린나트륨, 타르색소, 대장균군(멸균제품 제외), 세균수(분말제품 제외), 크로노박터(영아용 제품에 한하며 멸균제품 제외), 바실루스 세레우스(멸균제품 제외)</td></tr>
-          <tr><td class="cat">10. 특수영양식품</td><td class="type">체중조절용 조제식품</td><td class="period p-1"><span>1월 1회</span></td><td>대장균군, 바실루스 세레우스</td></tr>
-          <tr><td class="cat">10. 특수영양식품</td><td class="type">임산·수유부용 식품</td><td class="period p-1"><span>1월 1회</span></td><td>대장균군, 세균수(액상제품에 한함), 타르색소</td></tr>
-          <tr><td class="cat">10. 특수영양식품</td><td class="type">고령자용 영양조제식품</td><td class="period p-1"><span>1월 1회</span></td><td>타르색소, 세균수, 대장균군, 바실루스 세레우스</td></tr>
-          <tr><td class="cat">11. 특수의료용도식품</td><td class="type">표준형 영양조제식품 (일반환자용·당뇨환자용·신장질환자용·장질환자용·암환자용·고혈압환자용·폐질환자용·간경변환자용·열량 및 영양공급용·연하곤란자용 점도조절·수분 및 전해질 보충용 등)</td><td class="period p-1"><span>1월 1회</span></td><td>타르색소, 세균수, 대장균군, 바실루스 세레우스</td></tr>
-          <tr><td class="cat">11. 특수의료용도식품</td><td class="type">맞춤형 영양조제식품 (선천성대사질환자용 · 영·유아용 특수조제식품 · 기타환자용)</td><td class="period p-1"><span>1월 1회</span></td><td>타르색소, 세균수, 대장균군, 바실루스 세레우스, 크로노박터(생후 6개월 미만 영아 대상 영·유아용 특수조제식품 중 분말제품에 한함)</td></tr>
-          <tr><td class="cat">11. 특수의료용도식품</td><td class="type">식단형 식사관리식품 (당뇨환자용 · 신장질환자용 · 암환자용 · 고혈압환자용)</td><td class="period p-1"><span>1월 1회</span></td><td>타르색소, 세균수(멸균제품에 한함), 대장균군(살균제품에 한함), 대장균(살균제품 제외), 황색포도상구균, 살모넬라, 장염비브리오(살균·멸균 처리되지 않은 해산물 함유제품에 한함), 장출혈성대장균, 바실루스 세레우스(비가열 섭취식품에 한함), 클로스트리디움 퍼프린젠스(비가열 섭취식품에 한함)</td></tr>
-          <tr><td class="cat">12. 장류</td><td class="type">한식메주 · 개량메주</td><td class="period p-3"><span>3월 1회</span></td><td>총 아플라톡신, 타르색소, 보존료</td></tr>
-          <tr><td class="cat">12. 장류</td><td class="type">한식간장 · 양조간장 · 효소분해간장 · 한식된장 · 된장 · 고추장 · 춘장 · 청국장 · 기타장류</td><td class="period p-3"><span>3월 1회</span></td><td>타르색소, 보존료</td></tr>
-          <tr><td class="cat">12. 장류</td><td class="type">산분해간장</td><td class="period p-3"><span>3월 1회</span></td><td>타르색소, 보존료, 3-MCPD</td></tr>
-          <tr><td class="cat">12. 장류</td><td class="type">혼합간장</td><td class="period p-3"><span>3월 1회</span></td><td>타르색소, 보존료, 3-MCPD(산분해간장 혼합 제품에 한하며, 원료용 산분해간장의 자가품질검사가 적합한 경우 생략 가능)</td></tr>
-          <tr><td class="cat">12. 장류</td><td class="type">혼합장</td><td class="period p-3"><span>3월 1회</span></td><td>타르색소, 보존료, 대장균군(살균제품에 한함)</td></tr>
-          <tr><td class="cat">13. 조미식품</td><td class="type">발효식초 · 희석초산</td><td class="period p-1"><span>1월 1회</span></td><td>총산, 타르색소, 보존료</td></tr>
-          <tr><td class="cat">13. 조미식품</td><td class="type">소스</td><td class="period p-1"><span>1월 1회</span></td><td>대장균군(살균제품에 한함), 세균수(멸균제품에 한함), 보존료, 대장균(비살균제품에 한함), 허용외 타르색소</td></tr>
-          <tr><td class="cat">13. 조미식품</td><td class="type">마요네즈</td><td class="period p-1"><span>1월 1회</span></td><td>대장균군(살균제품에 한함), 대장균(비살균제품에 한함), 세균수(멸균제품에 한함), 보존료</td></tr>
-          <tr><td class="cat">13. 조미식품</td><td class="type">토마토케첩 · 복합조미식품</td><td class="period p-1"><span>1월 1회</span></td><td>허용외 타르색소, 대장균군(살균제품에 한함), 대장균(비살균제품에 한함), 세균수(멸균제품에 한함), 보존료(토마토케첩에 한함)</td></tr>
-          <tr><td class="cat">13. 조미식품</td><td class="type">카레(커리)분</td><td class="period p-1"><span>1월 1회</span></td><td>타르색소</td></tr>
-          <tr><td class="cat">13. 조미식품</td><td class="type">카레(커리)</td><td class="period p-1"><span>1월 1회</span></td><td>타르색소, 세균수(멸균제품에 한함), 대장균군(살균제품에 한함), 대장균(살균제품 제외)</td></tr>
-          <tr><td class="cat">13. 조미식품</td><td class="type">고춧가루</td><td class="period p-3"><span>3월 1회</span></td><td>곰팡이수, 타르색소, 클로스트리디움 퍼프린젠스</td></tr>
-          <tr><td class="cat">13. 조미식품</td><td class="type">실고추</td><td class="period p-3"><span>3월 1회</span></td><td>타르색소</td></tr>
-          <tr><td class="cat">13. 조미식품</td><td class="type">천연향신료</td><td class="period p-3"><span>3월 1회</span></td><td>위화물, 타르색소(고추냉이가공품·겨자가공품 제외), 대장균군(살균제품에 한함), 대장균(살균제품·건조제품 제외), 곰팡이수(고추·고춧가루 함유제품에 한함)</td></tr>
-          <tr><td class="cat">13. 조미식품</td><td class="type">향신료조제품</td><td class="period p-3"><span>3월 1회</span></td><td>타르색소(고추냉이가공품·겨자가공품 제외), 대장균군(살균제품에 한함), 대장균(살균제품·건조제품 제외), 곰팡이수(고추·고춧가루 함유제품에 한함)</td></tr>
-          <tr><td class="cat">13. 조미식품</td><td class="type">천일염</td><td class="period p-3"><span>3월 1회</span></td><td>—</td></tr>
-          <tr><td class="cat">13. 조미식품</td><td class="type">재제소금 · 태움·용융소금 · 정제소금 · 기타소금 · 가공소금</td><td class="period p-3"><span>3월 1회</span></td><td>납, 카드뮴</td></tr>
-          <tr><td class="cat">14. 절임류 또는 조림류</td><td class="type">김치 · 김칫속</td><td class="period p-3"><span>3월 1회</span></td><td>납, 카드뮴, 타르색소, 보존료, 대장균군(살균제품에 한함)</td></tr>
-          <tr><td class="cat">14. 절임류 또는 조림류</td><td class="type">절임식품 · 당절임</td><td class="period p-3"><span>3월 1회</span></td><td>세균수(멸균제품에 한함), 대장균군(살균제품에 한함), 대장균(비살균제품에 한함), 타르색소(밀봉 및 가열살균·멸균처리 제품 제외), 보존료</td></tr>
-          <tr><td class="cat">14. 절임류 또는 조림류</td><td class="type">조림류</td><td class="period p-3"><span>3월 1회</span></td><td>세균수(멸균제품에 한함), 대장균군(살균제품에 한함), 타르색소, 보존료</td></tr>
-          <tr><td class="cat">15. 주류</td><td class="type">탁주 · 약주</td><td class="period p-6"><span>6월 1회</span></td><td>메탄올, 보존료</td></tr>
-          <tr><td class="cat">15. 주류</td><td class="type">청주 · 맥주</td><td class="period p-6"><span>6월 1회</span></td><td>메탄올</td></tr>
-          <tr><td class="cat">15. 주류</td><td class="type">과실주</td><td class="period p-6"><span>6월 1회</span></td><td>메탄올, 보존료, 납(포도주에 한함)</td></tr>
-          <tr><td class="cat">15. 주류</td><td class="type">소주 · 위스키 · 브랜디 · 일반증류주</td><td class="period p-6"><span>6월 1회</span></td><td>메탄올, 알데히드</td></tr>
-          <tr><td class="cat">15. 주류</td><td class="type">리큐르 · 기타 주류</td><td class="period p-6"><span>6월 1회</span></td><td>메탄올</td></tr>
-          <tr><td class="cat">15. 주류</td><td class="type">주정</td><td class="period p-6"><span>6월 1회</span></td><td>알데히드, 메탄올, 염화물</td></tr>
-          <tr><td class="cat">16. 농산가공식품류</td><td class="type">전분</td><td class="period p-3"><span>3월 1회</span></td><td>회분</td></tr>
-          <tr><td class="cat">16. 농산가공식품류</td><td class="type">전분가공품</td><td class="period p-3"><span>3월 1회</span></td><td>대장균군(살균제품에 한함), 세균수(멸균제품에 한함), 대장균(비살균제품 중 그대로 섭취하는 제품에 한함)</td></tr>
-          <tr><td class="cat">16. 농산가공식품류</td><td class="type">밀가루 · 영양강화 밀가루</td><td class="period p-3"><span>3월 1회</span></td><td>회분</td></tr>
-          <tr><td class="cat">16. 농산가공식품류</td><td class="type">땅콩버터 · 땅콩 또는 견과류가공품</td><td class="period p-1"><span>1월 1회</span></td><td>총 아플라톡신</td></tr>
-          <tr><td class="cat">16. 농산가공식품류</td><td class="type">시리얼류</td><td class="period p-1"><span>1월 1회</span></td><td>대장균군</td></tr>
-          <tr><td class="cat">16. 농산가공식품류</td><td class="type">찐쌀</td><td class="period p-1"><span>1월 1회</span></td><td>총 아플라톡신, 이산화황, 납, 카드뮴</td></tr>
-          <tr><td class="cat">16. 농산가공식품류</td><td class="type">효소식품</td><td class="period p-1"><span>1월 1회</span></td><td>조단백질, α-아밀라아제, 프로테아제, 대장균</td></tr>
-          <tr><td class="cat">16. 농산가공식품류</td><td class="type">과·채가공품</td><td class="period p-1"><span>1월 1회</span></td><td>대장균군(살균제품에 한함), 세균수(멸균제품에 한함), 대장균(비살균제품에 한함), 타르색소</td></tr>
-          <tr><td class="cat">16. 농산가공식품류</td><td class="type">곡류가공품 · 서류가공품</td><td class="period p-3"><span>3월 1회</span></td><td>산가(유탕·유처리식품에 한함), 과산화물가(유탕·유처리식품에 한함), 대장균군(살균제품에 한함), 세균수(멸균제품에 한함), 대장균(그대로 섭취하는 비살균제품에 한함)</td></tr>
-          <tr><td class="cat">16. 농산가공식품류</td><td class="type">두류가공품</td><td class="period p-3"><span>3월 1회</span></td><td>산가(대두분, 유탕·유처리식품에 한하며 탈지대두분 제외), 과산화물가(유탕·유처리식품에 한함), 대장균군(살균제품에 한함), 세균수(멸균제품에 한함), 대장균(그대로 섭취하는 비살균제품에 한함)</td></tr>
-          <tr><td class="cat">16. 농산가공식품류</td><td class="type">기타 농산가공품</td><td class="period p-3"><span>3월 1회</span></td><td>산가(참깨분, 유탕·유처리식품에 한하며 탈지참깨분 제외), 과산화물가(유탕·유처리식품에 한함), 대장균군(살균제품에 한함), 세균수(멸균제품에 한함), 대장균(그대로 섭취하는 비살균제품에 한함)</td></tr>
-          <tr><td class="cat">17. 식육가공품 및 포장육</td><td class="type">식육함유가공품</td><td class="period p-2"><span>2월 1회</span></td><td>아질산이온, 타르색소, 대장균군(살균제품에 한함), 살모넬라(살균제품에 한함), 보존료, 벤조피렌(훈제제품에 한함), 세균수(멸균제품에 한함)</td></tr>
-          <tr><td class="cat">18. 알가공품류</td><td class="type">알함유가공품</td><td class="period p-2"><span>2월 1회</span></td><td>대장균군(살균제품에 한함), 세균수(멸균·살균제품에 한함), 살모넬라</td></tr>
-          <tr><td class="cat">19. 유함유가공품</td><td class="type">유함유가공품</td><td class="period p-1"><span>1월 1회</span></td><td>대장균(비살균제품 중 그대로 섭취하는 제품에 한함), 세균수(멸균제품에 한함), 대장균군(살균제품에 한함), 살모넬라, 리스테리아 모노사이토제네스, 황색포도상구균</td></tr>
-          <tr><td class="cat">20. 수산가공식품류</td><td class="type">어육살 · 연육 · 어묵 · 기타 어육가공품</td><td class="period p-1"><span>1월 1회</span></td><td>타르색소, 대장균군(살균제품에 한함), 세균수(멸균제품에 한함), 보존료</td></tr>
-          <tr><td class="cat">20. 수산가공식품류</td><td class="type">어육반제품</td><td class="period p-1"><span>1월 1회</span></td><td>타르색소, 보존료</td></tr>
-          <tr><td class="cat">20. 수산가공식품류</td><td class="type">어육소시지</td><td class="period p-1"><span>1월 1회</span></td><td>아질산이온, 대장균군(살균제품에 한함), 세균수(멸균제품에 한함), 보존료</td></tr>
-          <tr><td class="cat">20. 수산가공식품류</td><td class="type">젓갈 · 양념젓갈</td><td class="period p-3"><span>3월 1회</span></td><td>대장균, 타르색소(명란젓 제외), 보존료(식염함량 8% 이하 제품에 한함)</td></tr>
-          <tr><td class="cat">20. 수산가공식품류</td><td class="type">액젓 · 조미액젓</td><td class="period p-3"><span>3월 1회</span></td><td>총질소, 대장균군, 타르색소, 보존료(식염함량 8% 이하 제품에 한함)</td></tr>
-          <tr><td class="cat">20. 수산가공식품류</td><td class="type">조미건어포</td><td class="period p-3"><span>3월 1회</span></td><td>이산화황, 대장균, 황색포도상구균</td></tr>
-          <tr><td class="cat">20. 수산가공식품류</td><td class="type">건어포 · 기타 건포류</td><td class="period p-3"><span>3월 1회</span></td><td>이산화황, 벤조피렌(훈제제품에 한함)</td></tr>
-          <tr><td class="cat">20. 수산가공식품류</td><td class="type">가공김(조미김 또는 구운김)</td><td class="period p-3"><span>3월 1회</span></td><td>산가(유처리한 김에 한함), 타르색소</td></tr>
-          <tr><td class="cat">20. 수산가공식품류</td><td class="type">한천</td><td class="period p-1"><span>1월 1회</span></td><td>열탕불용해잔사물, 붕산</td></tr>
-          <tr><td class="cat">20. 수산가공식품류</td><td class="type">기타 수산물가공품</td><td class="period p-3"><span>3월 1회</span></td><td>대장균군(살균제품에 한함), 세균수(멸균제품에 한함), 대장균(비살균제품 중 그대로 섭취하는 제품에 한함)</td></tr>
-          <tr><td class="cat">21. 동물성가공식품류</td><td class="type">기타식육 또는 기타알</td><td class="period p-2"><span>2월 1회</span></td><td>휘발성염기질소(기타식육 100% 제품에 한함), 장출혈성대장균(원료용 분쇄육에 한함), 보존료(식육 함유제품에 한함), 벤조피렌(훈제제품에 한함)</td></tr>
-          <tr><td class="cat">21. 동물성가공식품류</td><td class="type">기타동물성가공식품</td><td class="period p-1"><span>1월 1회</span></td><td>휘발성염기질소(기타식육 100% 제품에 한함), 장출혈성대장균(원료용 분쇄육에 한함), 보존료(식육 함유제품에 한함), 벤조피렌(훈제제품에 한함)</td></tr>
-          <tr><td class="cat">21. 동물성가공식품류</td><td class="type">곤충가공식품</td><td class="period p-1"><span>1월 1회</span></td><td>산가·과산화물가(식용번데기 가공품에 한함), 대장균군(살균제품에 한함), 세균수(멸균제품에 한함), 대장균(비살균제품 중 그대로 섭취하는 제품에 한함)</td></tr>
-          <tr><td class="cat">21. 동물성가공식품류</td><td class="type">자라분말 · 자라분말제품</td><td class="period p-1"><span>1월 1회</span></td><td>조단백질, 히드록시프롤린, 대장균군</td></tr>
-          <tr><td class="cat">21. 동물성가공식품류</td><td class="type">자라유제품</td><td class="period p-1"><span>1월 1회</span></td><td>산가, 과산화물가, 팔미톨레산, 아라키돈산+에이코사펜타엔산, 대장균군</td></tr>
-          <tr><td class="cat">21. 동물성가공식품류</td><td class="type">추출가공식품</td><td class="period p-3"><span>3월 1회</span></td><td>타르색소, 세균수(그대로 섭취하는 액상제품에 한함), 대장균군(살균제품 또는 그대로 섭취하는 액상제품에 한함), 대장균(살균제품 또는 그대로 섭취하는 액상제품 제외)</td></tr>
-          <tr><td class="cat">22. 벌꿀 및 화분가공품</td><td class="type">벌집꿀 · 사양벌집꿀</td><td class="period"><span style="color:#94A3B8;">—</span></td><td>—</td></tr>
-          <tr><td class="cat">22. 벌꿀 및 화분가공품</td><td class="type">벌꿀 · 사양벌꿀</td><td class="period p-1"><span>1월 1회</span></td><td>자당, 타르색소, 사카린나트륨</td></tr>
-          <tr><td class="cat">22. 벌꿀 및 화분가공품</td><td class="type">로열젤리</td><td class="period p-1"><span>1월 1회</span></td><td>10-히드록시-2-데센산, 조단백질, 대장균</td></tr>
-          <tr><td class="cat">22. 벌꿀 및 화분가공품</td><td class="type">로열젤리제품</td><td class="period p-1"><span>1월 1회</span></td><td>10-히드록시-2-데센산, 대장균</td></tr>
-          <tr><td class="cat">22. 벌꿀 및 화분가공품</td><td class="type">가공화분 · 화분함유제품</td><td class="period p-1"><span>1월 1회</span></td><td>조단백질, 타르색소, 대장균</td></tr>
-          <tr><td class="cat">23. 즉석식품류</td><td class="type">생식제품 · 생식함유제품</td><td class="period p-1"><span>1월 1회</span></td><td>클로스트리디움 퍼프린젠스, 바실루스 세레우스, 대장균</td></tr>
-          <tr><td class="cat">23. 즉석식품류</td><td class="type">즉석섭취식품</td><td class="period p-3"><span>3월 1회</span></td><td>대장균, 황색포도상구균, 살모넬라, 장염비브리오균(살균·멸균 처리되지 않은 해산물 함유제품에 한함), 바실루스 세레우스, 리스테리아 모노사이토제네스, 세균수(멸균제품에 한함)</td></tr>
-          <tr><td class="cat">23. 즉석식품류</td><td class="type">신선편의식품</td><td class="period p-1"><span>1월 1회</span></td><td>대장균, 황색포도상구균, 살모넬라, 장염비브리오균(살균·멸균 처리되지 않은 해산물 함유제품에 한함), 바실루스 세레우스, 세균수(멸균제품에 한함)</td></tr>
-          <tr><td class="cat">23. 즉석식품류</td><td class="type">즉석조리식품</td><td class="period p-3"><span>3월 1회</span></td><td>세균수(멸균제품에 한함), 대장균군(살균제품에 한함), 대장균(살균·멸균제품 제외), 황색포도상구균, 살모넬라</td></tr>
-          <tr><td class="cat">23. 즉석식품류</td><td class="type">간편조리세트</td><td class="period p-1"><span>1월 1회</span></td><td>대장균, 황색포도상구균, 살모넬라, 장염비브리오균(살균·멸균 처리되지 않은 해산물 함유제품에 한함), 장출혈성대장균(가열조리하지 않고 섭취하는 농·축·수산물 함유제품에 한함)</td></tr>
-          <tr><td class="cat">23. 즉석식품류</td><td class="type">만두</td><td class="period p-3"><span>3월 1회</span></td><td>사카린나트륨</td></tr>
-          <tr><td class="cat">23. 즉석식품류</td><td class="type">만두피</td><td class="period p-3"><span>3월 1회</span></td><td>보존료</td></tr>
-          <tr><td class="cat">24. 기타식품류</td><td class="type">효모식품</td><td class="period p-1"><span>1월 1회</span></td><td>대장균</td></tr>
-          <tr><td class="cat">24. 기타식품류</td><td class="type">기타가공품</td><td class="period p-3"><span>3월 1회</span></td><td>산가(유탕·유처리식품에 한함), 과산화물가(유탕·유처리식품에 한함), 대장균군(살균제품에 한함), 세균수(멸균제품에 한함), 대장균(비살균제품 중 그대로 섭취하는 제품에 한함)</td></tr>
-        </tbody>
-      </table>
-    </div>
-    <p style="font-weight:700;margin:24px 0 10px;font-size:15px;">추가 적용 검사항목 (별표 2~4)</p>
-    <div style="overflow-x:auto;">
-      <table class="item-table">
-        <thead><tr><th>구분</th><th>대상</th><th>검사항목</th></tr></thead>
-        <tbody>
-          <tr><td class="cat">특정 제조공정 (별표 2)</td><td class="type">분말·가루·환 제품 (원료를 금속재질 분쇄기로 분쇄하는 경우)</td><td>금속성이물(쇳가루)</td></tr>
-          <tr><td class="cat">영·유아 대상 표시 판매식품 (별표 3)</td><td class="type">영·유아를 섭취대상으로 표시하여 판매하는 식품</td><td>세균수(멸균제품, 6개월 미만 영아 대상 분말제품, 그 외 식품 중 분말제품·유산균 첨가제품·치즈류 제외 식품에 한함), 대장균군(멸균제품 제외), 바실루스 세레우스(멸균제품 제외), 크로노박터(영아용 제품에 한하며 멸균제품 제외)</td></tr>
-          <tr><td class="cat">고령자 대상 표시 판매식품 (별표 3)</td><td class="type">고령자를 섭취대상으로 표시하여 판매하는 식품</td><td>대장균군(살균제품에 한함), 대장균(비살균제품에 한함), 경도(경도조절식품에 한함), 점도(경도 20,000 N/m² 이하 점도조절 액상제품에 한함)</td></tr>
-          <tr><td class="cat">장기보존식품 (별표 4)</td><td class="type">통·병조림</td><td>세균발육</td></tr>
-          <tr><td class="cat">장기보존식품 (별표 4)</td><td class="type">레토르트식품</td><td>세균발육, 타르색소</td></tr>
-          <tr><td class="cat">장기보존식품 (별표 4)</td><td class="type">냉동식품 (가열하지 않고 섭취 / 가열하여 섭취)</td><td>세균수(발효제품·발효제품 첨가·유산균 첨가제품 제외), 대장균군(살균제품에 한함), 대장균(살균제품 제외)</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div style="margin-top:20px;">
-      <a href="files/자가품질검사항목고시_식품.pdf" download class="btn-download"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg> 「식품등의 자가품질 검사항목 지정」 고시 전문 다운로드</a>
+      <div class="policy-card">
+        <div class="policy-icon"><svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95a15.65 15.65 0 0 0-1.38-3.56A8.03 8.03 0 0 1 18.92 8zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2s.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56A7.987 7.987 0 0 1 5.08 16zm2.95-8H5.08a7.987 7.987 0 0 1 4.33-3.56A15.65 15.65 0 0 0 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2s.07-1.35.16-2h4.68c.09.65.16 1.32.16 2s-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95a8.03 8.03 0 0 1-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2s-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/></svg></div>
+        <h4>글로벌화</h4>
+        <div class="p-en">GLOBALIZATION</div>
+        <p>KOLAS 등 국제적으로 통용되는 인정으로<br>국내외 신뢰도 제고 및 글로벌화</p>
+      </div>
+      <div class="policy-card">
+        <div class="policy-icon"><svg viewBox="0 0 24 24"><path d="M16.5 6.5c1.93 0 3.5 1.57 3.5 3.5 0 .34-.06.67-.15.98C21.18 11.6 22 12.9 22 14.4c0 2.1-1.7 3.8-3.8 3.8H6.2C3.88 18.2 2 16.32 2 14c0-2.15 1.63-3.93 3.72-4.17C6.19 7.62 8.14 6 10.5 6c1.02 0 1.97.3 2.77.83.83-.21 1.7-.33 3.23-.33zM12 21l-2.5-3h5L12 21zm5.5-9.5l-4.08 4.08-1.92-1.91L10.09 15l3.33 3.33 5.5-5.5-1.42-1.33z"/></svg></div>
+        <h4>지속 가능 발전</h4>
+        <div class="p-en">SUSTAINABILITY</div>
+        <p>시험·검사 수직계열화, 협업·공동연구 및<br>미래 지향적 기술개발</p>
+      </div>
     </div>
   </div>
-</div>
+
+  <!-- ===== 추진전략 ===== -->
+  <div class="content-section">
+    <h2 class="section-heading">추진전략</h2>
+
+    <div class="strategy-item">
+      <div class="strategy-head">
+        <div class="strategy-num">STRATEGY 01</div>
+        <h4>국내 선도 시험·검사기관</h4>
+      </div>
+      <ul class="strategy-body">
+        <li><span class="s-num">1</span>KOLAS 인정 등 시험·검사 신뢰도 강화</li>
+        <li><span class="s-num">2</span>시험·검사분야 수직계열화로 새로운 기관 모델 선도</li>
+        <li><span class="s-num">3</span>국내·외 다양한 기관과의 협업체계 구축</li>
+      </ul>
+    </div>
+
+    <div class="strategy-item">
+      <div class="strategy-head">
+        <div class="strategy-num">STRATEGY 02</div>
+        <h4>첨단기술(AI) 활용한<br>시험·검사 기술개발</h4>
+      </div>
+      <ul class="strategy-body">
+        <li><span class="s-num">1</span>AI 등 혁신기술을 활용한 시험·검사 기술개발</li>
+        <li><span class="s-num">2</span>AI를 활용한 시험·검사 빅데이터 관리 시스템 개발</li>
+        <li><span class="s-num">3</span>협업·공동연구를 통한 시험·검사기술 연구개발</li>
+      </ul>
+    </div>
+
+    <div class="strategy-item">
+      <div class="strategy-head">
+        <div class="strategy-num">STRATEGY 03</div>
+        <h4>시험·검사기관 역량 강화</h4>
+      </div>
+      <ul class="strategy-body">
+        <li><span class="s-num">1</span>시험·검사기관 품질관리체계 강화로 신뢰성 제고</li>
+        <li><span class="s-num">2</span>다양한 국제인정으로 시험·검사기관 역량 강화</li>
+        <li><span class="s-num">3</span>지속적 시설·장비 투자로 시험·검사 정확도 향상</li>
+      </ul>
+    </div>
+  </div>
 
 </div>
+
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
@@ -1474,6 +1189,7 @@ function toggleAcc(el){
     </div>
   </div>
 </footer>
+
 <button id="scrollTop"><svg viewBox="0 0 24 24" width="20" height="20" fill="#fff"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg></button>
 <script>// ===== 아이에스에이연구원 홈페이지 메인 JS =====
 document.addEventListener('DOMContentLoaded', function () {

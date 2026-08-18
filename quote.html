@@ -550,7 +550,7 @@ select.form-control{appearance:none;background-image:url("data:image/svg+xml,%3C
         <h3>견적 신청이 접수되었습니다!</h3>
         <p>아래 <strong>접수번호</strong>를 비밀번호와 함께 보관해 주세요.<br>견적 조회·수정 시 필요합니다.</p>
         <div><span class="receipt-code" id="receiptCode">-</span><button type="button" class="copy-btn" onclick="copyReceipt(this)">📋 복사</button></div>
-        <p style="margin-top:16px;">입력하신 이메일 및 연락처로 <strong>1 영업일 이내</strong>에 연락드리겠습니다.<br><br>긴급한 문의는 전화(070-8831-7376) 또는 카카오톡 채널로 연락 주세요.</p>
+        <p style="margin-top:16px;">입력하신 이메일 및 연락처로 <strong>1 영업일 이내</strong>에 연락드리겠습니다.<br><br>긴급한 문의는 전화(<a href="tel:070-8831-7376" style="color:inherit;text-decoration:none;">070-8831-7376</a>) 또는 카카오톡 채널로 연락 주세요.</p>
         <div style="margin-top:20px;"><button type="button" class="btn-line btn-ghost" onclick="resetForm()">새 견적 신청하기</button></div>
       </div>
     </div>
@@ -586,7 +586,7 @@ select.form-control{appearance:none;background-image:url("data:image/svg+xml,%3C
           <div><b style="color:var(--primary);">허가종류</b> &nbsp;<span id="rvLicense">-</span></div>
           <div id="rvHelperWrap" style="display:none;"><b style="color:var(--primary);">자가품질 조건</b> &nbsp;<span id="rvHelper">-</span></div>
           <div id="rvFilesWrap" style="display:none;"><b style="color:var(--primary);">첨부파일</b> &nbsp;<span id="rvFiles">-</span></div>
-          <div style="font-size:13px;color:#888;margin-top:6px;">※ 위 항목은 접수 시 기준으로 표시되며 이 화면에서는 수정할 수 없습니다. 변경이 필요하시면 전화(031-429-0620)로 알려 주세요.</div>
+          <div style="font-size:13px;color:#888;margin-top:6px;">※ 위 항목은 접수 시 기준으로 표시되며 이 화면에서는 수정할 수 없습니다. 변경이 필요하시면 전화(<a href="tel:031-429-0620" style="color:inherit;text-decoration:none;">031-429-0620</a>)로 알려 주세요.</div>
         </div>
         <form id="editForm" onsubmit="updateQuote(event)" novalidate>
           <div class="form-row">
@@ -654,8 +654,8 @@ select.form-control{appearance:none;background-image:url("data:image/svg+xml,%3C
           <div class="fi"><span>대표이사</span> 최영훈</div>
           <div class="fi"><span>사업자등록번호</span> 350-88-01260</div>
           <div class="fi"><span>주소</span> 경기도 의왕시 한밭들길 12 (우편번호 16073)</div>
-          <div class="fi"><span>대표전화</span> 031-429-0620</div>
-          <div class="fi"><span>상담문의</span> 070-8831-7376</div>
+          <div class="fi"><span>대표전화</span> <a href="tel:031-429-0620" style="color:inherit;text-decoration:none;">031-429-0620</a></div>
+          <div class="fi"><span>상담문의</span> <a href="tel:070-8831-7376" style="color:inherit;text-decoration:none;">070-8831-7376</a></div>
           <div class="fi"><span>팩스</span> 031-427-0625</div>
           <div class="fi"><span>이메일</span> <a href="#" class="em-x" data-a="balasi" data-b="moc.revan" style="color:inherit"></a></div>
           <div class="fi"><span>운영시간</span> 평일 09:00~18:00 / 점심 12:00~13:00 (주말·공휴일 휴무)</div>
@@ -1319,6 +1319,8 @@ function submitForm(e){
   postData(collectPayload()).then(function(res){
     if(res&&res.ok){
       clearDraft();
+      /* 네이버 검색광고 전환추적 — 견적 신청 완료 */
+      if(window.isaTrackInquiry)isaTrackInquiry();
       document.getElementById('receiptCode').textContent=res.code;
       document.getElementById('quoteForm').style.display='none';
       document.getElementById('successBox').style.display='block';
@@ -1446,5 +1448,9 @@ function updateQuote(e){
 }
 </script>
 <script>(function(){function r(s){return s.split('').reverse().join('')}var e=r('balasi')+'@'+r('moc.revan');window.EMX=e;document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.em-x').forEach(function(el){if(el.tagName==='A'){el.setAttribute('href','mailto:'+e);if(!el.textContent.trim()){el.textContent=e}}else{el.textContent=e}})});})();</script>
+
+<!-- 네이버 검색광고 전환추적 (공통) -->
+<script type="text/javascript" src="//wcs.naver.net/wcslog.js"></script>
+<script type="text/javascript" src="js/naver-wcs.js"></script>
 </body>
 </html>
