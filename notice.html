@@ -281,8 +281,8 @@ footer{background:#142340;color:rgba(255,255,255,0.65);padding:50px 24px 28px;}
     <div class="board-toolbar">
       <div class="board-count">총 <strong>4</strong>건</div>
       <div class="board-search">
-        <input type="text" placeholder="검색어를 입력하세요">
-        <button>검색</button>
+        <input type="text" id="noticeSearch" placeholder="검색어를 입력하세요" oninput="filterBoard('noticeSearch','announcements')">
+        <button onclick="filterBoard('noticeSearch','announcements')">검색</button>
       </div>
     </div>
 
@@ -402,6 +402,10 @@ footer{background:#142340;color:rgba(255,255,255,0.65);padding:50px 24px 28px;}
     <h2 class="section-heading">자료실</h2>
     <div class="board-toolbar">
       <div class="board-count">총 <strong>3</strong>건</div>
+      <div class="board-search">
+        <input type="text" id="archiveSearch" placeholder="검색어를 입력하세요" oninput="filterBoard('archiveSearch','archive')">
+        <button onclick="filterBoard('archiveSearch','archive')">검색</button>
+      </div>
     </div>
 
     <table class="archive-board">
@@ -616,6 +620,23 @@ document.addEventListener('DOMContentLoaded',function(){
   scrollTopHard();
   window.addEventListener('hashchange',function(){showView(location.hash.replace('#',''));});
 });
+
+/* 게시판 검색 — 제목·본문 내용까지 검색, 건수 갱신 */
+function filterBoard(inputId, sectionId){
+  var q = document.getElementById(inputId).value.trim().toLowerCase();
+  var sec = document.getElementById(sectionId);
+  var n = 0;
+  sec.querySelectorAll('tbody tr[onclick]').forEach(function(row){
+    var detail = row.nextElementSibling;
+    var isDetail = detail && (detail.classList.contains('notice-detail-row') || detail.classList.contains('ab-detail'));
+    var text = (row.textContent + ' ' + (isDetail ? detail.textContent : '')).toLowerCase();
+    var show = !q || text.indexOf(q) > -1;
+    row.style.display = show ? '' : 'none';
+    if (isDetail) detail.style.display = show ? '' : 'none';
+    if (show) n++;
+  });
+  sec.querySelector('.board-count').innerHTML = '총 <strong>' + n + '</strong>건';
+}
 
 /* 공지 본문 펼침/접기 */
 function toggleNotice(row){
