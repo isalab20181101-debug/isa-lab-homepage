@@ -100,19 +100,25 @@ header{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,
 .law-no{min-width:30px;font-weight:700;color:var(--primary);}
 .law-link{color:var(--primary);font-size:13px;margin-left:8px;text-decoration:underline;}
 .law-desc{font-size:13px;color:#999;margin-top:3px;}
-/* 자료실 */
-.archive-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;}
-.archive-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:22px 24px;transition:all 0.2s;}
-.archive-card:hover{border-color:var(--primary);box-shadow:0 4px 16px rgba(21,101,192,0.1);}
-.archive-card-header{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
-.archive-icon{width:46px;height:46px;background:var(--light-bg);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;color:var(--primary);flex-shrink:0;border:1px solid var(--border);}
-.archive-title{font-size:15px;font-weight:700;color:#222;}
-.archive-meta{font-size:13px;color:#999;margin-top:2px;}
-.archive-desc{font-size:13px;color:#666;line-height:1.7;margin-bottom:14px;}
-.archive-footer{display:flex;align-items:center;justify-content:space-between;}
-.archive-tag{font-size:13px;background:#E3F2FD;color:var(--primary);padding:3px 10px;border-radius:20px;font-weight:600;}
-.btn-dl{display:inline-flex;align-items:center;gap:5px;padding:7px 16px;background:var(--page-accent);color:#fff;border-radius:6px;font-size:13px;font-weight:600;transition:background 0.2s;}
+/* 자료실 게시판 */
+.archive-board{width:100%;border-collapse:collapse;font-size:14px;}
+.archive-board thead th{background:var(--light-bg);padding:12px 14px;font-weight:700;color:#444;border-top:2px solid var(--primary);border-bottom:1px solid var(--border);text-align:center;}
+.archive-board thead th.th-title{text-align:left;}
+.archive-board tbody tr.ab-row{border-bottom:1px solid #DBE4F4;cursor:pointer;transition:background 0.15s;}
+.archive-board tbody tr.ab-row:hover{background:var(--light-bg);}
+.archive-board tbody td{padding:13px 14px;text-align:center;color:#444;vertical-align:middle;}
+.archive-board td.td-title{text-align:left;}
+.archive-board td.td-title a{color:#222;font-weight:600;display:block;}
+.archive-board td.td-title a:hover{color:var(--page-accent);}
+.ab-desc{font-size:13px;color:#888;font-weight:400;margin-top:3px;line-height:1.6;}
+.ab-tag{display:inline-block;min-width:54px;font-size:13px;background:#E3F2FD;color:var(--primary);padding:3px 8px;border-radius:4px;font-weight:700;}
+.ab-files{display:flex;gap:6px;justify-content:center;flex-wrap:wrap;}
+.archive-board tr.ab-detail{display:none;}
+.archive-board tr.ab-detail.open{display:table-row;}
+.archive-board tr.ab-detail td{padding:0;}
+.btn-dl{display:inline-flex;align-items:center;gap:5px;padding:6px 14px;background:var(--page-accent);color:#fff;border-radius:6px;font-size:13px;font-weight:600;transition:background 0.2s;white-space:nowrap;}
 .btn-dl:hover{filter: brightness(0.9);}
+.ab-dl-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px;}
 /* 사이드바 */
 .sidebar-right{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:500;display:flex;flex-direction:column;gap:0;border-radius:12px 0 0 12px;overflow:hidden;box-shadow:-4px 0 20px rgba(0,0,0,0.12);}
 .sb-btn{width:64px;padding:11px 5px;background:var(--page-accent);color:#fff;text-align:center;font-size:13px;font-weight:600;line-height:1.3;cursor:pointer;transition:filter 0.2s,transform 0.15s;display:flex;flex-direction:column;align-items:center;gap:4px;border:none;}
@@ -146,7 +152,11 @@ footer{background:#142340;color:rgba(255,255,255,0.65);padding:50px 24px 28px;}
   .nav-link{height:auto;padding:16px 20px;border-bottom:1px solid #E4EAF5;}
   .dropdown{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border-top:none;border-left:4px solid var(--primary);display:none;border-radius:0;}
   .nav-item.open .dropdown{display:block;}.auth-btns{display:none;}
-  .archive-grid{grid-template-columns:1fr;}
+  .archive-board thead th.th-no,.archive-board tbody td.td-no,
+  .archive-board thead th.th-date,.archive-board tbody td.td-date,
+  .archive-board thead th.th-file,.archive-board tbody td.td-file{display:none;}
+  .archive-board tbody tr.ab-detail td{display:table-cell;}
+  .archive-board thead th,.archive-board tbody td{padding:12px 8px;}
   .sidebar-right{display:none;}.footer-top{flex-direction:column;gap:24px;}
   .content-wrap{padding:40px 16px;}.page-hero h1{font-size:24px;}
   body{padding-bottom:80px;}
@@ -160,8 +170,8 @@ footer{background:#142340;color:rgba(255,255,255,0.65);padding:50px 24px 28px;}
 .btn-download.pending,.btn-dl.pending{background:#94A3B8 !important;cursor:help;position:relative;}
 .btn-download.pending:hover,.btn-dl.pending:hover{background:#64748B !important;}
 .btn-download.pending::after,.btn-dl.pending::after{content:' (준비중)';font-size:13px;opacity:0.85;}
-.file-item .btn-download.pending::after,.archive-card .btn-dl.pending::after{content:'';}
-.file-item:has(.pending) .file-name::after,.archive-card:has(.pending) .archive-title::after{content:' (준비중)';color:#94A3B8;font-size:13px;font-weight:500;}
+.file-item .btn-download.pending::after,.ab-row .btn-dl.pending::after{content:'';}
+.file-item:has(.pending) .file-name::after,.ab-row:has(.pending) .td-title a::after{content:' (준비중)';color:#94A3B8;font-size:13px;font-weight:500;}
 </style>
 <style>
 /* ===== 모바일: 우측 퀵메뉴를 하단 고정 바로 전환 (2026-08-11) ===== */
@@ -390,116 +400,142 @@ footer{background:#142340;color:rgba(255,255,255,0.65);padding:50px 24px 28px;}
   <!-- 자료실 -->
   <div class="content-section" id="archive">
     <h2 class="section-heading">자료실</h2>
-    <div class="notice-box">검사 의뢰 시 참고할 수 있는 유용한 자료를 제공합니다. 자료는 수시로 업데이트됩니다.</div>
+    <div class="notice-box">제목을 클릭하면 자세한 내용이 펼쳐집니다.</div>
 
-    <div class="archive-grid">
-      <div class="archive-card">
-        <div class="archive-card-header">
-          <div class="archive-icon">가이드</div>
-          <div>
-            <div class="archive-title">알기쉬운 식품 등의 자가품질검사 요령</div>
-            <div class="archive-meta">2026.04.10 기준 · PDF</div>
-          </div>
-        </div>
-        <div class="archive-desc">식품의약품안전처 발간 — 식품 등의 자가품질검사 항목·주기·방법을 알기 쉽게 정리한 공식 안내서.</div>
-        <div class="archive-footer">
-          <span class="archive-tag">일반</span>
-          <a href="files/알기쉬운_자가품질검사_요령.pdf" download class="btn-dl"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg> 다운로드</a>
-        </div>
-      </div>
+    <div class="board-toolbar">
+      <div class="board-count">총 <strong>3</strong>건</div>
+    </div>
 
-      <div class="archive-card">
-        <div class="archive-card-header">
-          <div class="archive-icon">고시</div>
-          <div>
-            <div class="archive-title">자가품질검사 항목 고시</div>
-            <div class="archive-meta">식약처 고시 · PDF</div>
-          </div>
-        </div>
-        <div class="archive-desc">식품 및 축산물 유형별 자가품질검사 항목 고시 전문.</div>
-        <div class="archive-footer">
-          <span class="archive-tag">법규</span>
-          <span style="display:flex;gap:6px;">
+    <table class="archive-board">
+      <thead>
+        <tr>
+          <th class="th-no" style="width:60px;">번호</th>
+          <th style="width:80px;">구분</th>
+          <th class="th-title">제목</th>
+          <th class="th-date" style="width:110px;">등록일</th>
+          <th class="th-file" style="width:215px;">첨부</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr class="ab-row" onclick="toggleNotice(this)">
+          <td class="td-no">3</td>
+          <td><span class="ab-tag">고시</span></td>
+          <td class="td-title">
+            <a href="#" onclick="return false;">「어린이 기호식품 품질인증기준」 일부개정고시(식약처 고시 제2026-61호)<span class="badge-new">NEW</span></a>
+            <div class="ab-desc">식품의약품안전처 2026.8.14. 고시 — 조리식품 위생등급제 반영, 당알코올 사용량 기준 변경</div>
+          </td>
+          <td class="td-date">2026.08.19</td>
+          <td class="td-file"><span class="ab-files">
+            <a href="files/어린이기호식품_품질인증기준_개정고시_2026-61호.pdf" download class="btn-dl"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg> 개정고시</a>
+            <a href="files/어린이기호식품_품질인증기준_전문_2026-61호.pdf" download class="btn-dl"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg> 전문</a>
+          </span></td>
+        </tr>
+        <tr class="ab-detail">
+          <td colspan="5"><div class="notice-detail">
+            <p>식품의약품안전처가 「어린이 식생활안전관리 특별법」 제14조에 따른 「어린이 기호식품 품질인증기준」을 일부 개정하여 고시하였습니다(<strong>식품의약품안전처 고시 제2026-61호, 2026년 8월 14일</strong>). 고시 원문의 내용을 아래와 같이 안내해 드립니다.</p>
+
+            <p><strong>1. 개정이유</strong></p>
+            <p>어린이 기호식품 품질인증 제도의 타 법령 개정사항을 반영하여 정책의 일관성을 유지하는 등 어린이 기호식품 품질인증 기준을 합리적으로 운영하고자 함</p>
+
+            <p><strong>2. 주요내용</strong></p>
+            <ul>
+              <li><strong>가. 모범업소 폐지에 따른 모범업소 기준 변경(안 별표 제1호나목)</strong><br>
+              「식품위생법」 개정(법률 제20898호, 2025.4.1. 공포)으로 모범업소 지정 제도가 폐지되고 위생등급제로 통합됨에 따라, 어린이 기호식품 안전 기준에 위생등급제를 반영</li>
+              <li><strong>나. 어린이 기호식품의 당알코올 사용량 기준 변경(안 별표 제3호나목)</strong><br>
+              「식품 등의 표시·광고에 관한 법률 시행규칙」 개정(총리령 제2004호, 2024.12.30. 공포)으로 당알코올 10% 이상 사용 시 주의문구 표시가 의무화됨에 따라, 어린이 기호식품의 당알코올 사용량을 10% 미만으로 설정함</li>
+            </ul>
+
+            <p><strong>3. 개정 조문</strong></p>
+            <p>별표 제1호나목1)을 다음과 같이 한다.</p>
+            <ul>
+              <li>1) 「식품위생법」 제47조의2에 따른 위생등급 지정 업소에서 조리하여야 한다.</li>
+            </ul>
+            <p>별표 제3호나목을 다음과 같이 한다.</p>
+            <ul>
+              <li>나. 다음의 식품첨가물을 사용하는 경우 당알코올 사용량이 총합으로서 10% 미만이어야 한다.<br>
+              락티톨, 만니톨, D-말티톨, 말티톨시럽, D-소비톨, D-소비톨액, 에리스리톨, 이소말트, 자일리톨, 폴리글리시톨시럽<br>
+              * 다만, 말티톨시럽, D-소비톨액, 폴리글리시톨시럽의 경우에는 말티톨과 소비톨의 실제 함량을 기준으로 적용한다.</li>
+            </ul>
+            <p>※ 신·구조문대비표상 당알코올 사용량 기준은 현행 &lsquo;총합으로서 20% 이하&rsquo;에서 &lsquo;총합으로서 10% 미만&rsquo;으로, 조리식품 기준은 현행 &lsquo;「식품위생법」 제47조에 따른 모범업소에서 조리하거나 모범업소 기준에 준하는 업소에서 조리&rsquo;에서 &lsquo;「식품위생법」 제47조의2에 따른 위생등급 지정업소에서 조리&rsquo;로 개정되었습니다.</p>
+
+            <p><strong>4. 부칙&lt;제2026-61호, 2026.8.14.&gt;</strong></p>
+            <ul>
+              <li>제1조(시행일) 이 고시는 고시한 날부터 시행한다. 다만, 별표 제1호나목의 개정규정은 <strong>2028년 7월 1일</strong>부터 시행한다.</li>
+              <li>제2조(적용례) 이 고시 시행 이후 품질인증 신청(연장신청을 포함한다)하는 경우부터 적용한다.</li>
+              <li>제3조(경과조치) ① 이 고시 시행 이전에 품질인증 신청(연장신청을 포함한다)이 접수되어 심사가 진행 중인 사항에 대하여는 종전의 규정에 따른다.<br>
+              ② 이 고시 시행 당시 종전의 규정에 따라 이미 품질인증 받은 제품은 해당 제품의 인증 유효기간까지 종전 기준에 따라 적용할 수 있다. 이 경우 해당 식품의 소비기한까지 판매하거나 판매의 목적으로 진열 또는 운반하거나 영업상 사용할 수 있다.</li>
+            </ul>
+
+            <p><strong>5. 기타 참고사항</strong></p>
+            <ul>
+              <li>관계법령: 「어린이 식생활안전관리 특별법」 제14조</li>
+              <li>소관부서: 식품의약품안전처 식생활영양안전정책과</li>
+            </ul>
+
+            <p><strong>첨부파일</strong></p>
+            <div class="ab-dl-row">
+              <a href="files/어린이기호식품_품질인증기준_개정고시_2026-61호.pdf" download class="btn-dl"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg> 일부개정고시</a>
+              <a href="files/어린이기호식품_품질인증기준_전문_2026-61호.pdf" download class="btn-dl"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg> 품질인증기준 전문</a>
+            </div>
+
+            <p style="margin-top:14px;">본 안내는 고시 원문을 정리한 것으로, 실제 적용 시에는 첨부된 고시 원문을 확인하시기 바랍니다.<br>
+            <a href="https://www.mfds.go.kr/brd/m_207/view.do?seq=15189" target="_blank" rel="noopener">식품의약품안전처 &gt; 법령·자료 &gt; 제·개정고시등 원문 보기 ↗</a></p>
+          </div></td>
+        </tr>
+
+        <tr class="ab-row" onclick="toggleNotice(this)">
+          <td class="td-no">2</td>
+          <td><span class="ab-tag">법규</span></td>
+          <td class="td-title">
+            <a href="#" onclick="return false;">자가품질검사 항목 고시</a>
+            <div class="ab-desc">식품 및 축산물 유형별 자가품질검사 항목 고시 전문</div>
+          </td>
+          <td class="td-date">2026.08.05</td>
+          <td class="td-file"><span class="ab-files">
             <a href="files/자가품질검사항목고시_식품.pdf" download class="btn-dl"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg> 식품</a>
             <a href="files/자가품질검사항목고시_축산물.pdf" download class="btn-dl"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg> 축산물</a>
-          </span>
-        </div>
-      </div>
+          </span></td>
+        </tr>
+        <tr class="ab-detail">
+          <td colspan="5"><div class="notice-detail">
+            <p>식품의약품안전처가 고시한 식품 및 축산물의 <strong>유형별 자가품질검사 항목</strong> 고시 전문입니다. 제품 유형별로 실시하여야 하는 검사 항목을 확인하실 수 있습니다.</p>
+            <ul>
+              <li>식품 — 「식품위생법」에 따른 식품 유형별 자가품질검사 항목</li>
+              <li>축산물 — 「축산물 위생관리법」에 따른 축산물 유형별 자가품질검사 항목</li>
+            </ul>
+            <p><strong>첨부파일</strong></p>
+            <div class="ab-dl-row">
+              <a href="files/자가품질검사항목고시_식품.pdf" download class="btn-dl"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg> 식품</a>
+              <a href="files/자가품질검사항목고시_축산물.pdf" download class="btn-dl"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg> 축산물</a>
+            </div>
+          </div></td>
+        </tr>
 
-    </div>
+        <tr class="ab-row" onclick="toggleNotice(this)">
+          <td class="td-no">1</td>
+          <td><span class="ab-tag">가이드</span></td>
+          <td class="td-title">
+            <a href="#" onclick="return false;">알기쉬운 식품 등의 자가품질검사 요령</a>
+            <div class="ab-desc">식품의약품안전처 발간 공식 안내서 (2026.04.10. 기준)</div>
+          </td>
+          <td class="td-date">2026.08.05</td>
+          <td class="td-file"><span class="ab-files">
+            <a href="files/알기쉬운_자가품질검사_요령.pdf" download class="btn-dl"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg> 다운로드</a>
+          </span></td>
+        </tr>
+        <tr class="ab-detail">
+          <td colspan="5"><div class="notice-detail">
+            <p>식품의약품안전처가 발간한 안내서로, 식품 등의 자가품질검사 항목·주기·방법을 알기 쉽게 정리한 자료입니다. 2026년 4월 10일 기준 내용입니다.</p>
+            <p><strong>첨부파일</strong></p>
+            <div class="ab-dl-row">
+              <a href="files/알기쉬운_자가품질검사_요령.pdf" download class="btn-dl"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg> 알기쉬운 식품 등의 자가품질검사 요령</a>
+            </div>
+          </div></td>
+        </tr>
 
-    <div class="law-category" style="margin-top:36px;" id="law-news">
-      <h3>법령·고시 개정 소식</h3>
-      <p style="font-size:13px;color:#777;margin:-6px 0 14px;">시험·검사와 관련된 식품의약품안전처 고시 제·개정 사항을 원문 그대로 정리해 안내합니다. 제목을 클릭하면 내용이 펼쳐집니다.</p>
-      <table class="notice-table law-board">
-        <thead>
-          <tr>
-            <th style="width:70px;">번호</th>
-            <th>제목</th>
-            <th style="width:110px;">고시일</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr onclick="toggleNotice(this)">
-            <td>1</td>
-            <td class="td-title"><a href="#" onclick="return false;">「어린이 기호식품 품질인증기준」 일부개정고시(식약처 고시 제2026-61호)<span class="badge-new">NEW</span></a></td>
-            <td>2026.08.14</td>
-          </tr>
-          <tr class="notice-detail-row">
-            <td colspan="3"><div class="notice-detail">
-              <p>식품의약품안전처가 「어린이 식생활안전관리 특별법」 제14조에 따른 「어린이 기호식품 품질인증기준」을 일부 개정하여 고시하였습니다(<strong>식품의약품안전처 고시 제2026-61호, 2026년 8월 14일</strong>). 고시 원문의 내용을 아래와 같이 안내해 드립니다.</p>
-
-              <p><strong>1. 개정이유</strong></p>
-              <p>어린이 기호식품 품질인증 제도의 타 법령 개정사항을 반영하여 정책의 일관성을 유지하는 등 어린이 기호식품 품질인증 기준을 합리적으로 운영하고자 함</p>
-
-              <p><strong>2. 주요내용</strong></p>
-              <ul>
-                <li><strong>가. 모범업소 폐지에 따른 모범업소 기준 변경(안 별표 제1호나목)</strong><br>
-                「식품위생법」 개정(법률 제20898호, 2025.4.1. 공포)으로 모범업소 지정 제도가 폐지되고 위생등급제로 통합됨에 따라, 어린이 기호식품 안전 기준에 위생등급제를 반영</li>
-                <li><strong>나. 어린이 기호식품의 당알코올 사용량 기준 변경(안 별표 제3호나목)</strong><br>
-                「식품 등의 표시·광고에 관한 법률 시행규칙」 개정(총리령 제2004호, 2024.12.30. 공포)으로 당알코올 10% 이상 사용 시 주의문구 표시가 의무화됨에 따라, 어린이 기호식품의 당알코올 사용량을 10% 미만으로 설정함</li>
-              </ul>
-
-              <p><strong>3. 개정 조문</strong></p>
-              <p>별표 제1호나목1)을 다음과 같이 한다.</p>
-              <ul>
-                <li>1) 「식품위생법」 제47조의2에 따른 위생등급 지정 업소에서 조리하여야 한다.</li>
-              </ul>
-              <p>별표 제3호나목을 다음과 같이 한다.</p>
-              <ul>
-                <li>나. 다음의 식품첨가물을 사용하는 경우 당알코올 사용량이 총합으로서 10% 미만이어야 한다.<br>
-                락티톨, 만니톨, D-말티톨, 말티톨시럽, D-소비톨, D-소비톨액, 에리스리톨, 이소말트, 자일리톨, 폴리글리시톨시럽<br>
-                * 다만, 말티톨시럽, D-소비톨액, 폴리글리시톨시럽의 경우에는 말티톨과 소비톨의 실제 함량을 기준으로 적용한다.</li>
-              </ul>
-              <p>※ 신·구조문대비표상 당알코올 사용량 기준은 현행 &lsquo;총합으로서 20% 이하&rsquo;에서 &lsquo;총합으로서 10% 미만&rsquo;으로, 조리식품 기준은 현행 &lsquo;「식품위생법」 제47조에 따른 모범업소에서 조리하거나 모범업소 기준에 준하는 업소에서 조리&rsquo;에서 &lsquo;「식품위생법」 제47조의2에 따른 위생등급 지정업소에서 조리&rsquo;로 개정되었습니다.</p>
-
-              <p><strong>4. 부칙&lt;제2026-61호, 2026.8.14.&gt;</strong></p>
-              <ul>
-                <li>제1조(시행일) 이 고시는 고시한 날부터 시행한다. 다만, 별표 제1호나목의 개정규정은 <strong>2028년 7월 1일</strong>부터 시행한다.</li>
-                <li>제2조(적용례) 이 고시 시행 이후 품질인증 신청(연장신청을 포함한다)하는 경우부터 적용한다.</li>
-                <li>제3조(경과조치) ① 이 고시 시행 이전에 품질인증 신청(연장신청을 포함한다)이 접수되어 심사가 진행 중인 사항에 대하여는 종전의 규정에 따른다.<br>
-                ② 이 고시 시행 당시 종전의 규정에 따라 이미 품질인증 받은 제품은 해당 제품의 인증 유효기간까지 종전 기준에 따라 적용할 수 있다. 이 경우 해당 식품의 소비기한까지 판매하거나 판매의 목적으로 진열 또는 운반하거나 영업상 사용할 수 있다.</li>
-              </ul>
-
-              <p><strong>5. 기타 참고사항</strong></p>
-              <ul>
-                <li>관계법령: 「어린이 식생활안전관리 특별법」 제14조</li>
-                <li>소관부서: 식품의약품안전처 식생활영양안전정책과</li>
-              </ul>
-
-              <p><strong>첨부파일</strong></p>
-              <ul>
-                <li><a href="files/어린이기호식품_품질인증기준_개정고시_2026-61호.pdf" download>「어린이 기호식품 품질인증기준」 일부개정고시(식약처 고시 제2026-61호).pdf</a></li>
-                <li><a href="files/어린이기호식품_품질인증기준_전문_2026-61호.pdf" download>어린이 기호식품 품질인증기준 전문(식약처 고시 제2026-61호).pdf</a></li>
-              </ul>
-
-              <p>본 안내는 고시 원문을 정리한 것으로, 실제 적용 시에는 첨부된 고시 원문을 확인하시기 바랍니다.<br>
-              <a href="https://www.mfds.go.kr/brd/m_207/view.do?seq=15189" target="_blank" rel="noopener">식품의약품안전처 &gt; 법령·자료 &gt; 제·개정고시등 원문 보기 ↗</a></p>
-            </div></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+      </tbody>
+    </table>
 
     <div class="law-category" style="margin-top:36px;">
       <h3>관련 법령·공전 바로가기</h3>
@@ -586,7 +622,7 @@ document.addEventListener('DOMContentLoaded',function(){
 /* 공지 본문 펼침/접기 */
 function toggleNotice(row){
   var detail=row.nextElementSibling;
-  if(detail&&detail.classList.contains('notice-detail-row')){detail.classList.toggle('open');}
+  if(detail&&(detail.classList.contains('notice-detail-row')||detail.classList.contains('ab-detail'))){detail.classList.toggle('open');}
 }
 
 /* 해시로 들어와도 페이지 맨 위(배너)부터 보이게 */
