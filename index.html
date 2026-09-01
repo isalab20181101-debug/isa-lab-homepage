@@ -434,44 +434,65 @@ footer { background: var(--footer-bg); color: rgba(255,255,255,0.65); padding: 5
 }
 .hero-slide.active { opacity: 1; }
 
-/* 히어로 - 슬라이드별 실사 이미지 + 그라디언트 오버레이 */
-/* 슬라이드 1: 현미경+피펫 — 정밀 식품·미생물 검사 */
-.hs-1 {
-  background:
-    linear-gradient(105deg,
-      rgba(3,12,50,0.96)  0%,
-      rgba(6,30,95,0.9)   38%,
-      rgba(5,45,120,0.5)  62%,
-      rgba(0,10,45,0.05)  100%),
-    url('images/main_3.jpg') center 40%/cover no-repeat;
+/* 히어로 - 배경 이미지 레이어(켄번즈 슬로우 줌) + 그라디언트 오버레이 */
+.hero-bg {
+  display: block; position: absolute; inset: 0; z-index: 0;
+  transform: scale(1.02); will-change: transform; backface-visibility: hidden;
 }
-/* 슬라이드 2: 연구원+비커 — KOLAS 공인 분석 (밝은 코발트·하늘빛) */
-.hs-2 {
-  background:
-    linear-gradient(105deg,
-      rgba(12,75,170,0.93)  0%,
-      rgba(30,115,215,0.85) 38%,
-      rgba(70,160,235,0.44) 62%,
-      rgba(10,60,140,0.04)  100%),
-    url('images/main_4.jpg') center 35%/cover no-repeat;
+.hero-slide.active .hero-bg { animation: heroKenBurns 9s ease-out forwards; }
+@keyframes heroKenBurns {
+  from { transform: scale(1.02); }
+  to   { transform: scale(1.14); }
 }
-/* 슬라이드 3: 대기시료 채취기(하이볼륨 샘플러) — 대기측정 대행 (청록 톤) */
-.hs-3 {
-  background:
-    linear-gradient(105deg,
-      rgba(3,45,58,0.95)    0%,
-      rgba(8,95,108,0.87)   38%,
-      rgba(14,130,132,0.46) 62%,
-      rgba(0,38,50,0.04)    100%),
-    url('images/main_6.jpg') right center/auto 100% no-repeat #c9d2d3;
+.hero-slide::after {
+  content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
 }
-.hero-bg { display: none; }
 .hero-deco { display: none; }
 
+/* 슬라이드 1: 현미경+피펫 — 정밀 식품·미생물 검사 */
+.hs-1 .hero-bg { background: url('images/main_3.jpg') center 40%/cover no-repeat; }
+.hs-1::after {
+  background: linear-gradient(105deg,
+    rgba(3,12,50,0.96)  0%,
+    rgba(6,30,95,0.9)   38%,
+    rgba(5,45,120,0.5)  62%,
+    rgba(0,10,45,0.05)  100%);
+}
+/* 슬라이드 2: 연구원+비커 — KOLAS 공인 분석 (밝은 코발트·하늘빛) */
+.hs-2 .hero-bg { background: url('images/main_4.jpg') center 35%/cover no-repeat; }
+.hs-2::after {
+  background: linear-gradient(105deg,
+    rgba(12,75,170,0.93)  0%,
+    rgba(30,115,215,0.85) 38%,
+    rgba(70,160,235,0.44) 62%,
+    rgba(10,60,140,0.04)  100%);
+}
+/* 슬라이드 3: 대기시료 채취기(하이볼륨 샘플러) — 대기측정 대행 (청록 톤) */
+.hs-3 .hero-bg { background: url('images/main_6.jpg') right center/auto 100% no-repeat #c9d2d3; }
+.hs-3::after {
+  background: linear-gradient(105deg,
+    rgba(3,45,58,0.95)    0%,
+    rgba(8,95,108,0.87)   38%,
+    rgba(14,130,132,0.46) 62%,
+    rgba(0,38,50,0.04)    100%);
+}
+
 .hero-content {
-  position: relative; z-index: 1;
+  position: relative; z-index: 2;
   max-width: 1300px; width: 100%; margin: 0 auto; padding: 0 52px;
   color: #fff;
+}
+/* 히어로 텍스트 - 아래에서 위로 순차 등장 */
+.hero-content > * { opacity: 0; transform: translateY(30px); }
+.hero-slide.active .hero-content > * {
+  animation: heroTextUp 0.9s cubic-bezier(0.22,0.8,0.28,1) forwards;
+}
+.hero-slide.active .hero-badge { animation-delay: 0.15s; }
+.hero-slide.active .hero-content h2 { animation-delay: 0.32s; }
+.hero-slide.active .hero-content p { animation-delay: 0.49s; }
+.hero-slide.active .hero-btns { animation-delay: 0.66s; }
+@keyframes heroTextUp {
+  to { opacity: 1; transform: translateY(0); }
 }
 .hero-badge {
   display: inline-flex; align-items: center; gap: 6px;
@@ -521,6 +542,21 @@ footer { background: var(--footer-bg); color: rgba(255,255,255,0.65); padding: 5
   background: rgba(255,255,255,0.35); cursor: pointer; transition: all 0.3s; border: none;
 }
 .hero-dot.active { background: #fff; width: 30px; border-radius: 5px; }
+
+/* ===== 스크롤 등장 애니메이션 (AOS 대체 · 라이브러리 없음) ===== */
+.reveal {
+  opacity: 0; transform: translateY(32px);
+  transition: opacity 0.75s ease, transform 0.75s cubic-bezier(0.22,0.8,0.28,1);
+}
+.reveal.reveal-in { opacity: 1; transform: translateY(0); }
+
+/* 애니메이션 최소화 설정을 켠 사용자는 모든 움직임 해제 */
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide.active .hero-bg { animation: none; transform: scale(1.02); }
+  .hero-content > *,
+  .hero-slide.active .hero-content > * { opacity: 1; transform: none; animation: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
 
 /* ===== MAIN: 서비스 그리드 ===== */
 .services-section {
@@ -1549,6 +1585,47 @@ document.addEventListener('DOMContentLoaded', function () {
     });
     autoTimer = setInterval(function () { goSlide((current + 1) % slides.length); }, 5000);
   }
+
+  // ─── 스크롤 등장 애니메이션 ─────────────────────
+  // 화면에 들어오면 아래에서 위로 부드럽게 나타남. 등장이 끝나면 클래스를 제거해
+  // 카드 hover 효과(transform)와 충돌하지 않게 한다.
+  (function () {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduceMotion || !('IntersectionObserver' in window)) return;
+
+    const groups = [
+      '.sec-header', '.svc-card', '.proc-step', '.info-box',
+      '.quick-wrap', '.why-card', '.agencies-inner'
+    ];
+    const targets = [];
+    groups.forEach(function (sel) {
+      const els = document.querySelectorAll(sel);
+      els.forEach(function (el) {
+        if (el.closest('.hero-wrap')) return;
+        el.classList.add('reveal');
+        // 같은 묶음 안의 카드들이 0.08초 간격으로 차례로 등장
+        const i = Array.prototype.indexOf.call(el.parentElement.children, el);
+        el.style.transitionDelay = Math.min(i, 7) * 0.08 + 's';
+        targets.push(el);
+      });
+    });
+    if (!targets.length) return;
+
+    const io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        el.classList.add('reveal-in');
+        io.unobserve(el);
+        setTimeout(function () {
+          el.classList.remove('reveal', 'reveal-in');
+          el.style.transitionDelay = '';
+        }, 1400);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+    targets.forEach(function (el) { io.observe(el); });
+  })();
 
   // ─── FAQ 아코디언 ──────────────────────────────
   const faqQs = document.querySelectorAll('.faq-q');
