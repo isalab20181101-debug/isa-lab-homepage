@@ -176,27 +176,10 @@ select.form-control{appearance:none;background-image:url("data:image/svg+xml,%3C
 .extra-chip .tag{color:#6FA84B;font-weight:700;margin-left:4px;font-size:13px;}
 .extra-empty{font-size:13px;color:#5b7a44;}
 .extra-note{font-size:13px;color:#6d8a55;margin-top:10px;line-height:1.6;}
-/* 비밀번호 */
-.pw-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
-.pw-hint{font-size:13.5px;color:var(--text-muted);margin-top:6px;}
-/* 조회·수정 */
-.lookup-card{background:#fff;border:2px solid var(--border);border-radius:16px;padding:32px 40px;}
-.lookup-form{display:grid;grid-template-columns:1fr 1fr auto;gap:12px;align-items:end;}
 .btn-line{padding:12px 26px;background:var(--page-accent);color:#fff;border:none;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;height:46px;white-space:nowrap;transition:background .2s;}
 .btn-line:hover{filter: brightness(0.9);}
 .btn-ghost{background:#fff;color:var(--primary);border:1.5px solid var(--primary);}
 .btn-ghost:hover{background:var(--light-bg);}
-.lookup-msg{font-size:14.5px;margin-top:14px;padding:11px 15px;border-radius:8px;display:none;}
-.lookup-msg.err{display:block;background:#FDECEA;color:#B23B32;border:1px solid #F5C6C0;}
-.lookup-msg.ok{display:block;background:#E9F3EC;color:#2E6B3E;border:1px solid #BFE0C8;}
-.record-view{display:none;margin-top:24px;border-top:1px dashed var(--border);padding-top:24px;}
-.record-view.show{display:block;}
-.record-meta{display:flex;flex-wrap:wrap;gap:10px 20px;margin-bottom:20px;font-size:14.5px;color:#3d4553;}
-.record-meta b{color:#222;}
-.status-badge{display:inline-block;font-size:13.5px;font-weight:700;padding:4px 13px;border-radius:20px;}
-.status-접수{background:#EAF1FB;color:#1d3158;}
-.status-처리중{background:#FFF3E0;color:#B36A00;}
-.status-완료{background:#E9F3EC;color:#2E6B3E;}
 /* 완료 화면 */
 .receipt-code{display:inline-block;margin:10px 0 4px;font-size:22px;font-weight:800;letter-spacing:1px;color:var(--primary);background:var(--light-bg);border:1px dashed var(--primary-light);border-radius:10px;padding:10px 22px;}
 .success-box{display:none;text-align:center;padding:60px 40px;background:var(--light-bg);border-radius:16px;border:2px solid var(--border);}
@@ -225,10 +208,6 @@ select.form-control{appearance:none;background-image:url("data:image/svg+xml,%3C
 /* 작성 임시저장 안내 */
 .draft-banner{display:none;align-items:center;justify-content:space-between;gap:10px;background:var(--accent-soft);border:1.5px solid #8FC4D2;border-radius:10px;padding:12px 16px;font-size:14.5px;color:#0B5568;margin-bottom:22px;flex-wrap:wrap;}
 .draft-banner button{border:none;background:none;color:var(--page-accent);font-size:14px;font-weight:700;cursor:pointer;text-decoration:underline;font-family:inherit;padding:2px;}
-/* 비밀번호 표시 토글 */
-.pw-wrap{position:relative;}
-.pw-wrap .form-control{padding-right:44px;}
-.pw-eye{position:absolute;right:8px;top:50%;transform:translateY(-50%);border:none;background:none;cursor:pointer;font-size:17px;padding:4px 6px;color:#8a93a5;line-height:1;}
 /* 접수번호 복사 */
 .copy-btn{display:inline-flex;align-items:center;gap:6px;margin-left:8px;padding:9px 17px;border:1.5px solid var(--page-accent);background:#fff;color:var(--page-accent);border-radius:50px;font-size:14px;font-weight:700;cursor:pointer;font-family:inherit;vertical-align:middle;transition:all .15s;}
 .copy-btn:hover{background:var(--light-bg);}
@@ -256,9 +235,6 @@ select.form-control{appearance:none;background-image:url("data:image/svg+xml,%3C
   .quick-contacts{grid-template-columns:1fr;}
   .quote-form{padding:24px 20px;}
   .type-grid{grid-template-columns:1fr 1fr;}
-  .pw-row{grid-template-columns:1fr;}
-  .lookup-form{grid-template-columns:1fr;}
-  .lookup-card{padding:24px 20px;}
   .cond-block{padding:18px 16px 4px;}
   .prow-grid{grid-template-columns:1fr;}
   .pill{padding:9px 14px;font-size:14px;}
@@ -339,7 +315,6 @@ select.form-control{appearance:none;background-image:url("data:image/svg+xml,%3C
         <div class="dropdown">
           <a href="quote.html#consult">온라인 상담 신청</a>
           <a href="quote.html#quote-form">견적 요청</a>
-          <a href="quote.html#quote-lookup">견적 조회·수정</a>
         </div></li>
     </ul></nav>
   </div>
@@ -364,7 +339,6 @@ select.form-control{appearance:none;background-image:url("data:image/svg+xml,%3C
 <nav class="sub-nav"><div class="sub-nav-inner">
   <a href="#consult">온라인 상담 신청</a>
   <a href="#quote-form" class="active">견적 신청</a>
-  <a href="#quote-lookup">견적 조회·수정</a>
 </div></nav>
 
 <div class="content-wrap">
@@ -506,26 +480,6 @@ select.form-control{appearance:none;background-image:url("data:image/svg+xml,%3C
           <div id="fileList"></div>
         </div>
 
-        <!-- 비밀번호 -->
-        <div class="q-sec s4"><span class="num">4</span><h3>조회·수정용 비밀번호<span class="req">*</span></h3><span class="sub">접수번호와 함께 견적 조회·수정에 사용됩니다</span></div>
-        <div style="height:14px;"></div>
-        <div class="pw-row">
-          <div class="form-group">
-            <label class="form-label">비밀번호<span class="req">*</span></label>
-            <div class="pw-wrap">
-              <input type="password" class="form-control" id="password" placeholder="4자 이상" required>
-              <button type="button" class="pw-eye" onclick="togglePw(this)" title="비밀번호 표시" aria-label="비밀번호 표시">👁</button>
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label">비밀번호 확인<span class="req">*</span></label>
-            <div class="pw-wrap">
-              <input type="password" class="form-control" id="password2" placeholder="다시 입력" required>
-              <button type="button" class="pw-eye" onclick="togglePw(this)" title="비밀번호 표시" aria-label="비밀번호 표시">👁</button>
-            </div>
-          </div>
-        </div>
-        <div class="pw-hint">※ 분실 시 복구가 어려우니 꼭 기억해 주세요.</div>
 
         <div class="form-group" style="margin-top:18px;">
           <div class="agree-box" id="agreeBox">
@@ -549,81 +503,10 @@ select.form-control{appearance:none;background-image:url("data:image/svg+xml,%3C
       <div class="success-box" id="successBox">
         <div class="success-icon">✅</div>
         <h3>견적 신청이 접수되었습니다!</h3>
-        <p>아래 <strong>접수번호</strong>를 비밀번호와 함께 보관해 주세요.<br>견적 조회·수정 시 필요합니다.</p>
+        <p>아래 <strong>접수번호</strong>를 보관해 주세요.<br>문의하실 때 알려주시면 빠르게 확인해 드립니다.</p>
         <div><span class="receipt-code" id="receiptCode">-</span><button type="button" class="copy-btn" onclick="copyReceipt(this)">📋 복사</button></div>
         <p style="margin-top:16px;">입력하신 이메일 및 연락처로 <strong>1 영업일 이내</strong>에 연락드리겠습니다.<br><br>긴급한 문의는 전화(<a href="tel:070-8831-7376" style="color:inherit;text-decoration:none;">070-8831-7376</a>) 또는 카카오톡 채널로 연락 주세요.</p>
         <div style="margin-top:20px;"><button type="button" class="btn-line btn-ghost" onclick="resetForm()">새 견적 신청하기</button></div>
-      </div>
-    </div>
-  </div>
-
-  <!-- 견적 조회·수정 -->
-  <div class="content-section" id="quote-lookup" style="display:none;">
-    <h2 class="section-heading">견적 조회·수정</h2>
-    <div class="notice-box">신청 시 발급받은 <strong>접수번호</strong>와 <strong>비밀번호</strong>를 입력하시면 본인이 신청한 견적 내용을 확인하고 수정할 수 있습니다.</div>
-
-    <div class="lookup-card">
-      <div class="lookup-form">
-        <div class="form-group" style="margin:0;">
-          <label class="form-label">접수번호</label>
-          <input type="text" class="form-control" id="lkCode" placeholder="예) Q20260710-001">
-        </div>
-        <div class="form-group" style="margin:0;">
-          <label class="form-label">비밀번호</label>
-          <input type="password" class="form-control" id="lkPw" placeholder="비밀번호">
-        </div>
-        <button type="button" class="btn-line" onclick="lookupQuote()">조회하기</button>
-      </div>
-      <div class="lookup-msg" id="lookupMsg"></div>
-
-      <!-- 조회 결과 · 수정 폼 -->
-      <div class="record-view" id="recordView">
-        <div class="record-meta">
-          <span>접수번호 <b id="rvCode">-</b></span>
-          <span>신청일 <b id="rvDate">-</b></span>
-          <span>처리상태 <span class="status-badge" id="rvStatus">접수</span></span>
-        </div>
-        <div id="rvFixed" style="background:#F7F9FD;border:1px solid var(--border);border-radius:10px;padding:14px 18px;margin-bottom:20px;font-size:14px;line-height:1.9;color:#444;">
-          <div><b style="color:var(--primary);">허가종류</b> &nbsp;<span id="rvLicense">-</span></div>
-          <div id="rvHelperWrap" style="display:none;"><b style="color:var(--primary);">자가품질 조건</b> &nbsp;<span id="rvHelper">-</span></div>
-          <div id="rvFilesWrap" style="display:none;"><b style="color:var(--primary);">첨부파일</b> &nbsp;<span id="rvFiles">-</span></div>
-          <div style="font-size:13px;color:#888;margin-top:6px;">※ 위 항목은 접수 시 기준으로 표시되며 이 화면에서는 수정할 수 없습니다. 변경이 필요하시면 전화(<a href="tel:031-429-0620" style="color:inherit;text-decoration:none;">031-429-0620</a>)로 알려 주세요.</div>
-        </div>
-        <form id="editForm" onsubmit="updateQuote(event)" novalidate>
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label">업체/기관명</label>
-              <input type="text" class="form-control" id="e_company">
-            </div>
-            <div class="form-group">
-              <label class="form-label">담당자명</label>
-              <input type="text" class="form-control" id="e_name">
-            </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label">연락처</label>
-              <input type="tel" class="form-control" id="e_phone">
-            </div>
-            <div class="form-group">
-              <label class="form-label">이메일</label>
-              <input type="email" class="form-control" id="e_email">
-            </div>
-          </div>
-          <div class="form-group">
-            <label class="form-label">검사 제품 목록</label>
-            <div class="product-list" id="e_productList"></div>
-            <button type="button" class="btn-add-prod" onclick="addProductRow('e_productList')">＋ 제품 추가</button>
-          </div>
-          <div class="form-group">
-            <label class="form-label">기타 요청사항</label>
-            <textarea class="form-control" id="e_message"></textarea>
-          </div>
-          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:10px;">
-            <button type="submit" class="btn-line">수정 내용 저장</button>
-            <button type="button" class="btn-line btn-ghost" onclick="closeRecord()">닫기</button>
-          </div>
-        </form>
       </div>
     </div>
   </div>
@@ -688,7 +571,7 @@ document.addEventListener('DOMContentLoaded',function(){
     const btn=document.getElementById('scrollTop');
     if(btn)btn.style.display=window.scrollY>300?'flex':'none';
   });
-  // 화면(빠른 상담/견적 신청/조회·수정) 전환 라우팅
+  // 화면(빠른 상담/견적 신청) 전환 라우팅
   if('scrollRestoration' in history) history.scrollRestoration='manual';
   showView(location.hash.replace('#',''),true);
   scrollTopHard();
@@ -719,8 +602,6 @@ document.addEventListener('DOMContentLoaded',function(){
   });
   var ph=document.getElementById('phone');
   if(ph)ph.addEventListener('input',function(){this.value=fmtPhone(this.value);});
-  var eph=document.getElementById('e_phone');
-  if(eph)eph.addEventListener('input',function(){this.value=fmtPhone(this.value);});
   // 파일 첨부 (클릭 + 드래그앤드롭)
   var fd=document.getElementById('fileDrop'),fi=document.getElementById('fileInput');
   if(fd&&fi){
@@ -747,8 +628,8 @@ function scrollTopHard(){
   window.addEventListener('load',function(){window.scrollTo(0,0);});
 }
 
-/* ===================== 화면 전환 (빠른 상담 / 견적 신청 / 조회·수정) ===================== */
-var VIEWS=['consult','quote-form','quote-lookup'];
+/* ===================== 화면 전환 (빠른 상담 / 견적 신청) ===================== */
+var VIEWS=['consult','quote-form'];
 function showView(id,skipScroll){
   if(VIEWS.indexOf(id)<0)id='quote-form';
   VIEWS.forEach(function(v){
@@ -854,14 +735,6 @@ function fmtPhone(v){
   if(d.length<7)return d.replace(/(\d{3})(\d+)/,'$1-$2');
   if(d.length<11)return d.replace(/(\d{3})(\d{3})(\d+)/,'$1-$2-$3');
   return d.replace(/(\d{3})(\d{4})(\d{4})/,'$1-$2-$3');
-}
-
-/* 비밀번호 표시 토글 */
-function togglePw(btn){
-  var inp=btn.parentNode.querySelector('input');
-  var show=inp.type==='password';
-  inp.type=show?'text':'password';
-  btn.textContent=show?'🙈':'👁';
 }
 
 /* 접수번호 복사 */
@@ -1230,7 +1103,7 @@ function cardConds(card){
 /* 예상 금액 계산 제거 — 금액은 접수 후 관리자 안내 (호환용 스텁) */
 function grandTotals(){return {supply:0,vat:0,total:0};}
 function recalcGrand(){}
-/* 저장된 데이터로 카드 복원 (조회·수정) */
+/* 저장된 데이터로 카드 복원 (임시저장 복원) */
 function applyCardData(card,data){
   var tp=card.querySelector('.prod-type');
   if(tp&&data.type)tp.value=data.type;
@@ -1279,8 +1152,7 @@ function collectPayload(){
     extraItems:'',
     estimate:grandTotals(),
     message:document.getElementById('message').value.trim(),
-    files:attachedFiles.filter(function(f){return f.data;}),
-    password:document.getElementById('password').value
+    files:attachedFiles.filter(function(f){return f.data;})
   };
 }
 
@@ -1288,13 +1160,7 @@ function collectPayload(){
 function submitForm(e){
   e.preventDefault();
   if(!validateAll())return;
-  var pwEl=document.getElementById('password'),pw2El=document.getElementById('password2');
-  var pw=pwEl.value,pw2=pw2El.value;
   var ok=true,first=null;
-  if(pw.length<4){setErr(pwEl,'비밀번호는 4자 이상 입력해 주세요.');ok=false;first=pwEl;}
-  else clearErr(pwEl);
-  if(ok&&pw!==pw2){setErr(pw2El,'비밀번호가 일치하지 않습니다. 다시 확인해 주세요.');ok=false;first=first||pw2El;}
-  else if(ok)clearErr(pw2El);
   var agree=document.getElementById('agree'),agreeBox=document.getElementById('agreeBox');
   if(!agree.checked){
     blockErr('agreeErr',agreeBox,'개인정보 수집·이용에 동의하셔야 신청할 수 있습니다.');
@@ -1363,90 +1229,6 @@ function postData(payload){
   }).then(function(r){return r.json();});
 }
 
-/* ===================== 조회 ===================== */
-var currentCode='';
-function lookupQuote(){
-  var code=document.getElementById('lkCode').value.trim();
-  var pw=document.getElementById('lkPw').value;
-  var msg=document.getElementById('lookupMsg');
-  msg.className='lookup-msg';
-  if(!code||!pw){msg.className='lookup-msg err';msg.textContent='접수번호와 비밀번호를 입력해 주세요.';return;}
-  msg.className='lookup-msg ok';msg.textContent='조회 중...';
-  postData({action:'lookup',code:code,password:pw}).then(function(res){
-    if(res&&res.ok){
-      currentCode=code;
-      fillRecord(res.record);
-      msg.className='lookup-msg';msg.textContent='';
-      document.getElementById('recordView').classList.add('show');
-    }else{
-      document.getElementById('recordView').classList.remove('show');
-      msg.className='lookup-msg err';
-      /* 개인정보 보호: 접수번호 존재 여부가 드러나지 않도록 실패 사유를 구분하지 않고 항상 동일 메시지 표시
-         (입력값 오류 등 서버가 '접수'/'비밀번호'와 무관한 안내를 보낸 경우는 그대로 표시) */
-      var e=res&&res.error?String(res.error):'';
-      msg.textContent=(!e||/접수번호|비밀번호|찾을 수 없|올바르지/.test(e))
-        ? '접수번호 또는 비밀번호가 올바르지 않습니다.' : e;
-    }
-  }).catch(function(){msg.className='lookup-msg err';msg.textContent='서버 연결에 실패했습니다. 잠시 후 다시 시도해 주세요.';});
-}
-function fillRecord(r){
-  document.getElementById('rvCode').textContent=r.code||currentCode;
-  document.getElementById('rvDate').textContent=r.date||'-';
-  var st=document.getElementById('rvStatus');
-  st.textContent=r.status||'접수';st.className='status-badge status-'+(r.status||'접수');
-  document.getElementById('e_company').value=r.company||'';
-  document.getElementById('e_name').value=r.name||'';
-  document.getElementById('e_phone').value=r.phone||'';
-  document.getElementById('e_email').value=r.email||'';
-  document.getElementById('e_message').value=r.message||'';
-  // 접수 시 정보(수정 불가) 표시 — 허가종류·자가품질 조건·첨부파일
-  document.getElementById('rvLicense').textContent=r.license||'-';
-  var hw=document.getElementById('rvHelperWrap');
-  if(r.helper){document.getElementById('rvHelper').textContent=r.helper;hw.style.display='';}
-  else hw.style.display='none';
-  var fw=document.getElementById('rvFilesWrap'),fe=document.getElementById('rvFiles');
-  if(r.files){
-    fe.innerHTML=String(r.files).split('\n').filter(Boolean).map(function(line){
-      var m=line.split(' → ');
-      return (m[1]&&/^https?:/.test(m[1]))
-        ? '<a href="'+m[1]+'" target="_blank" rel="noopener" style="color:var(--page-accent);font-weight:600;">'+m[0]+'</a>'
-        : line;
-    }).join('<br>');
-    fw.style.display='';
-  } else fw.style.display='none';
-  var list=document.getElementById('e_productList');
-  list.innerHTML='';
-  var prods=r.products;
-  if(typeof prods==='string'){try{prods=JSON.parse(prods);}catch(e){prods=[];}}
-  if(!prods||!prods.length){addProductRow('e_productList');}
-  else prods.forEach(function(p){addProductRow('e_productList',p);});
-}
-function closeRecord(){
-  document.getElementById('recordView').classList.remove('show');
-  document.getElementById('lkPw').value='';
-}
-function updateQuote(e){
-  e.preventDefault();
-  var msg=document.getElementById('lookupMsg');
-  var products=collectProducts('e_productList');
-  var payload={
-    action:'update',
-    code:currentCode,
-    password:document.getElementById('lkPw').value,
-    company:document.getElementById('e_company').value.trim(),
-    name:document.getElementById('e_name').value.trim(),
-    phone:document.getElementById('e_phone').value.trim(),
-    email:document.getElementById('e_email').value.trim(),
-    products:products,
-    productsText:productsToText(products),
-    message:document.getElementById('e_message').value.trim()
-  };
-  msg.className='lookup-msg ok';msg.textContent='저장 중...';
-  postData(payload).then(function(res){
-    if(res&&res.ok){msg.className='lookup-msg ok';msg.textContent='수정 내용이 저장되었습니다. 담당자에게도 자동 통보됩니다.';}
-    else{msg.className='lookup-msg err';msg.textContent=(res&&res.error)?res.error:'저장에 실패했습니다.';}
-  }).catch(function(){msg.className='lookup-msg err';msg.textContent='서버 연결에 실패했습니다.';});
-}
 </script>
 <script>(function(){function r(s){return s.split('').reverse().join('')}var e=r('balasi')+'@'+r('moc.revan');window.EMX=e;document.addEventListener('DOMContentLoaded',function(){document.querySelectorAll('.em-x').forEach(function(el){if(el.tagName==='A'){el.setAttribute('href','mailto:'+e);if(!el.textContent.trim()){el.textContent=e}}else{el.textContent=e}})});})();</script>
 
