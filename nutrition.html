@@ -967,6 +967,28 @@ small, .small { font-size: 14px !important; }
 .law-box strong { color:#1d3158; }
 
 /* 경고박스 */
+/* 영양표시 대상 확인기 */
+.nc-box { border:1.5px solid #B6C8E7; border-radius:12px; padding:20px; background:#FBFCFF; }
+.nc-label { display:block; font-weight:700; font-size:15px; color:#1d3158; margin-bottom:8px; }
+.nc-search { position:relative; }
+.nc-search input { width:100%; box-sizing:border-box; font-size:16px; padding:12px 14px; border:1.5px solid #B6C8E7; border-radius:8px; outline:none; }
+.nc-search input:focus { border-color:var(--page-accent); }
+.nc-list { position:absolute; left:0; right:0; top:100%; margin:4px 0 0; padding:4px 0; list-style:none; background:#fff; border:1.5px solid #B6C8E7; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,.1); max-height:260px; overflow-y:auto; z-index:20; }
+.nc-list li { padding:9px 14px; cursor:pointer; font-size:15px; display:flex; justify-content:space-between; gap:10px; }
+.nc-list li small { color:#777; font-size:13px; white-space:nowrap; }
+.nc-list li:hover, .nc-list li.on { background:var(--accent-soft); }
+.nc-chips { margin-top:10px; font-size:13.5px; color:#666; display:flex; flex-wrap:wrap; align-items:center; gap:6px; }
+.nc-chips button { font:inherit; font-size:13.5px; padding:4px 11px; border:1.5px solid #C9D7EF; border-radius:999px; background:#fff; color:#333; cursor:pointer; }
+.nc-chips button:hover { border-color:var(--page-accent); color:var(--page-accent); }
+.nc-sales { margin-top:18px; padding-top:16px; border-top:1px dashed #C9D7EF; }
+.nc-sales label { display:inline-flex; align-items:center; gap:6px; margin-right:18px; font-size:15px; cursor:pointer; }
+.nc-result { margin-top:18px; border-radius:10px; padding:18px 20px; font-size:15px; line-height:1.8; border:1.5px solid; }
+.nc-result h4 { margin:0 0 6px; font-size:17px; }
+.nc-result .nc-type { font-size:13.5px; color:#555; margin-bottom:6px; }
+.nc-result.now { background:#FDECEC; border-color:#E8A0A0; } .nc-result.now h4 { color:#B42318; }
+.nc-result.later { background:#FFF6E0; border-color:#E8A317; } .nc-result.later h4 { color:#9A5B00; }
+.nc-result.ex { background:#EAF6EE; border-color:#8CC9A2; } .nc-result.ex h4 { color:#15803D; }
+.nc-result.ask { background:#F3F6FB; border-color:#C9D7EF; } .nc-result.ask h4 { color:#1d3158; }
 .warn-box { background:#FFF3E0; border-left:4px solid #5d76a8; border-radius:0 8px 8px 0; padding:16px 20px; font-size:14px; line-height:1.8; color:#5D4037; margin-top:16px; }
 
 /* CTA */
@@ -1150,7 +1172,40 @@ function toggleAcc(el) {
 
 <div class="acc-item">
   <div class="acc-header" onclick="toggleAcc(this)">
-    <span>Q3. 영양성분 종류 및 표시 기준</span><span class="acc-icon">+</span>
+    <span>Q3. 우리 제품, 영양표시 대상일까? — 식품유형별 시행일 확인</span><span class="acc-icon">+</span>
+  </div>
+  <div class="acc-body">
+    <p style="margin-bottom:14px;">제조하는 제품의 <strong>식품유형</strong>을 입력하면 「식품 등의 표시·광고에 관한 법률 시행규칙」 [별표 4]와 식약처 안내 자료 기준으로 영양표시 대상 여부와 시행일을 확인할 수 있습니다.</p>
+    <div class="nc-box">
+      <label class="nc-label" for="ncInput">① 식품유형 입력</label>
+      <div class="nc-search">
+        <input type="text" id="ncInput" placeholder="예: 간편조리세트, 떡류, 소스, 버터, 과자" autocomplete="off">
+        <ul id="ncList" class="nc-list" hidden></ul>
+      </div>
+      <div class="nc-chips">자주 찾는 유형:
+        <button type="button" data-t="간편조리세트">간편조리세트</button>
+        <button type="button" data-t="떡류">떡류</button>
+        <button type="button" data-t="소스">소스</button>
+        <button type="button" data-t="배추김치">배추김치</button>
+        <button type="button" data-t="벌꿀">벌꿀</button>
+        <button type="button" data-t="과자">과자</button>
+      </div>
+      <div id="ncSales" class="nc-sales" hidden>
+        <div class="nc-label">② 해당 업종별(영업의 종류별) <strong>2022년 매출액</strong>은?</div>
+        <label><input type="radio" name="ncSales" value="over"> 120억원 초과</label>
+        <label><input type="radio" name="ncSales" value="under"> 120억원 이하</label>
+      </div>
+      <div id="ncResult" class="nc-result" hidden></div>
+    </div>
+    <div class="warn-box">💡 <strong>공통 제외</strong> — 대상 유형이라도 다음은 영양표시 대상에서 제외됩니다: 즉석판매제조·가공업 영업자가 제조·가공하거나 덜어서 판매하는 식품, 식육즉석판매가공업 영업자가 만들거나 다시 나누어 판매하는 식육가공품, 원료로 사용되는 등 그 자체로는 최종 소비자에게 제공되지 않는 식품, 포장 또는 용기의 주표시면 면적이 30㎠ 이하인 식품, 농산물·임산물·수산물, 식육 및 식용란.</div>
+    <p style="font-size:13.5px;color:#666;margin-top:12px;line-height:1.8;">※ 시행일 이후 제조·가공·소분하거나 수입을 위해 선적하는 경우부터 적용됩니다. 목록에 없는 유형은 [별표 4] 원문으로 확인하시기 바랍니다. 구체적인 사실관계에 따라 달리 적용될 수 있습니다.</p>
+    <div class="law-box" style="margin-top:12px;margin-bottom:0;"><strong>출처 — 「식품 등의 표시·광고에 관한 법률 시행규칙」 [별표 4] (개정 2024.12.30.), 「2026년 영양표시제도 주요 변경 사항 알림」 및 「한눈에 보는 영양표시 가이드라인」(식품의약품안전처, 2025.12)</strong></div>
+  </div>
+</div>
+
+<div class="acc-item">
+  <div class="acc-header" onclick="toggleAcc(this)">
+    <span>Q4. 영양성분 종류 및 표시 기준</span><span class="acc-icon">+</span>
   </div>
   <div class="acc-body">
     <table class="data-table">
@@ -1169,7 +1224,7 @@ function toggleAcc(el) {
 
 <div class="acc-item">
   <div class="acc-header" onclick="toggleAcc(this)">
-    <span>Q4. 1일 영양성분 기준치</span><span class="acc-icon">+</span>
+    <span>Q5. 1일 영양성분 기준치</span><span class="acc-icon">+</span>
   </div>
   <div class="acc-body">
     <table class="data-table">
@@ -1189,7 +1244,7 @@ function toggleAcc(el) {
 
 <div class="acc-item">
   <div class="acc-header" onclick="toggleAcc(this)">
-    <span>Q5. 영양성분 표시값의 허용오차 범위</span><span class="acc-icon">+</span>
+    <span>Q6. 영양성분 표시값의 허용오차 범위</span><span class="acc-icon">+</span>
   </div>
   <div class="acc-body">
     <p style="margin-bottom:16px;">영양성분 표시값과 실제 측정값 사이에는 법적으로 허용오차 범위가 정해져 있으며, 이를 벗어나면 행정처분 대상이 될 수 있습니다.</p>
@@ -1221,7 +1276,7 @@ function toggleAcc(el) {
 
 <div class="acc-item">
   <div class="acc-header" onclick="toggleAcc(this)">
-    <span>Q6. 영양성분 표시도안 사용 방법</span><span class="acc-icon">+</span>
+    <span>Q7. 영양성분 표시도안 사용 방법</span><span class="acc-icon">+</span>
   </div>
   <div class="acc-body">
     <p style="margin-bottom:16px;">영양성분 표시는 「식품등의 표시기준」에 규정된 표시서식도안([도 3], [도 4])을 사용해야 하며, 줄글(나열) 형태로 표시하거나 영업자가 도안을 임의로 변경할 수 없습니다.</p>
@@ -1248,7 +1303,7 @@ function toggleAcc(el) {
 
 <div class="acc-item">
   <div class="acc-header" onclick="toggleAcc(this)">
-    <span>Q7. 영양강조표시("저·무·고·함유") 사용 기준</span><span class="acc-icon">+</span>
+    <span>Q8. 영양강조표시("저·무·고·함유") 사용 기준</span><span class="acc-icon">+</span>
   </div>
   <div class="acc-body">
     <p style="margin-bottom:16px;">"저○○", "무○○", "고○○", "○○ 함유" 같은 영양강조표시는 아래 세부기준에 적합한 경우에만 사용할 수 있습니다. 강조표시를 하는 경우 해당 영양성분과 9가지 의무 영양성분을 모두 표시해야 하며, "무"·"저"는 제조·가공과정을 통해 해당 성분을 낮추거나 제거한 경우에만 사용 가능합니다.</p>
@@ -1345,6 +1400,101 @@ function toggleAcc(el) {
   </div>
 </footer>
 <button id="scrollTop"><svg viewBox="0 0 24 24" width="20" height="20" fill="#fff"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg></button>
+<script>// ===== 영양표시 대상 확인기 (별표 4, 개정 2024.12.30.) =====
+(function(){
+  // cat: old=2026년 이전부터 대상, p2=2단계 61품목(2026.1.1 전면), p3=3단계 78품목(매출액별), ex=제외
+  var D = {
+    p3: {
+      '아이스크림믹스류':'아이스크림믹스,저지방아이스크림믹스,아이스밀크믹스,샤베트믹스,비유지방아이스크림믹스',
+      '설탕류':'설탕,기타설탕', '당시럽류':'당시럽류', '올리고당류':'올리고당,올리고당가공품', '포도당':'포도당',
+      '과당류':'과당,기타과당', '엿류':'물엿,기타엿,덱스트린',
+      '동물성유지류':'식용우지,식용돈지,원료우지,원료돈지,어유,기타동물성유지',
+      '식용유지가공품':'모조치즈,기타 식용유지가공품', '다류':'고형차',
+      '표준형영양조제식품':'고혈압환자용 영양조제식품,폐질환자용 영양조제식품,수분 및 전해질보충용조제식품',
+      '식단형 식사관리식품':'고혈압환자용 식단형식품', '장류':'한식메주를 사용한 한식간장,청국장',
+      '조미식품':'카레(커리)분,고춧가루,실고추', '절임류':'절임배추', '농산가공식품류':'찐쌀,효소식품',
+      '식육가공품':'갈비가공품,식육케이싱,식육간편조리세트', '유가공품':'버터유,유당,유단백가수분해식품,유함유가공품',
+      '농축유류':'농축우유,탈지농축우유,가당연유,가당탈지연유,가공연유', '유크림류':'유크림,가공유크림',
+      '버터류':'버터,가공버터,버터오일', '유청류':'유청,농축유청,유청단백분말', '한천':'한천',
+      '동물성가공식품류':'기타동물성가공식품,곤충가공식품,추출가공식품', '자라가공식품':'자라분말,자라분말제품,자라유제품',
+      '벌꿀류':'벌집꿀,벌꿀,사양벌집꿀,사양벌꿀', '로열젤리류':'로열젤리,로열젤리제품', '화분가공식품':'가공화분,화분함유제품',
+      '생식류':'생식제품,생식함유제품', '즉석섭취·편의식품류':'신선편의식품,간편조리세트', '기타식품류':'효모식품,기타가공품'
+    },
+    p2: {
+      '떡류':'떡류', '당류':'당류가공품', '두부류':'두부,유바,가공두부', '묵류':'묵류', '식용유지류':'식물성크림',
+      '다류':'액상차', '식초류':'발효식초', '소스류':'소스,마요네즈,토마토케첩,복합조미식품', '카레':'카레(커리)',
+      '향신료가공품':'향신료조제품', '김치류':'김칫속,배추김치', '절임류':'절임식품(절임배추 제외)', '조림류':'조림류',
+      '전분류':'전분,전분가공품', '밀가루류':'밀가루,영양강화밀가루', '땅콩 또는 견과류가공품류':'땅콩버터,땅콩 또는 견과류가공품',
+      '기타농산가공품류':'과·채가공품,곡류가공품,두류가공품,서류가공품,기타농산가공품',
+      '식육가공품':'베이컨류,건조저장육류,양념육,분쇄가공육제품,식육추출가공품,식육함유가공품',
+      '알가공품류':'전란액,난황액,난백액,전란분,난황분,난백분,알가열제품,피단,알함유가공품', '유가공품':'산양유',
+      '어육가공품류':'어육살,연육,어육반제품,어묵,기타 어육가공품', '젓갈류':'젓갈,양념젓갈,액젓,조미액젓',
+      '건포류':'조미건어포,건어포,기타 건포류', '조미김':'조미김', '기타수산물가공품':'기타수산물가공품'
+    },
+    old: {
+      '과자류':'과자,캔디류', '빵류':'빵류', '빙과류':'아이스크림,저지방아이스크림,아이스밀크,샤베트,비유지방아이스크림,빙과',
+      '코코아가공품류 또는 초콜릿류':'코코아가공품,초콜릿,밀크초콜릿,화이트초콜릿,준초콜릿,초콜릿가공품', '잼류':'잼,기타잼',
+      '면류':'국수,냉면,당면,유탕면,파스타류,기타면류', '음료류':'액상커피,조제커피,농축과·채즙,과·채주스,과·채음료,탄산음료,탄산수,원액두유,가공두유,발효음료,인삼·홍삼음료,혼합음료,음료베이스',
+      '장류':'개량메주,양조간장,산분해간장,효소분해간장,혼합간장,된장,고추장,춘장,혼합장,기타장류',
+      '식육가공품':'햄,생햄,프레스햄,소시지,발효소시지,혼합소시지', '유가공품':'우유,가공유,발효유,농후발효유,크림발효유,농후크림발효유,자연치즈,가공치즈,전지분유,탈지분유,가당분유,혼합분유',
+      '즉석식품류':'즉석섭취식품,즉석조리식품', '농산가공식품류':'시리얼류', '특수영양식품':'영아용 조제유,성장기용 조제유,영아용 조제식,성장기용 조제식,영·유아용 이유식,체중조절용 조제식품,임산·수유부용 식품',
+      '건강기능식품':'건강기능식품'
+    },
+    ex: {
+      '과자류':'추잉껌', '얼음류':'식용얼음,어업용얼음', '다류':'침출차', '커피':'볶은커피,인스턴트커피,조제커피(커피원두에 향료만 첨가)',
+      '장류':'한식메주,한식된장', '식초류':'희석초산', '향신료가공품':'천연향신료', '식염':'천일염,정제소금,재제소금,태움·용융소금,가공소금,기타소금',
+      '김치류':'김치(배추김치 외)', '주류':'탁주,약주,청주,맥주,과실주,소주,위스키,브랜디,일반증류주,리큐르,기타주류,주정',
+      '식육':'포장육', '기타식육 또는 기타알제품':'기타식육,기타알'
+    }
+  };
+  var items = [];
+  Object.keys(D).forEach(function(cat){ Object.keys(D[cat]).forEach(function(g){ D[cat][g].split(',').forEach(function(n){ items.push({n:n, g:g, c:cat}); }); }); });
+  var norm = function(s){ return s.replace(/[\s·ㆍ.,()（）]/g,'').toLowerCase(); };
+  var inp = document.getElementById('ncInput'); if(!inp) return;
+  var list = document.getElementById('ncList'), sales = document.getElementById('ncSales'), res = document.getElementById('ncResult');
+  var cur = null, idx = -1, CL = {old:'기존 대상', p2:'2단계(61품목)', p3:'3단계(78품목)', ex:'제외 품목'};
+  function fmt(d){ return d.getFullYear()+'년 '+(d.getMonth()+1)+'월 '+d.getDate()+'일'; }
+  function render(){
+    if(!cur){ res.hidden = true; sales.hidden = true; return; }
+    var head = '<div class="nc-type">식품유형: <strong>'+cur.n+'</strong> ('+cur.g+') · '+CL[cur.c]+'</div>', cls, h;
+    sales.hidden = cur.c !== 'p3';
+    if(cur.c === 'old'){ cls='now'; h='<h4>영양표시 의무 대상 — 지금 표시해야 합니다</h4>2026년 이전부터 이미 영양표시 의무 대상인 식품유형입니다.'; }
+    else if(cur.c === 'p2'){ cls='now'; h='<h4>영양표시 의무 대상 — 지금 표시해야 합니다</h4>2단계 확대 품목(61개)으로, <strong>2026년 1월 1일부터 매출액과 관계없이 전면 시행</strong>되었습니다.'; }
+    else if(cur.c === 'ex'){ cls='ex'; h='<h4>영양표시 대상에서 제외되는 식품유형입니다</h4>[별표 4] 제2호가목에 따라 영양표시 대상에서 제외됩니다. 다만 영업자가 스스로 영양표시를 하는 경우에는 표시기준에 맞게 표시해야 합니다(주류에 열량만 표시하는 경우 제외).'; }
+    else {
+      var s = (document.querySelector('input[name=ncSales]:checked')||{}).value;
+      if(!s){ cls='ask'; h='<h4>3단계 확대 품목(78개)입니다 — 시행일은 매출액에 따라 다릅니다</h4>위 ②에서 해당 업종별 2022년 매출액을 선택해 주세요.<br>· 120억원 초과: 2026년 1월 1일부터<br>· 120억원 이하: 2028년 1월 1일부터'; }
+      else {
+        var day = s === 'over' ? new Date(2026,0,1) : new Date(2028,0,1), today = new Date(); today.setHours(0,0,0,0);
+        var left = Math.ceil((day - today)/86400000);
+        if(left <= 0){ cls='now'; h='<h4>영양표시 의무 대상 — 지금 표시해야 합니다</h4>2022년 매출액 120억원 '+(s==='over'?'초과':'이하')+' 영업소는 <strong>'+fmt(day)+'부터</strong> 시행되어 현재 적용 중입니다.'; }
+        else { cls='later'; h='<h4>'+fmt(day)+'부터 영양표시 의무 (D-'+left+')</h4>2022년 매출액 120억원 이하 영업소는 <strong>'+fmt(day)+'</strong> 이후 제조·가공·소분하거나 수입을 위해 선적하는 제품부터 영양표시를 해야 합니다.'; }
+      }
+    }
+    res.className = 'nc-result '+cls; res.innerHTML = head+h; res.hidden = false;
+  }
+  function pick(it){ cur = it; inp.value = it.n; list.hidden = true; document.querySelectorAll('input[name=ncSales]').forEach(function(r){ r.checked=false; }); render(); }
+  function search(){
+    var q = norm(inp.value); idx = -1;
+    if(!q){ list.hidden = true; return; }
+    var m = items.filter(function(it){ return norm(it.n+it.g).indexOf(q) > -1; })
+      .sort(function(a,b){ return (norm(a.n).indexOf(q) === 0 ? 0 : 1) - (norm(b.n).indexOf(q) === 0 ? 0 : 1); }).slice(0,30);
+    list.innerHTML = m.length ? '' : '<li style="cursor:default;color:#777;">목록에 없는 유형입니다 — [별표 4] 원문을 확인해 주세요</li>';
+    m.forEach(function(it){ var li = document.createElement('li'); li.innerHTML = '<span>'+it.n+'</span><small>'+it.g+'</small>'; li.onmousedown = function(e){ e.preventDefault(); pick(it); }; li._it = it; list.appendChild(li); });
+    list.hidden = false;
+  }
+  inp.addEventListener('input', function(){ cur = null; render(); search(); });
+  inp.addEventListener('focus', search);
+  inp.addEventListener('blur', function(){ setTimeout(function(){ list.hidden = true; }, 150); });
+  inp.addEventListener('keydown', function(e){
+    var lis = [].filter.call(list.children, function(l){ return l._it; }); if(list.hidden || !lis.length) return;
+    if(e.key === 'ArrowDown' || e.key === 'ArrowUp'){ e.preventDefault(); idx = (idx + (e.key === 'ArrowDown' ? 1 : -1) + lis.length) % lis.length; lis.forEach(function(l,i){ l.classList.toggle('on', i === idx); }); lis[idx].scrollIntoView({block:'nearest'}); }
+    else if(e.key === 'Enter'){ e.preventDefault(); pick(lis[idx < 0 ? 0 : idx]._it); }
+  });
+  document.querySelectorAll('.nc-chips button').forEach(function(b){ b.onclick = function(){ var t = b.getAttribute('data-t'); pick(items.filter(function(it){ return it.n === t; })[0]); }; });
+  document.querySelectorAll('input[name=ncSales]').forEach(function(r){ r.onchange = render; });
+})();
+</script>
 <script>// ===== 아이에스에이연구원 홈페이지 메인 JS =====
 document.addEventListener('DOMContentLoaded', function () {
 
