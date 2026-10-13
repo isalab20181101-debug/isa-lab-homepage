@@ -989,6 +989,16 @@ small, .small { font-size: 14px !important; }
 .nc-result.later { background:#FFF6E0; border-color:#E8A317; } .nc-result.later h4 { color:#9A5B00; }
 .nc-result.ex { background:#EAF6EE; border-color:#8CC9A2; } .nc-result.ex h4 { color:#15803D; }
 .nc-result.ask { background:#F3F6FB; border-color:#C9D7EF; } .nc-result.ask h4 { color:#1d3158; }
+.nc-law { margin-top:16px; border:1.5px solid #C9D7EF; border-radius:10px; background:#fff; }
+.nc-law summary { cursor:pointer; padding:14px 18px; font-weight:700; font-size:15px; color:#1d3158; }
+.nc-law[open] summary { border-bottom:1px solid #DBE4F4; }
+.nc-law-body { padding:16px 20px; font-size:14.5px; line-height:1.85; color:#333; }
+.nc-law-head { font-size:13.5px; color:#555; background:#F5F8FF; border-radius:8px; padding:10px 14px; margin-bottom:12px; }
+.nc-law-title { text-align:center; font-weight:700; font-size:16px; margin:6px 0 12px; }
+.nc-law-list { list-style:none; padding-left:12px; margin:4px 0 14px; }
+.nc-law-list li { margin-bottom:4px; }
+.nc-law-pdf { display:inline-block; margin-top:4px; padding:8px 16px; border-radius:8px; background:var(--page-accent); color:#fff; text-decoration:none; font-size:14px; font-weight:700; }
+.nc-law-pdf:hover { filter:brightness(0.9); }
 .warn-box { background:#FFF3E0; border-left:4px solid #5d76a8; border-radius:0 8px 8px 0; padding:16px 20px; font-size:14px; line-height:1.8; color:#5D4037; margin-top:16px; }
 
 /* CTA */
@@ -1198,8 +1208,53 @@ function toggleAcc(el) {
       <div id="ncResult" class="nc-result" hidden></div>
     </div>
     <div class="warn-box">💡 <strong>공통 제외</strong> — 대상 유형이라도 다음은 영양표시 대상에서 제외됩니다: 즉석판매제조·가공업 영업자가 제조·가공하거나 덜어서 판매하는 식품, 식육즉석판매가공업 영업자가 만들거나 다시 나누어 판매하는 식육가공품, 원료로 사용되는 등 그 자체로는 최종 소비자에게 제공되지 않는 식품, 포장 또는 용기의 주표시면 면적이 30㎠ 이하인 식품, 농산물·임산물·수산물, 식육 및 식용란.</div>
-    <p style="font-size:13.5px;color:#666;margin-top:12px;line-height:1.8;">※ 시행일 이후 제조·가공·소분하거나 수입을 위해 선적하는 경우부터 적용됩니다. 목록에 없는 유형은 [별표 4] 원문으로 확인하시기 바랍니다. 구체적인 사실관계에 따라 달리 적용될 수 있습니다.</p>
-    <div class="law-box" style="margin-top:12px;margin-bottom:0;"><strong>출처 — 「식품 등의 표시·광고에 관한 법률 시행규칙」 [별표 4] (개정 2024.12.30.), 「2026년 영양표시제도 주요 변경 사항 알림」 및 「한눈에 보는 영양표시 가이드라인」(식품의약품안전처, 2025.12)</strong></div>
+    <details class="nc-law" id="ncLaw">
+      <summary>📄 「식품 등의 표시·광고에 관한 법률 시행규칙」 [별표 4] 원문 보기</summary>
+      <div class="nc-law-body">
+        <p class="nc-law-head">[별표 4] &lt;개정 2024. 12. 30.&gt;<br>[시행일] 다음 각 목에서 정하는 날<br>가. 해당 업종별 또는 영업의 종류별 2022년 매출액이 120억원을 초과하는 영업소에서 제조ㆍ가공ㆍ소분하거나 수입하는 식품등: 2026년 1월 1일<br>나. 해당 업종별 또는 영업의 종류별 2022년 매출액이 120억원 이하인 영업소에서 제조ㆍ가공ㆍ소분하거나 수입하는 식품등: 2028년 1월 1일</p>
+        <p class="nc-law-title">영양표시 대상 식품등(제6조제1항 관련)</p>
+        <p>1. 영양표시 대상 식품등은 다음 각 목과 같다.</p>
+        <ol class="nc-law-list">
+          <li>가. 과자류, 빵류 또는 떡류: 과자, 캔디류, 빵류 및 떡류</li>
+          <li>나. 빙과류: 아이스크림류, 아이스크림믹스류 및 빙과</li>
+          <li>다. 코코아 가공품류 또는 초콜릿류</li>
+          <li>라. 당류</li>
+          <li>마. 잼류</li>
+          <li>바. 두부류 또는 묵류</li>
+          <li>사. 식용유지류</li>
+          <li>아. 면류</li>
+          <li>자. 음료류: 다류(액상차, 고형차만 해당한다), 커피(액상커피, 조제커피만 해당한다), 과일ㆍ채소류음료, 탄산음료류, 두유류, 발효음료류, 인삼ㆍ홍삼음료 및 기타음료</li>
+          <li>차. 특수영양식품</li>
+          <li>카. 특수의료용도식품</li>
+          <li>타. 장류: 개량메주, 한식간장, 양조간장, 산분해간장, 효소분해간장, 혼합간장, 된장, 고추장, 춘장, 청국장, 혼합장 및 기타장류</li>
+          <li>파. 조미식품: 식초류(발효식초만 해당한다), 소스류, 카레(커리), 고춧가루 또는 실고추 및 향신료가공품(향신료조제품만 해당한다)</li>
+          <li>하. 절임류 또는 조림류: 김치류(김치는 배추김치만 해당한다), 절임류 및 조림류</li>
+          <li>거. 농산가공식품류</li>
+          <li>너. 식육가공품류: 햄류, 소시지류, 베이컨류, 건조저장육류, 양념육류, 식육추출가공품, 식육간편조리세트 및 식육함유가공품</li>
+          <li>더. 알가공품류</li>
+          <li>러. 유가공품류</li>
+          <li>머. 수산가공식품류</li>
+          <li>버. 동물성가공식품류: 기타식육 또는 기타알제품(기타 동물성가공식품만 해당한다), 곤충가공식품, 자라가공식품 및 추출가공식품</li>
+          <li>서. 벌꿀 및 화분가공품류</li>
+          <li>어. 즉석식품류</li>
+          <li>저. 기타식품류</li>
+          <li>처. 건강기능식품</li>
+          <li>커. 가목부터 처목까지의 규정에 해당하지 않는 식품 및 축산물로서 영업자가 스스로 영양표시를 하는 식품 및 축산물(주류에 열량만을 표시하는 경우는 제외한다)</li>
+        </ol>
+        <p>2. 영양표시 대상에서 제외되는 식품등은 다음 각 목과 같다.</p>
+        <ol class="nc-law-list">
+          <li>가. 다음에 해당하는 식품등<br>1) 과자류, 빵류 또는 떡류: 추잉껌 &nbsp;2) 얼음류 &nbsp;3) 다류: 침출차 &nbsp;4) 커피(인스턴트커피, 볶은커피, 커피원두에 향료만을 첨가한 조제커피만 해당한다) &nbsp;5) 장류: 한식메주, 한식된장 &nbsp;6) 식초류: 희석초산 &nbsp;7) 향신료가공품: 천연향신료 &nbsp;8) 식염 &nbsp;9) 김치류: 김치(배추김치는 제외한다) &nbsp;10) 주류 &nbsp;11) 포장육 &nbsp;12) 기타식육 또는 기타알제품: 기타식육 또는 기타알</li>
+          <li>나. 「식품위생법 시행령」 제21조제2호에 따른 즉석판매제조·가공업 영업자가 제조·가공하거나 덜어서 판매하는 식품</li>
+          <li>다. 「축산물 위생관리법 시행령」 제21조제8호에 따른 식육즉석판매가공업 영업자가 만들거나 다시 나누어 판매하는 식육가공품</li>
+          <li>라. 식품, 축산물 및 건강기능식품의 원료로 사용되는 등 그 자체로는 최종 소비자에게 제공되지 않는 식품, 축산물 및 건강기능식품</li>
+          <li>마. 포장 또는 용기의 주표시면 면적이 30제곱센티미터 이하인 식품 및 축산물</li>
+          <li>바. 농산물, 임산물, 수산물, 식육 및 식용란</li>
+        </ol>
+        <a class="nc-law-pdf" href="files/별표4_영양표시_대상_식품등.pdf" target="_blank">[별표 4] 원문 PDF 내려받기</a>
+      </div>
+    </details>
+    <p style="font-size:13.5px;color:#666;margin-top:12px;line-height:1.8;">※ 시행일 이후 제조·가공·소분하거나 수입을 위해 선적하는 경우부터 적용됩니다. 목록에 없는 유형은 아래 [별표 4] 원문에서 해당 대분류를 확인하시기 바랍니다. 구체적인 사실관계에 따라 달리 적용될 수 있습니다.</p>
+    <div class="law-box" style="margin-top:12px;margin-bottom:0;"><strong>출처 — 「식품 등의 표시·광고에 관한 법률 시행규칙」 [별표 4] (개정 2024.12.30.), 「한눈에 보는 영양표시 가이드라인」(식품의약품안전처, 2025.12) 및 가공식품 영양표시 리플릿(식품의약품안전처, 2025.8)</strong></div>
   </div>
 </div>
 
@@ -1433,7 +1488,7 @@ function toggleAcc(el) {
     },
     old: {
       '과자류':'과자,캔디류', '빵류':'빵류', '빙과류':'아이스크림,저지방아이스크림,아이스밀크,샤베트,비유지방아이스크림,빙과',
-      '코코아가공품류 또는 초콜릿류':'코코아가공품,초콜릿,밀크초콜릿,화이트초콜릿,준초콜릿,초콜릿가공품', '잼류':'잼,기타잼',
+      '코코아가공품류 또는 초콜릿류':'코코아가공품,초콜릿,밀크초콜릿,화이트초콜릿,준초콜릿,초콜릿가공품', '잼류':'잼,기타잼', '식용유지류':'콩기름(대두유),옥수수기름(옥배유),채종유(카놀라유),미강유(현미유),참기름,추출참깨유,들기름,추출들깨유,홍화유(사플라워유),해바라기유,목화씨기름(면실유),땅콩기름(낙화생유),올리브유,팜유류,야자유,고추씨기름,혼합식용유,향미유,가공유지,쇼트닝,마가린,기타식물성유지',
       '면류':'국수,냉면,당면,유탕면,파스타류,기타면류', '음료류':'액상커피,조제커피,농축과·채즙,과·채주스,과·채음료,탄산음료,탄산수,원액두유,가공두유,발효음료,인삼·홍삼음료,혼합음료,음료베이스',
       '장류':'개량메주,양조간장,산분해간장,효소분해간장,혼합간장,된장,고추장,춘장,혼합장,기타장류',
       '식육가공품':'햄,생햄,프레스햄,소시지,발효소시지,혼합소시지', '유가공품':'우유,가공유,발효유,농후발효유,크림발효유,농후크림발효유,자연치즈,가공치즈,전지분유,탈지분유,가당분유,혼합분유',
@@ -1479,7 +1534,8 @@ function toggleAcc(el) {
     if(!q){ list.hidden = true; return; }
     var m = items.filter(function(it){ return norm(it.n+it.g).indexOf(q) > -1; })
       .sort(function(a,b){ return (norm(a.n).indexOf(q) === 0 ? 0 : 1) - (norm(b.n).indexOf(q) === 0 ? 0 : 1); }).slice(0,30);
-    list.innerHTML = m.length ? '' : '<li style="cursor:default;color:#777;">목록에 없는 유형입니다 — [별표 4] 원문을 확인해 주세요</li>';
+    if(!m.length) document.getElementById('ncLaw').open = true;
+    list.innerHTML = m.length ? '' : '<li style="cursor:default;color:#777;">목록에 없는 유형입니다 — 아래 「[별표 4] 원문 보기」에서 대분류로 확인해 주세요</li>';
     m.forEach(function(it){ var li = document.createElement('li'); li.innerHTML = '<span>'+it.n+'</span><small>'+it.g+'</small>'; li.onmousedown = function(e){ e.preventDefault(); pick(it); }; li._it = it; list.appendChild(li); });
     list.hidden = false;
   }
