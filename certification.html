@@ -994,45 +994,41 @@ footer {
 </div></nav>
 <style>
 /* ===== 공평성 및 기밀유지 선언서 ===== */
-    .impartial-doc {
-      max-width: 860px; margin: 0 auto; background: #fff;
-      border: 1px solid var(--border); border-top: 4px solid var(--page-accent);
-      border-radius: 14px; padding: 44px 48px 40px;
-      scroll-margin-top: 150px;
-    }
-    .impartial-doc .id-title {
-      text-align: center; font-size: 24px; font-weight: 800; color: var(--primary);
-      letter-spacing: 4px; margin-bottom: 26px;
-    }
-    .impartial-doc .id-intro {
-      font-size: 15px; color: #444; line-height: 1.9; margin-bottom: 24px;
-      padding-bottom: 24px; border-bottom: 1px dashed #dbe4f0;
-    }
-    .impartial-doc ol { list-style: none; counter-reset: imp; }
-    .impartial-doc ol li {
-      counter-increment: imp; position: relative;
-      padding: 12px 0 12px 40px; font-size: 15px; color: #333; line-height: 1.8;
-    }
-    .impartial-doc ol li::before {
-      content: counter(imp); position: absolute; left: 0; top: 14px;
-      width: 26px; height: 26px; border-radius: 50%;
-      background: var(--accent-soft); color: var(--page-accent);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 13px; font-weight: 700;
-    }
-    .impartial-doc .id-sign {
-      margin-top: 30px; padding-top: 24px; border-top: 1px solid var(--border);
-      text-align: center; line-height: 1.9;
-    }
-    .impartial-doc .id-date { font-size: 14px; color: #666; }
-    .impartial-doc .id-org { font-size: 18px; font-weight: 800; color: var(--primary); margin-top: 6px; }
-    .impartial-doc .id-ceo { font-size: 15px; color: #444; letter-spacing: 2px; }
-    .impartial-doc .id-code { margin-top: 18px; font-size: 13px; color: #94a3b8; text-align: right; }
-
-    @media (max-width: 900px) {
-      .impartial-doc { padding: 30px 20px 26px; }
-      .impartial-doc .id-title { font-size: 20px; letter-spacing: 2px; }
-    }
+.impartial-doc{position:relative;max-width:900px;margin:0 auto;background:#fff;border:1px solid #c9d6e6;border-radius:6px;padding:10px;box-shadow:0 14px 40px rgba(20,35,64,0.10);scroll-margin-top:150px;}
+.impartial-doc .id-frame{position:relative;border:1px solid #d6e0ec;border-radius:3px;overflow:hidden;
+  background:#fff url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 20h40M20 0v40' stroke='%231d3158' stroke-opacity='0.025' stroke-width='1'/%3E%3C/svg%3E");}
+.impartial-doc .id-head{background:linear-gradient(135deg,#142340 0%,#1d3158 55%,#24406b 100%);color:#fff;text-align:center;padding:36px 28px 32px;position:relative;}
+.impartial-doc .id-head::after{content:'';position:absolute;left:0;right:0;bottom:0;height:3px;background:linear-gradient(90deg,transparent,#c9a961 20%,#e8d3a0 50%,#c9a961 80%,transparent);}
+.impartial-doc .id-emblem{width:62px;height:62px;margin:0 auto 14px;border-radius:50%;border:1.5px solid rgba(232,211,160,0.75);display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.06);}
+.impartial-doc .id-emblem svg{width:30px;height:30px;fill:#e8d3a0;}
+.impartial-doc .id-en{font-size:13px;letter-spacing:3px;color:#b8c6dd;font-weight:600;margin-bottom:8px;}
+.impartial-doc .id-title{font-size:27px;font-weight:800;letter-spacing:6px;margin:0;color:#fff;}
+.impartial-doc .id-body{padding:36px 44px 34px;}
+.impartial-doc .id-intro{position:relative;font-size:15.5px;color:#334155;line-height:1.95;text-align:center;max-width:720px;margin:0 auto 32px;padding:0 10px;}
+.impartial-doc .id-intro strong{color:#1d3158;}
+.impartial-doc .id-list{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;list-style:none;padding:0;margin:0;}
+.impartial-doc .id-item{display:flex;gap:16px;align-items:flex-start;background:#f8fafc;border:1px solid #e2e8f0;border-left:3px solid var(--page-accent);border-radius:10px;padding:20px 20px 18px;}
+.impartial-doc .id-ico{flex-shrink:0;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid #dbe4f0;display:flex;align-items:center;justify-content:center;}
+.impartial-doc .id-ico svg{width:22px;height:22px;fill:var(--page-accent);}
+.impartial-doc .id-tag{display:block;font-size:13px;font-weight:700;color:var(--page-accent);letter-spacing:1px;margin-bottom:5px;}
+.impartial-doc .id-item p{font-size:15px;color:#333;line-height:1.75;margin:0;}
+.impartial-doc .id-sign{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-top:34px;padding-top:26px;border-top:1px solid #e2e8f0;}
+.impartial-doc .id-code{font-size:13px;color:#94a3b8;letter-spacing:.5px;}
+.impartial-doc .id-signer{text-align:right;line-height:1.8;}
+.impartial-doc .id-date{font-size:14px;color:#64748b;}
+.impartial-doc .id-org{font-size:20px;font-weight:800;color:#1d3158;letter-spacing:1px;}
+.impartial-doc .id-ceo{font-size:15px;color:#334155;letter-spacing:3px;}
+.impartial-doc .id-ceo b{display:inline-block;margin-left:10px;padding-bottom:2px;border-bottom:1px solid #1d3158;letter-spacing:6px;color:#1d3158;}
+@media (max-width:900px){
+  .impartial-doc{padding:6px;}
+  .impartial-doc .id-head{padding:28px 18px 26px;}
+  .impartial-doc .id-title{font-size:21px;letter-spacing:3px;}
+  .impartial-doc .id-body{padding:26px 16px 24px;}
+  .impartial-doc .id-intro{font-size:15px;text-align:left;padding:0;}
+  .impartial-doc .id-list{grid-template-columns:1fr;gap:12px;}
+  .impartial-doc .id-item{padding:16px 14px;}
+  .impartial-doc .id-sign{flex-direction:column-reverse;align-items:flex-end;}
+}
 </style>
 <div class="content-wrap">
   <div class="content-section">
@@ -1053,20 +1049,42 @@ footer {
   <div class="content-section">
     <h2 class="section-heading">공평성 및 기밀유지 선언</h2>
     <div class="impartial-doc" id="impartiality">
-      <div class="id-title">공평성 및 기밀유지 선언서</div>
-      <p class="id-intro">(주)아이에스에이연구원의 대표를 포함한 업무를 수행하는 모든 임·직원들은 업무가 공정하게 수행되고 이해 상충되지 않도록 객관성을 보장할 것과 고객정보 및 시험업무 활동 중 획득한 정보에 대하여 기밀을 유지할 것을 선언합니다.</p>
-      <ol>
-        <li>우리는 모든 시험·검사 활동을 공평하게 수행하며 최고경영진은 공평성을 보장한다.</li>
-        <li>또한 위탁업무를 수행하는 외부조직이 시험·검사 활동의 공평성을 보장하도록 한다.</li>
-        <li>우리는 공평성을 저해하는 어떠한 상업적, 재정적 또는 기타 부당한 압력도 배제하며 이해상충 시 시험·검사 업무를 배제함을 보장한다.</li>
-        <li>고객 의뢰로 수행되는 시험·검사 업무와 관련하여 획득·생성된 모든 정보는 기밀정보로 취급한다.</li>
-      </ol>
-      <div class="id-sign">
-        <div class="id-date">2026년 01월 01일</div>
-        <div class="id-org">(주)아이에스에이연구원</div>
-        <div class="id-ceo">경영책임자 최영훈</div>
+      <div class="id-frame">
+        <div class="id-head">
+          <div class="id-emblem"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg></div>
+          <div class="id-en">DECLARATION OF IMPARTIALITY &amp; CONFIDENTIALITY</div>
+          <h3 class="id-title">공평성 및 기밀유지 선언서</h3>
+        </div>
+        <div class="id-body">
+          <p class="id-intro"><strong>(주)아이에스에이연구원</strong>의 대표를 포함한 업무를 수행하는 모든 임·직원들은 업무가 공정하게 수행되고 이해 상충되지 않도록 객관성을 보장할 것과 고객정보 및 시험업무 활동 중 획득한 정보에 대하여 기밀을 유지할 것을 선언합니다.</p>
+          <ol class="id-list">
+            <li class="id-item">
+              <span class="id-ico"><svg viewBox="0 0 24 24"><path d="M12 3c-1.27 0-2.4.8-2.82 2H3v2h1.95L2 14c-.47 2 1 3 3.5 3s4.06-1 3.5-3L6.05 7h3.12c.33.85.98 1.51 1.83 1.83V20H2v2h20v-2h-9V8.82c.85-.32 1.5-.98 1.83-1.83h3.12L15 14c-.47 2 1 3 3.5 3s4.06-1 3.5-3l-2.95-7H21V5h-6.17C14.4 3.8 13.27 3 12 3zM4.25 14l1.75-4.88L7.75 14h-3.5zm12 0L18 9.12 19.75 14h-3.5z"/></svg></span>
+              <div><span class="id-tag">01 · 공평성 보장</span><p>우리는 모든 시험·검사 활동을 공평하게 수행하며 최고경영진은 공평성을 보장한다.</p></div>
+            </li>
+            <li class="id-item">
+              <span class="id-ico"><svg viewBox="0 0 24 24"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg></span>
+              <div><span class="id-tag">02 · 위탁업무 관리</span><p>또한 위탁업무를 수행하는 외부조직이 시험·검사 활동의 공평성을 보장하도록 한다.</p></div>
+            </li>
+            <li class="id-item">
+              <span class="id-ico"><svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM4 12c0-4.42 3.58-8 8-8 1.85 0 3.55.63 4.9 1.69L5.69 16.9C4.63 15.55 4 13.85 4 12zm8 8c-1.85 0-3.55-.63-4.9-1.69L18.31 7.1C19.37 8.45 20 10.15 20 12c0 4.42-3.58 8-8 8z"/></svg></span>
+              <div><span class="id-tag">03 · 부당한 압력 배제</span><p>우리는 공평성을 저해하는 어떠한 상업적, 재정적 또는 기타 부당한 압력도 배제하며 이해상충 시 시험·검사 업무를 배제함을 보장한다.</p></div>
+            </li>
+            <li class="id-item">
+              <span class="id-ico"><svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg></span>
+              <div><span class="id-tag">04 · 기밀유지</span><p>고객 의뢰로 수행되는 시험·검사 업무와 관련하여 획득·생성된 모든 정보는 기밀정보로 취급한다.</p></div>
+            </li>
+          </ol>
+          <div class="id-sign">
+            <div class="id-code">ISA-QP-02-F02</div>
+            <div class="id-signer">
+              <div class="id-date">2026년 01월 01일</div>
+              <div class="id-org">(주)아이에스에이연구원</div>
+              <div class="id-ceo">경영책임자<b>최영훈</b></div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="id-code">ISA-QP-02-F02</div>
     </div>
   </div>
 
@@ -1082,9 +1100,10 @@ footer {
         <a class="cert-dl-btn" href="files/식품지정서.pdf" download onclick="event.stopPropagation()">⬇ 다운로드</a>
         <label class="cert-upload-btn" onclick="event.stopPropagation()">📎 파일 교체<input type="file" accept="image/*" style="display:none" onchange="replaceCertImg(this,'ct1')"></label>
       </div>
-      <div class="cert-card2" onclick="openCert('식품 등 시험·검사기관 지정서 [영문]','식품의약품안전처 지정 / 지정번호 제120호 — 영문 지정서 준비 중입니다','📋','ct1en')">
-        <div class="cert-thumb" id="ct1en">📋</div>
+      <div class="cert-card2" onclick="openCert('식품 등 시험·검사기관 지정서 [영문]','Certificate of Food Testing Laboratory / Certification No. 120 · Validity 16/05/2026 ~ 15/05/2030','📋','ct1en')">
+        <div class="cert-thumb" id="ct1en"><img src="images/certification_food_en.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:8px;"></div>
         <div class="cert-label">식품 등 시험·검사기관<br>지정서 [영문]</div>
+        <a class="cert-dl-btn" href="files/식품지정서_영문.pdf" download onclick="event.stopPropagation()">⬇ 다운로드</a>
       </div>
       <div class="cert-card2" onclick="openCert('축산물 시험·검사기관 지정서 [국문]','식품의약품안전처 지정 / 지정번호 제54호 · 유효기간 2026.5.17.~2030.5.16.','📜','ct0')">
         <div class="cert-thumb" id="ct0"><img src="images/certification_3.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:8px;"></div>
@@ -1092,9 +1111,10 @@ footer {
         <a class="cert-dl-btn" href="files/축산물지정서.pdf" download onclick="event.stopPropagation()">⬇ 다운로드</a>
         <label class="cert-upload-btn" onclick="event.stopPropagation()">📎 파일 교체<input type="file" accept="image/*" style="display:none" onchange="replaceCertImg(this,'ct0')"></label>
       </div>
-      <div class="cert-card2" onclick="openCert('축산물 시험·검사기관 지정서 [영문]','식품의약품안전처 지정 / 지정번호 제54호 — 영문 지정서 준비 중입니다','📜','ct0en')">
-        <div class="cert-thumb" id="ct0en">📜</div>
+      <div class="cert-card2" onclick="openCert('축산물 시험·검사기관 지정서 [영문]','Certificate of Livestock Products Testing Laboratory / Certification No. 54 · Validity 17/05/2026 ~ 16/05/2030','📜','ct0en')">
+        <div class="cert-thumb" id="ct0en"><img src="images/certification_livestock_en.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:8px;"></div>
         <div class="cert-label">축산물 시험·검사기관<br>지정서 [영문]</div>
+        <a class="cert-dl-btn" href="files/축산물지정서_영문.pdf" download onclick="event.stopPropagation()">⬇ 다운로드</a>
       </div>
       <div class="cert-card2" onclick="openCert('KOLAS 공인시험기관 인정서 [국문]','인정번호 KT1316 / Korea Laboratory Accreditation Scheme','🏆','ct3')">
         <div class="cert-thumb" id="ct3"><img src="images/certification_6.jpg" style="width:100%;height:100%;object-fit:cover;border-radius:8px;"></div>
