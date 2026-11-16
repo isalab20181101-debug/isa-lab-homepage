@@ -1277,7 +1277,7 @@ function toggleAcc(el){
       .item-search:focus { outline:none; border-color:#5d76a8; }
     </style>
     <p style="margin-bottom:12px;">「식품등의 자가품질 검사항목 지정」(식품의약품안전처 고시 제2025-94호, 2025.12.30. 개정) [별표 1]에 따른 식품유형별 검사항목과 식품위생법 시행규칙 [별표 12]에 따른 검사주기입니다. 식품유형을 검색하여 확인하세요.</p>
-    <div style="background:#FFF7ED;border:1px solid #FED7AA;border-radius:8px;padding:10px 14px;font-size:14px;line-height:1.7;margin-bottom:14px;">🕘 아래 검사주기는 <strong>식품제조·가공업</strong> 기준이며, <strong>즉석판매제조·가공업</strong> 영업자가 제조·가공하는 식품은 식품유형과 관계없이 <strong>9개월마다 1회 이상</strong> 검사합니다.</div>
+    <div style="background:#FFF7ED;border:1px solid #FED7AA;border-radius:8px;padding:10px 14px;font-size:14px;line-height:1.7;margin-bottom:14px;">🕘 아래 검사주기는 <strong>식품제조·가공업</strong> 기준입니다. <strong>즉석판매제조·가공업</strong>은 검사주기가 <strong>9개월마다 1회 이상</strong>이며, 검사 대상이 <strong>정해진 식품유형에 한정</strong>됩니다. 대상 유형은 아래 <strong>Q5</strong>에서 확인하세요.</div>
     <input type="text" class="item-search" placeholder="🔍 식품유형 검색 (예: 과자, 소스, 김치)" oninput="var q=this.value.trim();document.querySelectorAll('#foodItems tbody tr').forEach(function(r){r.style.display=!q||r.cells[1].textContent.indexOf(q)>-1?'':'none';});">
     <div style="overflow-x:auto;">
       <table class="item-table" id="foodItems">
@@ -1422,6 +1422,69 @@ function toggleAcc(el){
 
     <div style="margin-top:20px;">
       <a href="files/자가품질검사항목고시_식품.pdf" download class="btn-download"><svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg> 「식품등의 자가품질 검사항목 지정」 고시 전문 다운로드</a>
+    </div>
+  </div>
+</div>
+
+<div class="acc-item">
+  <div class="acc-header" onclick="toggleAcc(this)">
+    <span>Q5. 즉석판매제조·가공업 자가품질검사 대상 및 주기</span><span class="acc-icon">+</span>
+  </div>
+  <div class="acc-body">
+    <div style="background:#EFF6FF;border:1px solid #BFDBFE;border-radius:10px;padding:20px 24px;margin-bottom:20px;">
+      <div style="font-size:16px;font-weight:700;color:#5d76a8;margin-bottom:12px;">🏪 즉석판매제조·가공업은 이렇게 다릅니다</div>
+      <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;font-size:15px;line-height:1.8;">
+        <li style="display:flex;gap:10px;"><span style="color:#5d76a8;font-weight:700;flex-shrink:0;">✓</span><span>검사주기 — 대상 식품 모두 <strong>9개월마다 1회 이상</strong></span></li>
+        <li style="display:flex;gap:10px;"><span style="color:#5d76a8;font-weight:700;flex-shrink:0;">✓</span><span>검사 대상 — 모든 식품이 아니라 <strong>아래 표에 열거된 식품유형만</strong> 해당합니다. 같은 유형이라도 괄호 안 조건에 해당하는 제품만 대상입니다.</span></li>
+        <li style="display:flex;gap:10px;"><span style="color:#5d76a8;font-weight:700;flex-shrink:0;">✓</span><span>검사항목 — 식품의약품안전처장이 고시하는 <strong>식품 및 축산물가공품 유형별 검사항목</strong> (식품유형별 항목은 위 Q4 표에서 확인)</span></li>
+        <li style="display:flex;gap:10px;"><span style="color:#5d76a8;font-weight:700;flex-shrink:0;">✓</span><span>주기 산정 — 식품제조·가공업과 같이 <strong>처음으로 제품을 제조한 날</strong>을 기준으로 산정 (위 Q3 참고)</span></li>
+      </ul>
+    </div>
+
+    <p style="font-weight:700;margin:20px 0 10px;font-size:15px;">즉석판매제조·가공업 자가품질검사 대상 식품유형</p>
+    <div style="overflow-x:auto;">
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th style="width:32%;">식품유형</th>
+            <th>대상 범위</th>
+            <th style="width:110px;text-align:center;">검사주기</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>과자</strong></td><td>크림을 위에 바르거나 안에 채워 넣은 후 가열살균하지 않고 그대로 섭취하는 것만 해당</td><td style="text-align:center;">9개월 1회</td></tr>
+          <tr><td><strong>빵류</strong></td><td>크림을 위에 바르거나 안에 채워 넣은 후 가열살균하지 않고 그대로 섭취하는 것만 해당</td><td style="text-align:center;">9개월 1회</td></tr>
+          <tr><td><strong>당류</strong></td><td>설탕류, 포도당, 과당류, 올리고당류만 해당</td><td style="text-align:center;">9개월 1회</td></tr>
+          <tr><td><strong>식육함유가공품</strong></td><td>전체</td><td style="text-align:center;">9개월 1회</td></tr>
+          <tr><td><strong>어육가공품류</strong></td><td>연육, 어묵, 어육소시지 및 기타 어육가공품만 해당</td><td style="text-align:center;">9개월 1회</td></tr>
+          <tr><td><strong>두부류 또는 묵류</strong></td><td>전체</td><td style="text-align:center;">9개월 1회</td></tr>
+          <tr><td><strong>식용유지류</strong></td><td>압착식용유만 해당</td><td style="text-align:center;">9개월 1회</td></tr>
+          <tr><td><strong>특수영양식품</strong></td><td>전체</td><td style="text-align:center;">9개월 1회</td></tr>
+          <tr><td><strong>특수의료용도식품</strong></td><td>전체</td><td style="text-align:center;">9개월 1회</td></tr>
+          <tr><td><strong>소스</strong></td><td>전체</td><td style="text-align:center;">9개월 1회</td></tr>
+          <tr><td><strong>음료류</strong></td><td>커피, 과일·채소류음료, 탄산음료류, 두유류, 발효음료류, 인삼·홍삼음료, 기타음료만 해당</td><td style="text-align:center;">9개월 1회</td></tr>
+          <tr><td><strong>동물성가공식품류</strong></td><td>추출가공식품만 해당</td><td style="text-align:center;">9개월 1회</td></tr>
+          <tr><td><strong>빙과류</strong></td><td>전체</td><td style="text-align:center;">9개월 1회</td></tr>
+          <tr><td><strong>즉석섭취식품</strong></td><td>도시락, 김밥류, 햄버거류 및 샌드위치류만 해당</td><td style="text-align:center;">9개월 1회</td></tr>
+          <tr><td><strong>즉석조리식품</strong></td><td>순대류만 해당</td><td style="text-align:center;">9개월 1회</td></tr>
+          <tr><td><strong>신선편의식품</strong></td><td>전체</td><td style="text-align:center;">9개월 1회</td></tr>
+          <tr><td><strong>간편조리세트</strong></td><td>전체</td><td style="text-align:center;">9개월 1회</td></tr>
+          <tr><td><strong>유가공품·식육가공품·알가공품</strong></td><td>「축산물 위생관리법」 제2조제2호에 따른 축산물가공품</td><td style="text-align:center;">9개월 1회</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:14px;color:#666;margin-top:10px;line-height:1.8;">※ 위 표에 없는 식품유형이거나, 같은 유형이라도 대상 범위에 해당하지 않는 제품은 즉석판매제조·가공업 자가품질검사 대상에 포함되지 않습니다. 제품이 대상인지 헷갈리시면 문의해 주세요.</p>
+
+    <div class="warn-box" style="margin-top:16px;">
+      💡 <strong>덜어서 판매하는 경우</strong> — 식품제조·가공업자나 축산물가공업자가 만든 식품, 또는 수입식품등수입·판매업자가 수입한 식품을 즉석판매제조·가공업소 안에서 <strong>소비자가 원하는 만큼 덜어서 최종 소비자에게 직접 판매</strong>하는 영업(식품위생법 시행규칙 [별표 15] 제2호)은 자가품질검사를 실시하지 않을 수 있습니다.
+    </div>
+
+    <p style="font-size:14px;color:#666;margin-top:12px;line-height:1.8;">※ 식육즉석판매가공업(축산물 위생관리법)의 자가품질검사는 <a href="livestock.html" style="color:#5d76a8;font-weight:700;">축산물 자가품질검사</a> 페이지에서 안내합니다.</p>
+
+    <div class="law-box" style="margin-top:16px;">
+      <strong>관련 법령 — 식품위생법 시행규칙 [별표 12] 자가품질검사기준(제31조제1항 관련) 제6호 나목</strong> (2026. 9. 1. 개정)<br><br>
+      1) 과자(크림을 위에 바르거나 안에 채워 넣은 후 가열살균하지 않고 그대로 섭취하는 것만 해당한다), 빵류(크림을 위에 바르거나 안에 채워 넣은 후 가열살균하지 않고 그대로 섭취하는 것만 해당한다), 당류(설탕류, 포도당, 과당류, 올리고당류만 해당한다), 식육함유가공품, 어육가공품류(연육, 어묵, 어육소시지 및 기타 어육가공품만 해당한다), 두부류 또는 묵류, 식용유지류(압착식용유만 해당한다), 특수영양식품, 특수의료용도식품, 소스, 음료류(커피, 과일·채소류음료, 탄산음료류, 두유류, 발효음료류, 인삼·홍삼음료, 기타음료만 해당한다), 동물성가공식품류(추출가공식품만 해당한다), 빙과류, 즉석섭취식품(도시락, 김밥류, 햄버거류 및 샌드위치류만 해당한다), 즉석조리식품(순대류만 해당한다), 신선편의식품, 간편조리세트, 「축산물 위생관리법」 제2조제2호에 따른 유가공품, 식육가공품 및 알가공품: 9개월마다 1회 이상 식품의약품안전처장이 정하여 고시하는 식품 및 축산물가공품 유형별 검사항목<br>
+      2) 별표 15 제2호에 따른 영업을 하는 경우에는 자가품질검사를 실시하지 않을 수 있다.
     </div>
   </div>
 </div>
