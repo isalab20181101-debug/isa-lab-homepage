@@ -23,14 +23,12 @@
   var TRANS_TYPE_INQUIRY = 'lead';           // 견적 신청 완료
 
   /* ── 공통 로그 수집 (유입·페이지뷰) ─────────────────────── */
-  if (window.wcs) {
-    window.wcs_add = window.wcs_add || {};
-    window.wcs_add['wa'] = WCS_ACCOUNT_ID;
-    try {
-      wcs.inflow(WCS_DOMAIN);
-      if (window.wcs_do) wcs_do();
-    } catch (e) {}
-  }
+  /*    네이버 설치 확인(검수)이 HTML 본문의 표준 코드를 찾기 때문에
+        2026-11-17부터 각 페이지 본문에 표준 코드를 직접 넣었습니다.
+        여기서는 중복 집계를 막기 위해 계정ID만 보정하고 wcs_do()는 부르지 않습니다. */
+  window.wcs_add = window.wcs_add || {};
+  if (!window.wcs_add['wa']) window.wcs_add['wa'] = WCS_ACCOUNT_ID;
+  void WCS_DOMAIN;
 
   /* ── 전환 전송 공통 함수 ────────────────────────────────── */
   function trans(type) {
